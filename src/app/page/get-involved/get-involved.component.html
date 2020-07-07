@@ -1,0 +1,37 @@
+<ActionBar class="action-bar">
+	<NavigationButton ios:visibility="collapsed"></NavigationButton>
+	<GridLayout class="ab-grid top" columns="auto, *, auto" rows="auto">
+		<Label row="0" col="0" class="ab-link ab-left" text="About" [nsRouterLink]="['../about']"></Label>
+		<Label row="0" col="1" class="action-bar-title" text="Get Involved"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://banner_stan" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<DockLayout stretchLastChild="true">
+	<FlexBoxLayout dock="top" flexDirection="row" class="page page-content big-icon-box">
+		<StackLayout class="big-icon" (tap)="openLink('https://www.stanislawpapczynski.org')">
+			<Image src="res://papczynski_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openLink('https://www.matulaitis-matulewicz.org')">
+			<Image src="res://bl_george_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openLink('https://www.marian.org')">
+			<Image src="res://marian_org_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openLink('https://www.thedivinemercy.org')">
+			<Image src="res://dm_org_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openMaryAppLink()">
+			<Image src="res://get_free_mary_app" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openDMAppLink()">
+			<Image src="res://get_free_dm_app" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openLink('https://www.shopmercy.org')">
+			<Image src="res://shopmercy_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+		<StackLayout class="big-icon" (tap)="openLink('https://www.divinemercyart.org')">
+			<Image src="res://dm_art_button" stretch="aspectFit" class="big-icon-button"></Image>
+		</StackLayout>
+	</FlexBoxLayout>
+</DockLayout>
