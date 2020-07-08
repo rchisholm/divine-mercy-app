@@ -1,21 +1,19 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { GetInvolvedRoutingModule } from "./get-involved-routing.module";
-import { GetInvolvedComponent } from "./get-involved.component";
-import { AboutComponent } from "./about/about.component";
+import { AboutRoutingModule } from "./about-routing.module";
+import { AboutComponent } from "./about.component";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        GetInvolvedRoutingModule
+        AboutRoutingModule
     ],
     declarations: [
-        GetInvolvedComponent,
         AboutComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class GetInvolvedModule { }
+export class AboutModule { }

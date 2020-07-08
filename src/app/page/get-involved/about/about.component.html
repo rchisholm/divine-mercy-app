@@ -1,0 +1,41 @@
+<ActionBar class="action-bar">
+	<NavigationButton ios:visibility="collapsed"></NavigationButton>
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+        <!-- <Image row="0" col="0"class="ab-icon ab-left" [nsRouterLink]="['../get-involved']" src="res://banner_back"></Image> -->
+		<Label row="0" col="1" class="action-bar-title" text="About this App"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://banner_stan" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="text-page">
+                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[0]"></Label>
+                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[1]"></Label>
+                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
+                    text="www.Marian.org"
+                    (tap)="openLink('https://www.marian.org')">
+                </Label>
+                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[2]"></Label>
+                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
+                    text="phone: (800) 462-7426,"
+                    (tap)="callNumber('1-800-462-7426')">
+                </Label>
+                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
+                    text="email: service@marian.org,"
+                    (tap)="sendEmail('service@marian.org')">
+                </Label>
+                <Label class="m-10 h3 nospace" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[3]"></Label>
+                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
+                    text="donate online: marian.org/donation"
+                    (tap)="openLink(donationUrl)">
+                </Label>
+                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[4]"></Label>
+                <Label class="novena-day novena-other" verticalAlignment="top" textWrap="true" [formattedText]="bodyItems[5]"></Label>
+                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
+                    text="Powered by NativeScript"
+                    (tap)="openLink('https://www.nativescript.org')">
+                </Label>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
