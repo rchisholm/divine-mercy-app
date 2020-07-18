@@ -33,11 +33,6 @@ const routes: Routes = [
         component: NSEmptyOutletComponent,
         loadChildren: () => import("~/app/page/get-involved/get-involved.module").then((m) => m.GetInvolvedModule),
         outlet: "getInvolvedTab"
-    },
-    {
-        path: "about",
-        loadChildren: () => import("~/app/page/get-involved/about/about.module").then((m) => m.AboutModule),
-        outlet: "getInvolvedTab"
     }
 ];
 
