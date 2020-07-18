@@ -13,7 +13,6 @@ export class GetInvolvedComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("GET INVOLVED...");
         // Use the "ngOnInit" handler to initialize data for the view.
         if (isAndroid) {
             this.aboutLinkText = "About this App";

@@ -13,6 +13,5 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this._itemService.getItems();
-        console.log("RUSS: HOME!");
     }
 }

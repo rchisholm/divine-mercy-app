@@ -15,7 +15,6 @@ export class DevotionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("RUSS: DEVOTION!");
         /* disables landscape orientation, unless the orientation class bug is fixed */
         // let orientation = require("nativescript-orientation");
         // orientation.setOrientation("portrait");
