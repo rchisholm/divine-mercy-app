@@ -1,0 +1,22 @@
+<ActionBar>
+    <Label text="Life of Faustina"></Label>
+</ActionBar>
+
+<StackLayout>
+    <Label text="From Farm to Convent: 1905-30"></Label>
+    <ListView [items]="itemsA">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [nsRouterLink]="['../faustina-life-long', item.id]" [text]="item.name"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+    <Label text="From Farm to Convent: 1905-30"></Label>
+    <ListView [items]="itemsB">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label [nsRouterLink]="['../faustina-life-long', item.id]" [text]="item.name"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>

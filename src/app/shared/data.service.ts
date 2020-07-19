@@ -55,6 +55,43 @@ export class DataService {
                 name: "Resources on Faustina",
                 description: "Description for Item 2"
             }
+        ),
+        "faustina-life-long": new Array<DataItem>(
+            {
+                id: 1,
+                name: "Born in the Heart of Poland",
+                description: "Description for Item 1"
+            },
+            {
+                id: 2,
+                name: "2",
+                description: ""
+            },
+            {
+                id: 3,
+                name: "3",
+                description: ""
+            },
+            {
+                id: 4,
+                name: "4",
+                description: ""
+            },
+            {
+                id: 5,
+                name: "5",
+                description: ""
+            },
+            {
+                id: 6,
+                name: "The Image of Divine Mercy",
+                description: "Description for Item 2"
+            },
+            {
+                id: 7,
+                name: "7",
+                description: ""
+            }
         )
     };
 
