@@ -5,7 +5,7 @@ import { getBoolean, getNumber, setBoolean } from "tns-core-modules/application-
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-    selector: "Devotion",
+    selector: "Message",
     templateUrl: "./message.component.html"
 })
 export class MessageComponent implements OnInit {

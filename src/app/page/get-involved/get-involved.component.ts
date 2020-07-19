@@ -3,7 +3,7 @@ import { isAndroid } from "tns-core-modules/platform";
 import { openUrl } from "tns-core-modules/utils/utils";
 
 @Component({
-    selector: "Get Involved",
+    selector: "GetInvolved",
     templateUrl: "./get-involved.component.html"
 })
 export class GetInvolvedComponent implements OnInit {
