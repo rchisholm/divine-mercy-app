@@ -10,12 +10,12 @@ const routes: Routes = [
         pathMatch: "full"
     },
 
-    {
-        path: "home",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule),
-        outlet: "homeTab"
-    },
+    // {
+    //     path: "home",
+    //     component: NSEmptyOutletComponent,
+    //     loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule),
+    //     outlet: "homeTab"
+    // },
     {
         path: "browse",
         component: NSEmptyOutletComponent,

@@ -5,10 +5,10 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DataService, DataItem } from "../../../../app/shared/data.service";
 
 @Component({
-    selector: "IntroductionItemDetail",
+    selector: "FaustinaItemDetail",
     templateUrl: "../../../../app/shared/item-detail.component.html"
 })
-export class IntroductionItemDetailComponent implements OnInit {
+export class FaustinaItemDetailComponent implements OnInit {
     item: DataItem;
 
     constructor(
@@ -19,7 +19,7 @@ export class IntroductionItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getDataItem("introduction", id);
+        this.item = this._data.getDataItem("faustina", id);
     }
 
     onBackTap(): void {

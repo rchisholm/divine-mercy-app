@@ -42,16 +42,24 @@ export class DataService {
         faustina: new Array<DataItem>(
             {
                 id: 1,
-                name: "faustina 1",
+                name: "Life of Faustina (short version)",
                 description: "Description for Item 1"
             },
             {
                 id: 2,
-                name: "faustina 2!",
+                name: "Life of Faustina (long version)",
+                description: "Description for Item 2"
+            },
+            {
+                id: 3,
+                name: "Resources on Faustina",
                 description: "Description for Item 2"
             }
         )
     };
+
+    // TODO: attempt to get data from server;
+    // if not available, use this hard-coded data
 
     getDataItems(page: string): Array<DataItem> {
         return this.dataItems[page];
