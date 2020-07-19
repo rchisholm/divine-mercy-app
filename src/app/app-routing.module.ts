@@ -6,7 +6,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 const routes: Routes = [
     {
         path: "",
-        redirectTo: "/(messageTab:message/default//devotionTab:devotion/default//searchTab:search/default//getInvolvedTab:get-involved/default)",
+        redirectTo: "/(messageTab:message/default//devotionTab:devotion/default//mercyPlusTab:mercy-plus/default//getInvolvedTab:get-involved/default)",
         pathMatch: "full"
     },
 
@@ -39,6 +39,12 @@ const routes: Routes = [
         component: NSEmptyOutletComponent,
         loadChildren: () => import("~/app/page/devotion/devotion.module").then((m) => m.DevotionModule),
         outlet: "devotionTab"
+    },
+    {
+        path: "mercy-plus",
+        component: NSEmptyOutletComponent,
+        loadChildren: () => import("~/app/page/mercy-plus/mercy-plus.module").then((m) => m.MercyPlusModule),
+        outlet: "mercyPlusTab"
     },
     {
         path: "get-involved",
