@@ -3,7 +3,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { MessageRoutingModule } from "./message-routing.module";
 import { MessageComponent } from "./message.component";
-// import { ChapletComponent } from "./chaplet/chaplet.component";
+import { IntroductionComponent } from "./introduction/introduction.component";
+import { IntroductionItemDetailComponent } from "./introduction/introduction-item-detail.component";
 
 @NgModule({
     imports: [
@@ -11,8 +12,9 @@ import { MessageComponent } from "./message.component";
         MessageRoutingModule
     ],
     declarations: [
-        MessageComponent
-        // ChapletComponent
+        MessageComponent,
+        IntroductionComponent,
+        IntroductionItemDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

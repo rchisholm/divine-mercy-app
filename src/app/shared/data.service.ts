@@ -11,6 +11,45 @@ export interface DataItem {
 })
 export class DataService {
 
+    private dataItems = {
+        introduction: new Array<DataItem>(
+            {
+                id: 1,
+                name: "What is Mercy?",
+                description: "Description for Item 1"
+            },
+            {
+                id: 2,
+                name: "What is Divine Mercy?",
+                description: "Description for Item 2"
+            },
+            {
+                id: 3,
+                name: "What is the Message of Divine Mercy?",
+                description: "Description for Item 3"
+            },
+            {
+                id: 4,
+                name: "Why Should We Listen to St. Faustina?",
+                description: "Description for Item 4"
+            },
+            {
+                id: 5,
+                name: "Why the Marians and Divine Mercy?",
+                description: "Description for Item 5"
+            }
+        )
+    };
+
+    getDataItems(page: string): Array<DataItem> {
+        return this.dataItems[page];
+    }
+
+    getDataItem(page: string, id: number): DataItem {
+        return this.dataItems[page].filter((item) => item.id === id)[0];
+    }
+
+    // sample data
     private items = new Array<DataItem>(
         {
             id: 1,
