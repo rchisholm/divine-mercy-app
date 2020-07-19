@@ -9,25 +9,6 @@ const routes: Routes = [
         redirectTo: "/(messageTab:message/default//devotionTab:devotion/default//mercyPlusTab:mercy-plus/default//getInvolvedTab:get-involved/default)",
         pathMatch: "full"
     },
-
-    // {
-    //     path: "home",
-    //     component: NSEmptyOutletComponent,
-    //     loadChildren: () => import("~/app/home/home.module").then((m) => m.HomeModule),
-    //     outlet: "homeTab"
-    // },
-    {
-        path: "browse",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/browse/browse.module").then((m) => m.BrowseModule),
-        outlet: "browseTab"
-    },
-    {
-        path: "search",
-        component: NSEmptyOutletComponent,
-        loadChildren: () => import("~/app/search/search.module").then((m) => m.SearchModule),
-        outlet: "searchTab"
-    },
     {
         path: "message",
         component: NSEmptyOutletComponent,
