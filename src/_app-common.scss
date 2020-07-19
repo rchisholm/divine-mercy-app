@@ -22,6 +22,7 @@
 
 // Custom tabstrip item class
 .navigation__item {
+
     &:active,
     &:active Label {
         @include colorize($contrasted-color: complementary background 20% 0%);
@@ -30,6 +31,7 @@
 
 // Common page class
 .page__content {
+
     &-icon,
     &-placeholder {
         color: const(grey);
@@ -42,5 +44,81 @@
         font-size: 72;
         vertical-align: top;
         margin-top: 20%;
+    }
+}
+
+//FlexBox big-icon-box classes
+.big-icon-box {
+    align-items: center;
+    horizontal-align: center;
+    margin: auto;
+    padding-top: 10%;
+
+    display: inline-block;
+    height: auto;
+    position: relative;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .big-icon {
+        align-items: center;
+        horizontal-align: center;
+        margin: auto;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        text-align: center;
+        width: 48%;
+    }
+
+    .big-icon-image {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .big-icon-button {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+//Action bar
+ActionBar.action-bar {
+    background: black;
+
+    .ab-grid {
+        padding-right: 15;
+        width: 100%;
+
+        .action-bar-title {
+            horizontal-align: center;
+            text-align: center;
+            color: white;
+            //white-space: nowrap;
+            //overflow: hidden;
+            //text-overflow: ellipsis;
+        }
+
+        .ab-icon {
+            max-height: 100%;
+            vertical-align: top;
+        }
+
+        .ab-left {
+            horizontal-align: left;
+            text-align: left;
+            float: left;
+        }
+
+        .ab-right {
+            horizontal-align: right;
+            text-align: right;
+            float: right;
+        }
+
+        .ab-link {
+            vertical-align: center;
+            color: white;
+        }
     }
 }
