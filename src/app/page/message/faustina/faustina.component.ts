@@ -14,4 +14,16 @@ export class FaustinaComponent implements OnInit {
     ngOnInit(): void {
         this.items = this._itemService.getDataItems("faustina");
     }
+
+    onTap(id: number) {
+        if (id === 1) {
+            console.log("navigate to faustina-life-short");
+        }
+        if (id === 2) {
+            console.log("navigate to faustina-life-long");
+        }
+        if (id === 3) {
+            console.log("navigate to faustina-resources");
+        }
+    }
 }

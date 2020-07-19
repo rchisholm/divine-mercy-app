@@ -6,7 +6,6 @@ import { MessageComponent } from "./message.component";
 import { IntroductionComponent } from "./introduction/introduction.component";
 import { IntroductionItemDetailComponent } from "./introduction/introduction-item-detail.component";
 import { FaustinaComponent } from "./faustina/faustina.component";
-import { FaustinaItemDetailComponent } from "./faustina/faustina-item-detail.component";
 
 @NgModule({
     imports: [
@@ -17,8 +16,7 @@ import { FaustinaItemDetailComponent } from "./faustina/faustina-item-detail.com
         MessageComponent,
         IntroductionComponent,
         IntroductionItemDetailComponent,
-        FaustinaComponent,
-        FaustinaItemDetailComponent
+        FaustinaComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
