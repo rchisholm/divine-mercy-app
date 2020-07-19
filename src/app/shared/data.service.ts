@@ -38,6 +38,18 @@ export class DataService {
                 name: "Why the Marians and Divine Mercy?",
                 description: "Description for Item 5"
             }
+        ),
+        faustina: new Array<DataItem>(
+            {
+                id: 1,
+                name: "faustina 1",
+                description: "Description for Item 1"
+            },
+            {
+                id: 2,
+                name: "faustina 2!",
+                description: "Description for Item 2"
+            }
         )
     };
 
