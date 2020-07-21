@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormattedString } from "tns-core-modules/text/formatted-string";
 import { DataService, ResourceItem } from "~/app/shared/data.service";
 
 @Component({
