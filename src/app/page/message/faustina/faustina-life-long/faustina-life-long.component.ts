@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 
-import { DataService, DataItem } from "../../../../../app/shared/data.service";
+import { DataService, TextItem } from "../../../../../app/shared/data.service";
 
 @Component({
     selector: "FaustinaLifeLong",
     templateUrl: "./faustina-life-long.component.html"
 })
 export class FaustinaLifeLongComponent implements OnInit {
-    items: Array<DataItem>;
-    itemsA: Array<DataItem>;
-    itemsB: Array<DataItem>;
+    items: Array<TextItem>;
+    itemsA: Array<TextItem>;
+    itemsB: Array<TextItem>;
 
     constructor(private _itemService: DataService) { }
 
