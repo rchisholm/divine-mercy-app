@@ -1,20 +1,35 @@
 import { Component, OnInit } from "@angular/core";
-// import { TextFormatter } from "../../../core/text-formatter";
+import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/text/formatted-string";
-import { DataService } from "~/app/shared/data.service";
+import { DataService, DataItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "Timeline",
     templateUrl: "./timeline.component.html"
 })
 export class TimelineComponent implements OnInit {
+    items: Array<DataItem>;
+    textBodyArray: Array<string>;
+    formattedBodyArray: Array<FormattedString>;
 
     constructor(
-        private data: DataService
-        // private formatter: TextFormatter
-        ) { }
+        private data: DataService,
+        private formatter: TextFormatter
+    ) { }
 
     ngOnInit(): void {
+        this.items = this.data.getDataItems("timeline");
+
+        this.textBodyArray = [];
+        this.formattedBodyArray = [];
+
+        this.items.forEach((item) => {
+            this.textBodyArray.push(item.description);
+        });
+        this.textBodyArray.forEach((text) => {
+            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
+        });
+
         // this.appVersion = this.data.getAppVersion();
         // this.bodyItems = new Array<FormattedString>();
         // for (const item of this.data.getAboutItems()) {

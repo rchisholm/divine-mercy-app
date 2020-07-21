@@ -39,6 +39,28 @@ export class DataService {
                 description: "Description for Item 5"
             }
         ),
+        timeline: new Array<DataItem>(
+            {
+                id: 1,
+                name: "timeline 1",
+                description: "<i>The main events of the life of St. Faustina Kowalska, her cause of beatification and canonization, and her ongoing mission of mercy in our time:</i>"
+            },
+            {
+                id: 2,
+                name: "timeline 2",
+                description: "<b>AUGUST 25, 1905:</b> Sister Faustina is born Helen Kowalska in the village Glogowiec, near Lodz, Poland."
+            },
+            {
+                id: 3,
+                name: "timeline 3",
+                description: "<b>1912:</b> At the age of seven, Helen hears for first time a voice in her soul, calling her to a more perfect way of life."
+            },
+            {
+                id: 4,
+                name: "timeline 4",
+                description: "..."
+            }
+        ),
         faustina: new Array<DataItem>(
             {
                 id: 1,

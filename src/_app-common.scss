@@ -137,9 +137,16 @@ ActionBar {
 
     Label {
         &.link {
-            color: blue;
+            color: $link-color;
             text-decoration: underline;
         }
+        &.text-divider {
+            font-weight: bold;
+            font-size: 16;
+            horizontal-align: center;
+        }
+
+
     }
 }
 
@@ -150,8 +157,9 @@ ActionBar {
 
         Label {
             &.link {
-                color: lightblue
+                color: $light-link-color;
             }
         }
     }
 }
+
