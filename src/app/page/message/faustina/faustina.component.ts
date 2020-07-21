@@ -29,7 +29,7 @@ export class FaustinaComponent implements OnInit {
             this.router.navigate(["../faustina-life-long"], { relativeTo: this.currentRoute });
         }
         if (id === 3) {
-            // navigate to faustina-resources
+            this.router.navigate(["../faustina-resources"], { relativeTo: this.currentRoute });
         }
     }
 }
