@@ -19,7 +19,7 @@ export class FaustinaLifeLongItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getDataItem("faustina-life-long", id);
+        this.item = this._data.getTextItem("faustina-life-long", id);
     }
 
     onBackTap(): void {

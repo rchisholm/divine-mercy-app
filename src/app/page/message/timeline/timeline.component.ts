@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/text/formatted-string";
-import { DataService, DataItem } from "~/app/shared/data.service";
+import { DataService, TextItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "Timeline",
     templateUrl: "./timeline.component.html"
 })
 export class TimelineComponent implements OnInit {
-    items: Array<DataItem>;
+    items: Array<TextItem>;
     textBodyArray: Array<string>;
     formattedBodyArray: Array<FormattedString>;
 
@@ -18,7 +18,7 @@ export class TimelineComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getDataItems("timeline");
+        this.items = this.data.getTextItems("timeline");
 
         this.textBodyArray = [];
         this.formattedBodyArray = [];

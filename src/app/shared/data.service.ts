@@ -1,9 +1,19 @@
 import { Injectable } from "@angular/core";
 
-export interface DataItem {
+export interface TextItem {
     id: number;
     name: string;
     description: string;
+}
+
+export interface ResourceItem {
+    id: number;
+    name: string;
+    subtitle: string;
+    author: string;
+    image: string;
+    description: string;
+    link: string;
 }
 
 @Injectable({
@@ -11,8 +21,8 @@ export interface DataItem {
 })
 export class DataService {
 
-    private dataItems = {
-        introduction: new Array<DataItem>(
+    private textItems = {
+        introduction: new Array<TextItem>(
             {
                 id: 1,
                 name: "What is Mercy?",
@@ -39,7 +49,7 @@ export class DataService {
                 description: "Description for Item 5"
             }
         ),
-        timeline: new Array<DataItem>(
+        timeline: new Array<TextItem>(
             {
                 id: 1,
                 name: "timeline 1",
@@ -61,7 +71,7 @@ export class DataService {
                 description: "..."
             }
         ),
-        faustina: new Array<DataItem>(
+        faustina: new Array<TextItem>(
             {
                 id: 1,
                 name: "Life of Faustina (short version)",
@@ -78,14 +88,14 @@ export class DataService {
                 description: "Description for Item 2"
             }
         ),
-        "faustina-life-short": new Array<DataItem>(
+        "faustina-life-short": new Array<TextItem>(
             {
                 id: 1,
                 name: "short 1",
                 description: "Helena Kowalska..."
             }
         ),
-        "faustina-life-long": new Array<DataItem>(
+        "faustina-life-long": new Array<TextItem>(
             {
                 id: 1,
                 name: "Born in the Heart of Poland",
@@ -127,12 +137,12 @@ export class DataService {
     // TODO: attempt to get data from server;
     // if not available, use this hard-coded data
 
-    getDataItems(page: string): Array<DataItem> {
-        return this.dataItems[page];
+    getTextItems(page: string): Array<TextItem> {
+        return this.textItems[page];
     }
 
-    getDataItem(page: string, id: number): DataItem {
-        return this.dataItems[page].filter((item) => item.id === id)[0];
+    getTextItem(page: string, id: number): TextItem {
+        return this.textItems[page].filter((item) => item.id === id)[0];
     }
 
 }

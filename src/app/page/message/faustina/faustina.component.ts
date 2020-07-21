@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { DataService, DataItem } from "../../../../app/shared/data.service";
+import { DataService, TextItem } from "../../../../app/shared/data.service";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 
@@ -9,7 +9,7 @@ import { RouterExtensions } from "nativescript-angular/router";
     templateUrl: "./faustina.component.html"
 })
 export class FaustinaComponent implements OnInit {
-    items: Array<DataItem>;
+    items: Array<TextItem>;
 
     constructor(
         private _itemService: DataService,
@@ -18,7 +18,7 @@ export class FaustinaComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getDataItems("faustina");
+        this.items = this._itemService.getTextItems("faustina");
     }
 
     onTap(id: number) {
