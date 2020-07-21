@@ -1,8 +1,10 @@
-<ActionBar>
-    <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back"></NavigationButton>
-    <Label [text]="item.name"></Label>
+<ActionBar class="action-bar">
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+		<Label row="0" col="1" class="action-bar-title" [text]="item.name"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://banner_stan" stretch="aspectFit"></Image>
+	</GridLayout>
 </ActionBar>
 
-<GridLayout>
+<GridLayout class="page">
     <Label class="m-10 h3" verticalAlignment="top" [text]="item.description"></Label>
 </GridLayout>
