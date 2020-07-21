@@ -23,7 +23,7 @@ export class FaustinaComponent implements OnInit {
 
     onTap(id: number) {
         if (id === 1) {
-            // navigate to faustina-life-short
+            this.router.navigate(["../faustina-life-short"], { relativeTo: this.currentRoute });
         }
         if (id === 2) {
             this.router.navigate(["../faustina-life-long"], { relativeTo: this.currentRoute });

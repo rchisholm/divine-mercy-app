@@ -78,6 +78,13 @@ export class DataService {
                 description: "Description for Item 2"
             }
         ),
+        "faustina-life-short": new Array<DataItem>(
+            {
+                id: 1,
+                name: "short 1",
+                description: "Helena Kowalska..."
+            }
+        ),
         "faustina-life-long": new Array<DataItem>(
             {
                 id: 1,

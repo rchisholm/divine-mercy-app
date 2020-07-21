@@ -7,6 +7,7 @@ import { IntroductionComponent } from "./introduction/introduction.component";
 import { IntroductionItemDetailComponent } from "./introduction/introduction-item-detail.component";
 import { TimelineComponent } from "./timeline/timeline.component";
 import { FaustinaComponent } from "./faustina/faustina.component";
+import { FaustinaLifeShortComponent } from "./faustina/faustina-life-short/faustina-life-short.component";
 import { FaustinaLifeLongComponent } from "./faustina/faustina-life-long/faustina-life-long.component";
 import { FaustinaLifeLongItemDetailComponent } from "./faustina/faustina-life-long/faustina-life-long-item-detail.component";
 
@@ -21,6 +22,7 @@ import { FaustinaLifeLongItemDetailComponent } from "./faustina/faustina-life-lo
         IntroductionItemDetailComponent,
         TimelineComponent,
         FaustinaComponent,
+        FaustinaLifeShortComponent,
         FaustinaLifeLongComponent,
         FaustinaLifeLongItemDetailComponent
     ],
