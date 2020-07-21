@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/text/formatted-string";
 import { DataService, ResourceItem } from "~/app/shared/data.service";
 
@@ -9,12 +8,9 @@ import { DataService, ResourceItem } from "~/app/shared/data.service";
 })
 export class FaustinaResourcesComponent implements OnInit {
     resources: Array<ResourceItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
 
     constructor(
-        private data: DataService,
-        private formatter: TextFormatter
+        private data: DataService
     ) { }
 
     ngOnInit(): void {
