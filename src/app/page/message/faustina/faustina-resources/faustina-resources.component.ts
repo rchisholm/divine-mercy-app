@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/text/formatted-string";
-import { DataService, TextItem } from "~/app/shared/data.service";
+import { DataService, ResourceItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "FaustinaResources",
     templateUrl: "./faustina-resources.component.html"
 })
 export class FaustinaResourcesComponent implements OnInit {
-    items: Array<TextItem>;
+    resources: Array<ResourceItem>;
     textBodyArray: Array<string>;
     formattedBodyArray: Array<FormattedString>;
 
@@ -18,7 +18,7 @@ export class FaustinaResourcesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("faustina-life-short");
+        this.resources = this.data.getResourceItems("faustina");
 
         // this.appVersion = this.data.getAppVersion();
         // this.bodyItems = new Array<FormattedString>();

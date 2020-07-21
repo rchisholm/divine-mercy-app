@@ -168,11 +168,11 @@ export class DataService {
         return this.textItems[page].filter((item) => item.id === id)[0];
     }
 
-    getResourceItems(page: string): Array<TextItem> {
+    getResourceItems(page: string): Array<ResourceItem> {
         return this.resourceItems[page];
     }
 
-    getResourceItem(page: string, id: number): TextItem {
+    getResourceItem(page: string, id: number): ResourceItem {
         return this.resourceItems[page].filter((item) => item.id === id)[0];
     }
 
