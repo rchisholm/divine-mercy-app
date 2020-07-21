@@ -69,22 +69,27 @@
         padding-bottom: 5%;
         text-align: center;
         width: 48%;
-    }
 
-    .big-icon-image {
-        margin-right: 10%;
-        margin-left: 10%;
-    }
+        .big-icon-image {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
 
-    .big-icon-button {
-        margin-left: 5%;
-        margin-right: 5%;
+        .big-icon-button {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .big-icon-label {
+            color: black;
+            font-size: 16;
+        }
     }
 }
 
 //Action bar
-ActionBar.action-bar {
-    background: black;
+ActionBar {
+    background: darkred;
 
     .ab-grid {
         padding-right: 15;
@@ -94,6 +99,8 @@ ActionBar.action-bar {
             horizontal-align: center;
             text-align: center;
             color: white;
+            font-weight: bold;
+            font-size: 20;
             //white-space: nowrap;
             //overflow: hidden;
             //text-overflow: ellipsis;
@@ -119,6 +126,20 @@ ActionBar.action-bar {
         .ab-link {
             vertical-align: center;
             color: white;
+        }
+    }
+}
+
+.page {
+    background-color: white;
+    width: 100%;
+
+    Label {
+        color: black;
+
+        &.link {
+            color: blue;
+            text-decoration: underline;
         }
     }
 }
