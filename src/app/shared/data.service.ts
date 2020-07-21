@@ -21,6 +21,9 @@ export interface ResourceItem {
 })
 export class DataService {
 
+    // TODO: attempt to get data from server;
+    // if not available, use this hard-coded data
+
     private textItems = {
         introduction: new Array<TextItem>(
             {
@@ -134,8 +137,28 @@ export class DataService {
         )
     };
 
-    // TODO: attempt to get data from server;
-    // if not available, use this hard-coded data
+    private resourceItems = {
+        faustina: new Array<ResourceItem>(
+            {
+                id: 0,
+                name: "Faustina, Saint for Our Times",
+                subtitle: "A Personal Look at Her Life, Spirituality, and Legacy",
+                author: "Rev. George Kosicki, CSB with David C. Came",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            },
+            {
+                id: 1,
+                name: "Faustina, Saint for Our Times 2",
+                subtitle: "A Personal Look at Her Life, Spirituality, and Legacy",
+                author: "Rev. George Kosicki, CSB with David C. Came",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            }
+        )
+    };
 
     getTextItems(page: string): Array<TextItem> {
         return this.textItems[page];
@@ -143,6 +166,14 @@ export class DataService {
 
     getTextItem(page: string, id: number): TextItem {
         return this.textItems[page].filter((item) => item.id === id)[0];
+    }
+
+    getResourceItems(page: string): Array<TextItem> {
+        return this.resourceItems[page];
+    }
+
+    getResourceItem(page: string, id: number): TextItem {
+        return this.resourceItems[page].filter((item) => item.id === id)[0];
     }
 
 }
