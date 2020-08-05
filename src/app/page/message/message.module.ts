@@ -14,6 +14,10 @@ import { FaustinaResourcesComponent } from "./faustina/faustina-resources/fausti
 import { MercyPopesComponent } from "./mercy-popes/mercy-popes.component";
 import { MercyPopesItemDetailComponent } from "./mercy-popes/mercy-popes-item-detail.component";
 import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
+import { DiaryComponent } from "./diary/diary.component";
+import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.component";
+import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
+import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
 
 @NgModule({
     imports: [
@@ -32,7 +36,11 @@ import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resource
         FaustinaResourcesComponent,
         MercyPopesComponent,
         MercyPopesItemDetailComponent,
-        MercyPopesResourcesComponent
+        MercyPopesResourcesComponent,
+        DiaryComponent,
+        DiaryThemesComponent,
+        DiaryThemesItemDetailComponent,
+        DiaryPurchaseComponent
 
     ],
     schemas: [

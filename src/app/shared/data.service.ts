@@ -156,6 +156,30 @@ export class DataService {
                 name: "Resources on the Mercy Popes",
                 description: "..."
             }
+        ),
+        diary: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Themes from the Diary",
+                description: ""
+            },
+            {
+                id: 2,
+                name: "Purchase the Diary",
+                description: ""
+            }
+        ),
+        "diary-themes": new Array<TextItem>(
+            {
+                id: 1,
+                name: "Chaplet of Divine Mercy",
+                description: "In the evening..."
+            },
+            {
+                id: 2,
+                name: "Confession",
+                description: "The confessor..."
+            }
         )
     };
 
@@ -195,6 +219,17 @@ export class DataService {
                 name: "Pope Benedict's Divine Mercy Mandate",
                 subtitle: "",
                 author: "David C. Came",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            }
+        ),
+        diary: new Array<ResourceItem>(
+            {
+                id: 1,
+                name: "Diary of St. Maria Faustina Kowalska",
+                subtitle: "",
+                author: "",
                 image: "image-1",
                 description: "bla bla",
                 link: "link-1"

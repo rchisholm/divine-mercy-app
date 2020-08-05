@@ -14,6 +14,10 @@ import { FaustinaResourcesComponent } from "./faustina/faustina-resources/fausti
 import { MercyPopesComponent } from "./mercy-popes/mercy-popes.component";
 import { MercyPopesItemDetailComponent } from "./mercy-popes/mercy-popes-item-detail.component";
 import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
+import { DiaryComponent } from "./diary/diary.component";
+import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.component";
+import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
+import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
 
 const routes: Routes = [
     { path: "default", component: MessageComponent },
@@ -27,7 +31,11 @@ const routes: Routes = [
     { path: "faustina-resources", component: FaustinaResourcesComponent },
     { path: "mercy-popes", component: MercyPopesComponent },
     { path: "mercy-popes/:id", component: MercyPopesItemDetailComponent },
-    { path: "mercy-popes-resources", component: MercyPopesResourcesComponent }
+    { path: "mercy-popes-resources", component: MercyPopesResourcesComponent },
+    { path: "diary", component: DiaryComponent },
+    { path: "diary-themes", component: DiaryThemesComponent },
+    { path: "diary-themes/:id", component: DiaryThemesItemDetailComponent },
+    { path: "diary-purchase", component: DiaryPurchaseComponent }
 ];
 
 @NgModule({
