@@ -234,6 +234,17 @@ export class DataService {
                 description: "bla bla",
                 link: "link-1"
             }
+        ),
+        resources: new Array<ResourceItem>(
+            {
+                id: 1,
+                name: "33 Days to Merciful Love",
+                subtitle: "",
+                author: "Fr. Michael Gaitley, MIC",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            }
         )
     };
 

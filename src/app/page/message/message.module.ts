@@ -18,6 +18,7 @@ import { DiaryComponent } from "./diary/diary.component";
 import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.component";
 import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
 import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
+import { ResourcesComponent } from "./resources/resources.component";
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.co
         DiaryComponent,
         DiaryThemesComponent,
         DiaryThemesItemDetailComponent,
-        DiaryPurchaseComponent
+        DiaryPurchaseComponent,
+        ResourcesComponent
 
     ],
     schemas: [

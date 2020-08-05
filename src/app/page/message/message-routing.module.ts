@@ -18,6 +18,7 @@ import { DiaryComponent } from "./diary/diary.component";
 import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.component";
 import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
 import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
+import { ResourcesComponent } from "./resources/resources.component";
 
 const routes: Routes = [
     { path: "default", component: MessageComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
     { path: "diary", component: DiaryComponent },
     { path: "diary-themes", component: DiaryThemesComponent },
     { path: "diary-themes/:id", component: DiaryThemesItemDetailComponent },
-    { path: "diary-purchase", component: DiaryPurchaseComponent }
+    { path: "diary-purchase", component: DiaryPurchaseComponent },
+    { path: "resources", component: ResourcesComponent }
 ];
 
 @NgModule({
