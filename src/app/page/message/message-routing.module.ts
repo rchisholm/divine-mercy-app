@@ -11,6 +11,9 @@ import { FaustinaLifeShortComponent } from "./faustina/faustina-life-short/faust
 import { FaustinaLifeLongComponent } from "./faustina/faustina-life-long/faustina-life-long.component";
 import { FaustinaLifeLongItemDetailComponent } from "./faustina/faustina-life-long/faustina-life-long-item-detail.component";
 import { FaustinaResourcesComponent } from "./faustina/faustina-resources/faustina-resources.component";
+import { MercyPopesComponent } from "./mercy-popes/mercy-popes.component";
+import { MercyPopesItemDetailComponent } from "./mercy-popes/mercy-popes-item-detail.component";
+import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
 
 const routes: Routes = [
     { path: "default", component: MessageComponent },
@@ -21,7 +24,10 @@ const routes: Routes = [
     { path: "faustina-life-short", component: FaustinaLifeShortComponent },
     { path: "faustina-life-long", component: FaustinaLifeLongComponent },
     { path: "faustina-life-long/:id", component: FaustinaLifeLongItemDetailComponent },
-    { path: "faustina-resources", component: FaustinaResourcesComponent }
+    { path: "faustina-resources", component: FaustinaResourcesComponent },
+    { path: "mercy-popes", component: MercyPopesComponent },
+    { path: "mercy-popes/:id", component: MercyPopesItemDetailComponent },
+    { path: "mercy-popes-resources", component: MercyPopesResourcesComponent }
 ];
 
 @NgModule({

@@ -11,6 +11,9 @@ import { FaustinaLifeShortComponent } from "./faustina/faustina-life-short/faust
 import { FaustinaLifeLongComponent } from "./faustina/faustina-life-long/faustina-life-long.component";
 import { FaustinaLifeLongItemDetailComponent } from "./faustina/faustina-life-long/faustina-life-long-item-detail.component";
 import { FaustinaResourcesComponent } from "./faustina/faustina-resources/faustina-resources.component";
+import { MercyPopesComponent } from "./mercy-popes/mercy-popes.component";
+import { MercyPopesItemDetailComponent } from "./mercy-popes/mercy-popes-item-detail.component";
+import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
 
 @NgModule({
     imports: [
@@ -26,7 +29,11 @@ import { FaustinaResourcesComponent } from "./faustina/faustina-resources/fausti
         FaustinaLifeShortComponent,
         FaustinaLifeLongComponent,
         FaustinaLifeLongItemDetailComponent,
-        FaustinaResourcesComponent
+        FaustinaResourcesComponent,
+        MercyPopesComponent,
+        MercyPopesItemDetailComponent,
+        MercyPopesResourcesComponent
+
     ],
     schemas: [
         NO_ERRORS_SCHEMA

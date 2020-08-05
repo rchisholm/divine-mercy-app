@@ -2,10 +2,10 @@ import { Component, OnInit } from "@angular/core";
 import { DataService, ResourceItem } from "~/app/shared/data.service";
 
 @Component({
-    selector: "FaustinaResources",
-    templateUrl: "./faustina-resources.component.html"
+    selector: "MercyPopesResources",
+    templateUrl: "./mercy-popes-resources.component.html"
 })
-export class FaustinaResourcesComponent implements OnInit {
+export class MercyPopesResourcesComponent implements OnInit {
     resources: Array<ResourceItem>;
 
     constructor(
@@ -13,7 +13,7 @@ export class FaustinaResourcesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.resources = this.data.getResourceItems("faustina");
+        this.resources = this.data.getResourceItems("mercy-popes");
     }
 
 }

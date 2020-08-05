@@ -134,6 +134,28 @@ export class DataService {
                 name: "7",
                 description: ""
             }
+        ),
+        "mercy-popes": new Array<TextItem>(
+            {
+                id: 1,
+                name: "Pope John Paul II",
+                description: "..."
+            },
+            {
+                id: 2,
+                name: "Pope Benedict XVI",
+                description: "..."
+            },
+            {
+                id: 3,
+                name: "Pope Francis",
+                description: "..."
+            },
+            {
+                id: 4,
+                name: "Resources on the Mercy Popes",
+                description: "..."
+            }
         )
     };
 
@@ -153,6 +175,26 @@ export class DataService {
                 name: "Faustina, Saint for Our Times 2",
                 subtitle: "A Personal Look at Her Life, Spirituality, and Legacy",
                 author: "Rev. George Kosicki, CSB with David C. Came",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            }
+        ),
+        "mercy-popes": new Array<ResourceItem>(
+            {
+                id: 0,
+                name: "Rich in Mercy",
+                subtitle: "",
+                author: "",
+                image: "image-1",
+                description: "bla bla",
+                link: "link-1"
+            },
+            {
+                id: 1,
+                name: "Pope Benedict's Divine Mercy Mandate",
+                subtitle: "",
+                author: "David C. Came",
                 image: "image-1",
                 description: "bla bla",
                 link: "link-1"

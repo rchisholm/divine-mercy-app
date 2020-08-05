@@ -1,0 +1,21 @@
+<ActionBar class="action-bar">
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+		<Label row="0" col="1" class="action-bar-title" text="Resources on Mercy Popes"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://banner_stan" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<GridLayout class="page">
+    <ListView [items]="resources">
+        <ng-template let-item="item">
+            <StackLayout>
+                <Label class="resource-name" [text]=item.name></Label>
+                <Label class="resource-subtitle" [text]=item.subtitle></Label>
+                <Label class="resource-author" [text]=item.author></Label>
+                <Label class="resource-image" [text]=item.image></Label>
+                <Label class="resource-description" [text]=item.description></Label>
+                <Label class="resource-link" [text]=item.link></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
