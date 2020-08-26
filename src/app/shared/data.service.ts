@@ -180,6 +180,33 @@ export class DataService {
                 name: "Confession",
                 description: "The confessor..."
             }
+        ),
+        feast: new Array<TextItem>(
+            {
+                id: 1,
+                name: "The Meaning of the Day",
+                description: "text1"
+            },
+            {
+                id: 2,
+                name: "Veneration of the Image",
+                description: "text2"
+            },
+            {
+                id: 3,
+                name: "The Extraordinary Promise",
+                description: "text"
+            },
+            {
+                id: 4,
+                name: "Is the Promise a Plenary Indulgence?",
+                description: "text"
+            },
+            {
+                id: 5,
+                name: "Proper Preparation",
+                description: "text"
+            }
         )
     };
 
