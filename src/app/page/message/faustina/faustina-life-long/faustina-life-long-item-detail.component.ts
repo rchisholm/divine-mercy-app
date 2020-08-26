@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 
-import { DataService, TextItem } from "../../../../../app/shared/data.service";
+import { DataService, TextItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "FaustinaLifeLongItemDetail",

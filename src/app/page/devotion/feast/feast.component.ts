@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { DataService, TextItem } from "../../../../app/shared/data.service";
+import { DataService, TextItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "Feast",
