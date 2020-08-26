@@ -207,6 +207,110 @@ export class DataService {
                 name: "Proper Preparation",
                 description: "text"
             }
+        ),
+        "novena-prayers": new Array<TextItem>(
+            {
+                id: 1,
+                name: "Novena to Divine Mercy",
+                description: ""
+            },
+            {
+                id: 2,
+                name: "Three O'Clock Hour Prayer",
+                description: ""
+            },
+            {
+                id: 3,
+                name: "Litany of Trust in Divine Mercy",
+                description: ""
+            },
+            {
+                id: 4,
+                name: "To The Divine Mercy",
+                description: ""
+            },
+            {
+                id: 5,
+                name: "To the Mother of God",
+                description: ""
+            },
+            {
+                id: 6,
+                name: "To Be Transformed into Mercy",
+                description: ""
+            },
+            {
+                id: 7,
+                name: "In Thanksgiving",
+                description: ""
+            },
+            {
+                id: 8,
+                name: "For the Intercession of St. Faustina",
+                description: ""
+            },
+            {
+                id: 9,
+                name: "Eternal God of Endless Mercy",
+                description: ""
+            },
+            {
+                id: 10,
+                name: "Divine Mercy Prayer Book",
+                description: ""
+            }
+        ),
+        novena: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Schedule Novena Notification",
+                description: ""
+            },
+            {
+                id: 2,
+                name: "Day 1",
+                description: ""
+            },
+            {
+                id: 3,
+                name: "Day 2",
+                description: ""
+            },
+            {
+                id: 4,
+                name: "Day 3",
+                description: ""
+            },
+            {
+                id: 5,
+                name: "Day 4",
+                description: ""
+            },
+            {
+                id: 6,
+                name: "Day 5",
+                description: ""
+            },
+            {
+                id: 7,
+                name: "Day 6",
+                description: ""
+            },
+            {
+                id: 8,
+                name: "Day 7",
+                description: ""
+            },
+            {
+                id: 9,
+                name: "Day 8",
+                description: ""
+            },
+            {
+                id: 10,
+                name: "Day 9",
+                description: ""
+            },
         )
     };
 
@@ -270,6 +374,17 @@ export class DataService {
                 author: "Fr. Michael Gaitley, MIC",
                 image: "image-1",
                 description: "bla bla",
+                link: "link-1"
+            }
+        ),
+        "prayer-book": new Array<ResourceItem>(
+            {
+                id: 1,
+                name: "Praying with St. Maria Faustina",
+                subtitle: "A Treasury of Prayers from the Diary of St. Maria Faustina",
+                author: "Colleen Free and Rev. George W. Kosicki, CSB",
+                image: "image-1",
+                description: "Nearly 150...",
                 link: "link-1"
             }
         )
