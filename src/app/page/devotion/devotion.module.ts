@@ -7,6 +7,9 @@ import { FeastComponent } from "./feast/feast.component" ;
 import { FeastItemDetailComponent } from "./feast/feast-item-detail.component" ;
 import { NovenaPrayersComponent } from "./novena-prayers/novena-prayers.component" ;
 import { NovenaPrayersItemDetailComponent } from "./novena-prayers/novena-prayers-item-detail.component" ;
+import { NovenaComponent } from "./novena-prayers/novena/novena.component" ;
+import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-detail.component" ;
+import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 // import { ChapletComponent } from "./chaplet/chaplet.component";
 
 @NgModule({
@@ -19,7 +22,10 @@ import { NovenaPrayersItemDetailComponent } from "./novena-prayers/novena-prayer
         FeastComponent,
         FeastItemDetailComponent,
         NovenaPrayersComponent,
-        NovenaPrayersItemDetailComponent
+        NovenaPrayersItemDetailComponent,
+        NovenaComponent,
+        NovenaItemDetailComponent,
+        NovenaResourcesComponent
         // ChapletComponent
     ],
     schemas: [
