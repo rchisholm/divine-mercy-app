@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 export interface TextItem {
     id: number;
-    name: string;
+    name?: string;
     description?: string;
     route?: string;
 }
@@ -95,14 +95,13 @@ export class DataService {
                 route: "faustina-resources"
             }
         ),
-        "faustina-life-short": new Array<TextItem>(
+        faustina_life_short: new Array<TextItem>(
             {
                 id: 1,
-                name: "short 1",
                 description: "Helena Kowalska..."
             }
         ),
-        "faustina-life-long": new Array<TextItem>(
+        faustina_life_long: new Array<TextItem>(
             {
                 id: 1,
                 name: "Born in the Heart of Poland",
@@ -139,7 +138,7 @@ export class DataService {
                 description: ""
             }
         ),
-        "mercy-popes": new Array<TextItem>(
+        mercy_popes: new Array<TextItem>(
             {
                 id: 1,
                 name: "Pope John Paul II",
@@ -173,7 +172,7 @@ export class DataService {
                 route: "diary-purchase"
             }
         ),
-        "diary-themes": new Array<TextItem>(
+        diary_themes: new Array<TextItem>(
             {
                 id: 1,
                 name: "Chaplet of Divine Mercy",
@@ -212,7 +211,7 @@ export class DataService {
                 description: "text"
             }
         ),
-        "novena-prayers": new Array<TextItem>(
+        novena_prayers: new Array<TextItem>(
             {
                 id: 1,
                 name: "Novena to Divine Mercy",
@@ -315,6 +314,39 @@ export class DataService {
                 name: "Day 9",
                 description: ""
             }
+        ),
+        marians: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Who are the Marians?",
+                route: "marians-who"
+            },
+            {
+                id: 2,
+                name: "Meet the Marians",
+                route: "marians-meet"
+            },
+            {
+                id: 3,
+                name: "Vocation Information",
+                route: "marians-vocation"
+            },
+            {
+                id: 4,
+                name: "Mercy Parish Missions",
+                route: "marians-missions"
+            },
+            {
+                id: 5,
+                name: "Support the Marians",
+                route: "marians-support"
+            }
+        ),
+        marians_who: new Array<TextItem>(
+            {
+                id: 1,
+                description: "The Congregation..."
+            }
         )
     };
 
@@ -339,7 +371,7 @@ export class DataService {
                 link: "link-1"
             }
         ),
-        "mercy-popes": new Array<ResourceItem>(
+        mercy_popes: new Array<ResourceItem>(
             {
                 id: 0,
                 name: "Rich in Mercy",
@@ -381,7 +413,7 @@ export class DataService {
                 link: "link-1"
             }
         ),
-        "prayer-book": new Array<ResourceItem>(
+        prayer_book: new Array<ResourceItem>(
             {
                 id: 1,
                 name: "Praying with St. Maria Faustina",

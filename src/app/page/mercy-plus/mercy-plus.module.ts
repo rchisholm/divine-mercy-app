@@ -3,6 +3,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { MercyPlusRoutingModule } from "./mercy-plus-routing.module";
 import { MercyPlusComponent } from "./mercy-plus.component";
+import { MariansComponent } from "./marians/marians.component";
+import { MariansWhoComponent } from "./marians/marians-who/marians-who.component";
 // import { ChapletComponent } from "./chaplet/chaplet.component";
 
 @NgModule({
@@ -11,7 +13,9 @@ import { MercyPlusComponent } from "./mercy-plus.component";
         MercyPlusRoutingModule
     ],
     declarations: [
-        MercyPlusComponent
+        MercyPlusComponent,
+        MariansComponent,
+        MariansWhoComponent
         // ChapletComponent
     ],
     schemas: [

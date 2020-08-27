@@ -4,10 +4,10 @@ import { FormattedString } from "tns-core-modules/text/formatted-string";
 import { DataService, TextItem } from "~/app/shared/data.service";
 
 @Component({
-    selector: "FaustinaLifeShort",
-    templateUrl: "./faustina-life-short.component.html"
+    selector: "MariansWho",
+    templateUrl: "./marians-who.component.html"
 })
-export class FaustinaLifeShortComponent implements OnInit {
+export class MariansWhoComponent implements OnInit {
     items: Array<TextItem>;
     textBodyArray: Array<string>;
     formattedBodyArray: Array<FormattedString>;
@@ -18,7 +18,7 @@ export class FaustinaLifeShortComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("faustina_life_short");
+        this.items = this.data.getTextItems("marians_who");
 
         this.textBodyArray = [];
         this.formattedBodyArray = [];
@@ -29,14 +29,5 @@ export class FaustinaLifeShortComponent implements OnInit {
         this.textBodyArray.forEach((text) => {
             this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
         });
-
-        // this.appVersion = this.data.getAppVersion();
-        // this.bodyItems = new Array<FormattedString>();
-        // for (const item of this.data.getAboutItems()) {
-        //     this.bodyItems.push(this.formatter.formatTagsFromString(item));
-        // }
-
-        // this.donationUrl = this.data.getDonationUrl(isAndroid);
     }
-
 }

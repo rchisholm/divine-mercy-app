@@ -5,10 +5,10 @@ import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
-    selector: "Faustina",
-    templateUrl: "./faustina.component.html"
+    selector: "Marians",
+    templateUrl: "./marians.component.html"
 })
-export class FaustinaComponent implements OnInit {
+export class MariansComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
@@ -18,18 +18,14 @@ export class FaustinaComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("faustina");
+        this.items = this._itemService.getTextItems("marians");
     }
 
-    onTap(id: number) {
-        if (id === 1) {
-            this.router.navigate(["../faustina-life-short"], { relativeTo: this.currentRoute });
-        }
-        if (id === 2) {
-            this.router.navigate(["../faustina-life-long"], { relativeTo: this.currentRoute });
-        }
-        if (id === 3) {
-            this.router.navigate(["../faustina-resources"], { relativeTo: this.currentRoute });
+    onTap(item: TextItem) {
+        if (item.route) {
+            this.router.navigate(["../" + item.route], { relativeTo: this.currentRoute });
+        } else {
+            this.router.navigate(["../marians", item.id], { relativeTo: this.currentRoute });
         }
     }
 }

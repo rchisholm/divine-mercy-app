@@ -19,7 +19,7 @@ export class MercyPopesItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getTextItem("mercy-popes", id);
+        this.item = this._data.getTextItem("mercy_popes", id);
     }
 
     onBackTap(): void {

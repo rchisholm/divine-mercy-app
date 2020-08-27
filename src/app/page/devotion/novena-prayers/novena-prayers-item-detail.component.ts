@@ -19,7 +19,7 @@ export class NovenaPrayersItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getTextItem("novena-prayers", id);
+        this.item = this._data.getTextItem("novena_prayers", id);
     }
 
     onBackTap(): void {

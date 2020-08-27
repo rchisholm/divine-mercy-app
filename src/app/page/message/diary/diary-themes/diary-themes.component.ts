@@ -14,6 +14,6 @@ export class DiaryThemesComponent implements OnInit {
     constructor(private _itemService: DataService) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("diary-themes");
+        this.items = this._itemService.getTextItems("diary_themes");
     }
 }

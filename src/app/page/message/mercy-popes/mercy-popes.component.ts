@@ -18,7 +18,7 @@ export class MercyPopesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("mercy-popes");
+        this.items = this._itemService.getTextItems("mercy_popes");
     }
 
     onTap(item: TextItem) {

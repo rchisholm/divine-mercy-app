@@ -19,7 +19,7 @@ export class DiaryThemesItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getTextItem("diary-themes", id);
+        this.item = this._data.getTextItem("diary_themes", id);
     }
 
     onBackTap(): void {

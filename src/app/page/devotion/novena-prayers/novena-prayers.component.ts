@@ -18,7 +18,7 @@ export class NovenaPrayersComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("novena-prayers");
+        this.items = this._itemService.getTextItems("novena_prayers");
     }
 
     onTap(item: TextItem) {

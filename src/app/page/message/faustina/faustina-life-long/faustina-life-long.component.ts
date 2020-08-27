@@ -14,7 +14,7 @@ export class FaustinaLifeLongComponent implements OnInit {
     constructor(private _itemService: DataService) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("faustina-life-long");
+        this.items = this._itemService.getTextItems("faustina_life_long");
         this.itemsA = this.items.slice(0, 5);
         this.itemsB = this.items.slice(5);
     }
