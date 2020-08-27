@@ -347,7 +347,32 @@ export class DataService {
                 id: 1,
                 description: "The Congregation..."
             }
+        ),
+        marians_meet: new Array<TextItem>(
+            {
+                id: 1,
+                description: "The U.S. Province..."
+            }
+        ),
+        marians_vocation: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<b>\"I'm so glad you're here.\"</b>"
+            }
+        ),
+        marians_missions: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Interested..."
+            }
+        ),
+        marians_support: new Array<TextItem>(
+            {
+                id: 1,
+                description: "There are three..."
+            }
         )
+
     };
 
     private resourceItems = {
