@@ -21,11 +21,11 @@ export class MercyPopesComponent implements OnInit {
         this.items = this._itemService.getTextItems("mercy-popes");
     }
 
-    onTap(id: number) {
-        if (id === 1 || id === 2 || id === 3) {
-            this.router.navigate(["../mercy-popes", id], { relativeTo: this.currentRoute });
-        } else if (id === 4) {
-            this.router.navigate(["../mercy-popes-resources"], { relativeTo: this.currentRoute });
+    onTap(item: TextItem) {
+        if (item.route) {
+            this.router.navigate(["../" + item.route], { relativeTo: this.currentRoute });
+        } else {
+            this.router.navigate(["../mercy-popes", item.id], { relativeTo: this.currentRoute });
         }
     }
 }

@@ -3,7 +3,8 @@ import { Injectable } from "@angular/core";
 export interface TextItem {
     id: number;
     name: string;
-    description: string;
+    description?: string;
+    route?: string;
 }
 
 export interface ResourceItem {
@@ -78,17 +79,20 @@ export class DataService {
             {
                 id: 1,
                 name: "Life of Faustina (short version)",
-                description: "Description for Item 1"
+                description: "Description for Item 1",
+                route: "faustina-life-short"
             },
             {
                 id: 2,
                 name: "Life of Faustina (long version)",
-                description: "Description for Item 2"
+                description: "Description for Item 2",
+                route: "faustina-life-long"
             },
             {
                 id: 3,
                 name: "Resources on Faustina",
-                description: "Description for Item 2"
+                description: "Description for Item 2",
+                route: "faustina-resources"
             }
         ),
         "faustina-life-short": new Array<TextItem>(
@@ -154,19 +158,19 @@ export class DataService {
             {
                 id: 4,
                 name: "Resources on the Mercy Popes",
-                description: "..."
+                route: "mercy-popes-resources"
             }
         ),
         diary: new Array<TextItem>(
             {
                 id: 1,
                 name: "Themes from the Diary",
-                description: ""
+                route: "diary-themes"
             },
             {
                 id: 2,
                 name: "Purchase the Diary",
-                description: ""
+                route: "diary-purchase"
             }
         ),
         "diary-themes": new Array<TextItem>(
@@ -212,7 +216,7 @@ export class DataService {
             {
                 id: 1,
                 name: "Novena to Divine Mercy",
-                description: ""
+                route: "novena"
             },
             {
                 id: 2,
@@ -257,14 +261,14 @@ export class DataService {
             {
                 id: 10,
                 name: "Divine Mercy Prayer Book",
-                description: ""
+                route: "novena-resources"
             }
         ),
         novena: new Array<TextItem>(
             {
                 id: 1,
                 name: "Schedule Novena Notification",
-                description: ""
+                route: "novena-schedule"
             },
             {
                 id: 2,
@@ -310,7 +314,7 @@ export class DataService {
                 id: 10,
                 name: "Day 9",
                 description: ""
-            },
+            }
         )
     };
 

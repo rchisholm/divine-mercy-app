@@ -9,7 +9,7 @@
     <ListView [items]="items">
         <ng-template let-item="item">
             <StackLayout>
-                <Label (tap)="onTap(item.id)" [text]="item.name"></Label>
+                <Label (tap)="onTap(item)" [text]="item.name"></Label>
             </StackLayout>
         </ng-template>
     </ListView>

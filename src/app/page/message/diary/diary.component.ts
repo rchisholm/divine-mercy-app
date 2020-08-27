@@ -21,12 +21,11 @@ export class DiaryComponent implements OnInit {
         this.items = this._itemService.getTextItems("diary");
     }
 
-    onTap(id: number) {
-        if (id === 1) {
-            this.router.navigate(["../diary-themes"], { relativeTo: this.currentRoute });
-        }
-        if (id === 2) {
-            this.router.navigate(["../diary-purchase"], { relativeTo: this.currentRoute });
+    onTap(item: TextItem) {
+        if (item.route) {
+            this.router.navigate(["../" + item.route], { relativeTo: this.currentRoute });
+        } else {
+            this.router.navigate(["../diary", item.id], { relativeTo: this.currentRoute });
         }
     }
 }

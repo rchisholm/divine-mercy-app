@@ -21,13 +21,11 @@ export class NovenaPrayersComponent implements OnInit {
         this.items = this._itemService.getTextItems("novena-prayers");
     }
 
-    onTap(id: number) {
-        if (id === 1) {
-            this.router.navigate(["../novena"], { relativeTo: this.currentRoute });
-        } else if (id === 10) {
-            this.router.navigate(["../novena-resources"], { relativeTo: this.currentRoute });
+    onTap(item: TextItem) {
+        if (item.route) {
+            this.router.navigate(["../" + item.route], { relativeTo: this.currentRoute });
         } else {
-            this.router.navigate(["../novena-prayers", id], { relativeTo: this.currentRoute });
+            this.router.navigate(["../novena-prayers", item.id], { relativeTo: this.currentRoute });
         }
     }
 }
