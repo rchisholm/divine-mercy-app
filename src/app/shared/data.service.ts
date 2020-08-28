@@ -371,6 +371,85 @@ export class DataService {
                 id: 1,
                 description: "There are three..."
             }
+        ),
+        shrine: new Array<TextItem>(
+            {
+                id: 1,
+                name: "About The Shrine",
+                route: "shrine-about"
+            },
+            {
+                id: 2,
+                name: "Calendar of Events",
+                route: "shrine-calendar"
+            },
+            {
+                id: 3,
+                name: "Shrine Tours and Pilgrimages",
+                route: "shrine-tours"
+            },
+            {
+                id: 4,
+                name: "Guest House",
+                route: "shrine-guest"
+            },
+            {
+                id: 5,
+                name: "Volunteer",
+                route: "shrine-volunteer"
+            },
+            {
+                id: 6,
+                name: "Directions",
+                route: "shrine-directions"
+            },
+            {
+                id: 7,
+                name: "Contact Us on Eden Hill",
+                route: "shrine-contact"
+            }
+        ),
+        shrine_about: new Array<TextItem>(
+            {
+                id: 1,
+                description: "The National..."
+            }
+        ),
+        shrine_calendar: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Our calendar..."
+            }
+        ),
+        shrine_tours: new Array<TextItem>(
+            {
+                id: 1,
+                description: "The National..."
+            }
+        ),
+        shrine_guest: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Overnight stays..."
+            }
+        ),
+        shrine_volunteer: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<b>The National Shrine Needs You!</b>"
+            }
+        ),
+        shrine_directions: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<b>GPS Directions</b>"
+            }
+        ),
+        shrine_contact: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<b>National Shrine...</b>"
+            }
         )
 
     };

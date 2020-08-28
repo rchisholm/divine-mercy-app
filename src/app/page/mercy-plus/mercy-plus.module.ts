@@ -9,6 +9,14 @@ import { MariansMeetComponent } from "./marians/marians-meet/marians-meet.compon
 import { MariansVocationComponent } from "./marians/marians-vocation/marians-vocation.component";
 import { MariansMissionsComponent } from "./marians/marians-missions/marians-missions.component";
 import { MariansSupportComponent } from "./marians/marians-support/marians-support.component";
+import { ShrineComponent } from "./shrine/shrine.component";
+import { ShrineAboutComponent } from "./shrine/shrine-about/shrine-about.component";
+import { ShrineCalendarComponent } from "./shrine/shrine-calendar/shrine-calendar.component";
+import { ShrineContactComponent } from "./shrine/shrine-contact/shrine-contact.component";
+import { ShrineDirectionsComponent } from "./shrine/shrine-directions/shrine-directions.component";
+import { ShrineGuestComponent } from "./shrine/shrine-guest/shrine-guest.component";
+import { ShrineToursComponent } from "./shrine/shrine-tours/shrine-tours.component";
+import { ShrineVolunteerComponent } from "./shrine/shrine-volunteer/shrine-volunteer.component";
 // import { ChapletComponent } from "./chaplet/chaplet.component";
 
 @NgModule({
@@ -23,7 +31,15 @@ import { MariansSupportComponent } from "./marians/marians-support/marians-suppo
         MariansMeetComponent,
         MariansVocationComponent,
         MariansMissionsComponent,
-        MariansSupportComponent
+        MariansSupportComponent,
+        ShrineComponent,
+        ShrineAboutComponent,
+        ShrineCalendarComponent,
+        ShrineContactComponent,
+        ShrineDirectionsComponent,
+        ShrineGuestComponent,
+        ShrineToursComponent,
+        ShrineVolunteerComponent
         // ChapletComponent
     ],
     schemas: [

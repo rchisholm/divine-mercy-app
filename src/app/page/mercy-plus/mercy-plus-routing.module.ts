@@ -9,6 +9,14 @@ import { MariansVocationComponent } from "./marians/marians-vocation/marians-voc
 import { MariansMeetComponent } from "./marians/marians-meet/marians-meet.component";
 import { MariansMissionsComponent } from "./marians/marians-missions/marians-missions.component";
 import { MariansSupportComponent } from "./marians/marians-support/marians-support.component";
+import { ShrineComponent } from "./shrine/shrine.component";
+import { ShrineAboutComponent } from "./shrine/shrine-about/shrine-about.component";
+import { ShrineCalendarComponent } from "./shrine/shrine-calendar/shrine-calendar.component";
+import { ShrineContactComponent } from "./shrine/shrine-contact/shrine-contact.component";
+import { ShrineDirectionsComponent } from "./shrine/shrine-directions/shrine-directions.component";
+import { ShrineGuestComponent } from "./shrine/shrine-guest/shrine-guest.component";
+import { ShrineToursComponent } from "./shrine/shrine-tours/shrine-tours.component";
+import { ShrineVolunteerComponent } from "./shrine/shrine-volunteer/shrine-volunteer.component";
 // import { ChapletComponent } from "./chaplet/chaplet.component";
 
 const routes: Routes = [
@@ -18,7 +26,15 @@ const routes: Routes = [
     { path: "marians-meet", component: MariansMeetComponent },
     { path: "marians-vocation", component: MariansVocationComponent },
     { path: "marians-missions", component: MariansMissionsComponent },
-    { path: "marians-support", component: MariansSupportComponent }
+    { path: "marians-support", component: MariansSupportComponent },
+    { path: "shrine", component: ShrineComponent },
+    { path: "shrine-about", component: ShrineAboutComponent },
+    { path: "shrine-calendar", component: ShrineCalendarComponent },
+    { path: "shrine-contact", component: ShrineContactComponent },
+    { path: "shrine-directions", component: ShrineDirectionsComponent },
+    { path: "shrine-guest", component: ShrineGuestComponent },
+    { path: "shrine-tours", component: ShrineToursComponent },
+    { path: "shrine-volunteer", component: ShrineVolunteerComponent }
     // { path: "about", component: AboutComponent }
 ];
 
