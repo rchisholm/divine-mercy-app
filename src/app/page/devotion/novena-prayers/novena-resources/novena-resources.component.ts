@@ -13,7 +13,7 @@ export class NovenaResourcesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.resources = this.data.getResourceItems("prayer-book");
+        this.resources = this.data.getResourceItems("prayer_book");
     }
 
 }

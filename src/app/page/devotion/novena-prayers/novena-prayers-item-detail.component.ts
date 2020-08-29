@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
+import { TextFormatter } from "~/app/shared/text-formatter";
+import { FormattedString } from "tns-core-modules/text/formatted-string";
 
 import { DataService, TextItem } from "~/app/shared/data.service";
 
@@ -10,16 +12,19 @@ import { DataService, TextItem } from "~/app/shared/data.service";
 })
 export class NovenaPrayersItemDetailComponent implements OnInit {
     item: TextItem;
+    formattedDescription: FormattedString;
 
     constructor(
         private _data: DataService,
         private _route: ActivatedRoute,
-        private _routerExtensions: RouterExtensions
+        private _routerExtensions: RouterExtensions,
+        private formatter: TextFormatter
     ) { }
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
         this.item = this._data.getTextItem("novena_prayers", id);
+        this.formattedDescription = this.formatter.formatTagsFromString(this.item.description);
     }
 
     onBackTap(): void {

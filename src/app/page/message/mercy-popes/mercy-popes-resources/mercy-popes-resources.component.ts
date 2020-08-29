@@ -13,7 +13,7 @@ export class MercyPopesResourcesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.resources = this.data.getResourceItems("mercy-popes");
+        this.resources = this.data.getResourceItems("mercy_popes");
     }
 
 }

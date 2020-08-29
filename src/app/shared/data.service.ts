@@ -30,7 +30,7 @@ export class DataService {
             {
                 id: 1,
                 name: "What is Mercy?",
-                description: "Description for Item 1"
+                description: "<b>bold</b> Description for Item 1"
             },
             {
                 id: 2,
@@ -220,42 +220,42 @@ export class DataService {
             {
                 id: 2,
                 name: "Three O'Clock Hour Prayer",
-                description: ""
+                description: "a"
             },
             {
                 id: 3,
                 name: "Litany of Trust in Divine Mercy",
-                description: ""
+                description: "b"
             },
             {
                 id: 4,
                 name: "To The Divine Mercy",
-                description: ""
+                description: "c"
             },
             {
                 id: 5,
                 name: "To the Mother of God",
-                description: ""
+                description: "d"
             },
             {
                 id: 6,
                 name: "To Be Transformed into Mercy",
-                description: ""
+                description: "<b>e</b>"
             },
             {
                 id: 7,
                 name: "In Thanksgiving",
-                description: ""
+                description: "f"
             },
             {
                 id: 8,
                 name: "For the Intercession of St. Faustina",
-                description: ""
+                description: "g"
             },
             {
                 id: 9,
                 name: "Eternal God of Endless Mercy",
-                description: ""
+                description: "h"
             },
             {
                 id: 10,
@@ -272,47 +272,47 @@ export class DataService {
             {
                 id: 2,
                 name: "Day 1",
-                description: ""
+                description: "1"
             },
             {
                 id: 3,
                 name: "Day 2",
-                description: ""
+                description: "2"
             },
             {
                 id: 4,
                 name: "Day 3",
-                description: ""
+                description: "3"
             },
             {
                 id: 5,
                 name: "Day 4",
-                description: ""
+                description: "4"
             },
             {
                 id: 6,
                 name: "Day 5",
-                description: ""
+                description: "5"
             },
             {
                 id: 7,
                 name: "Day 6",
-                description: ""
+                description: "6"
             },
             {
                 id: 8,
                 name: "Day 7",
-                description: ""
+                description: "7"
             },
             {
                 id: 9,
                 name: "Day 8",
-                description: ""
+                description: "8"
             },
             {
                 id: 10,
                 name: "Day 9",
-                description: ""
+                description: "9"
             }
         ),
         marians: new Array<TextItem>(
