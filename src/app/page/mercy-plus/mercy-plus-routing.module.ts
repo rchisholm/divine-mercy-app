@@ -17,7 +17,7 @@ import { ShrineDirectionsComponent } from "./shrine/shrine-directions/shrine-dir
 import { ShrineGuestComponent } from "./shrine/shrine-guest/shrine-guest.component";
 import { ShrineToursComponent } from "./shrine/shrine-tours/shrine-tours.component";
 import { ShrineVolunteerComponent } from "./shrine/shrine-volunteer/shrine-volunteer.component";
-// import { ChapletComponent } from "./chaplet/chaplet.component";
+import { ApostolatesComponent } from "./apostolates/apostolates.component";
 
 const routes: Routes = [
     { path: "default", component: MercyPlusComponent },
@@ -34,8 +34,8 @@ const routes: Routes = [
     { path: "shrine-directions", component: ShrineDirectionsComponent },
     { path: "shrine-guest", component: ShrineGuestComponent },
     { path: "shrine-tours", component: ShrineToursComponent },
-    { path: "shrine-volunteer", component: ShrineVolunteerComponent }
-    // { path: "about", component: AboutComponent }
+    { path: "shrine-volunteer", component: ShrineVolunteerComponent },
+    { path: "apostolates", component: ApostolatesComponent }
 ];
 
 @NgModule({

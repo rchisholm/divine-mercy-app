@@ -450,6 +450,63 @@ export class DataService {
                 id: 1,
                 description: "<b>National Shrine...</b>"
             }
+        ),
+        apostolates: new Array<TextItem>(
+            {
+                id: 1,
+                name: "What-are the Divine Mercy Apostolates?",
+                route: "apostolates-what"
+            },
+            {
+                id: 2,
+                name: "John Paul II Institute of Divine Mercy",
+                route: "apostolates-jpii"
+            },
+            {
+                id: 3,
+                name: "Eucharistic Apostles of Divine Mercy",
+                route: "apostolates-eadm"
+            },
+            {
+                id: 4,
+                name: "Mother of Mercy Messengers (MOMM)",
+                route: "apostolates-momm"
+            },
+            {
+                id: 5,
+                name: "Healthcare Professionals for Divine Mercy",
+                route: "apostolates-hpdm"
+            }
+        ),
+        apostolates_what: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Four unique..."
+            }
+        ),
+        apostolates_jpii: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Founded in 1966..."
+            }
+        ),
+        apostolates_eadm: new Array<TextItem>(
+            {
+                id: 1,
+                description: "The Eucharistic..."
+            }
+        ),
+        apostolates_momm: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Want the Divine..."
+            }
+        ),
+        apostolates_hpdm: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Healthcare Professionals..."
+            }
         )
 
     };
