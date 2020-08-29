@@ -18,6 +18,11 @@ import { ShrineGuestComponent } from "./shrine/shrine-guest/shrine-guest.compone
 import { ShrineToursComponent } from "./shrine/shrine-tours/shrine-tours.component";
 import { ShrineVolunteerComponent } from "./shrine/shrine-volunteer/shrine-volunteer.component";
 import { ApostolatesComponent } from "./apostolates/apostolates.component";
+import { ApostolatesEadmComponent } from "./apostolates/apostolates-eadm/apostolates-eadm.component";
+import { ApostolatesHpdmComponent } from "./apostolates/apostolates-hpdm/apostolates-hpdm.component";
+import { ApostolatesJpiiComponent } from "./apostolates/apostolates-jpii/apostolates-jpii.component";
+import { ApostolatesMommComponent } from "./apostolates/apostolates-momm/apostolates-momm.component";
+import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostolates-what.component";
 
 @NgModule({
     imports: [
@@ -40,7 +45,12 @@ import { ApostolatesComponent } from "./apostolates/apostolates.component";
         ShrineGuestComponent,
         ShrineToursComponent,
         ShrineVolunteerComponent,
-        ApostolatesComponent
+        ApostolatesComponent,
+        ApostolatesEadmComponent,
+        ApostolatesHpdmComponent,
+        ApostolatesJpiiComponent,
+        ApostolatesMommComponent,
+        ApostolatesWhatComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

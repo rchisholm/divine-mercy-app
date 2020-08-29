@@ -18,6 +18,11 @@ import { ShrineGuestComponent } from "./shrine/shrine-guest/shrine-guest.compone
 import { ShrineToursComponent } from "./shrine/shrine-tours/shrine-tours.component";
 import { ShrineVolunteerComponent } from "./shrine/shrine-volunteer/shrine-volunteer.component";
 import { ApostolatesComponent } from "./apostolates/apostolates.component";
+import { ApostolatesEadmComponent } from "./apostolates/apostolates-eadm/apostolates-eadm.component";
+import { ApostolatesHpdmComponent } from "./apostolates/apostolates-hpdm/apostolates-hpdm.component";
+import { ApostolatesJpiiComponent } from "./apostolates/apostolates-jpii/apostolates-jpii.component";
+import { ApostolatesMommComponent } from "./apostolates/apostolates-momm/apostolates-momm.component";
+import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostolates-what.component";
 
 const routes: Routes = [
     { path: "default", component: MercyPlusComponent },
@@ -35,7 +40,12 @@ const routes: Routes = [
     { path: "shrine-guest", component: ShrineGuestComponent },
     { path: "shrine-tours", component: ShrineToursComponent },
     { path: "shrine-volunteer", component: ShrineVolunteerComponent },
-    { path: "apostolates", component: ApostolatesComponent }
+    { path: "apostolates", component: ApostolatesComponent },
+    { path: "apostolates-eadm", component: ApostolatesEadmComponent },
+    { path: "apostolates-hpdm", component: ApostolatesHpdmComponent },
+    { path: "apostolates-jpii", component: ApostolatesJpiiComponent },
+    { path: "apostolates-momm", component: ApostolatesMommComponent },
+    { path: "apostolates-what", component: ApostolatesWhatComponent }
 ];
 
 @NgModule({

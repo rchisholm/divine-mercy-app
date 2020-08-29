@@ -1,0 +1,14 @@
+<ActionBar class="action-bar">
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+		<Label row="0" col="1" class="action-bar-title" text="John Paul II Institute of Divine Mercy"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://banner_stan" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="page text-page">
+            <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[0]"></Label>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
