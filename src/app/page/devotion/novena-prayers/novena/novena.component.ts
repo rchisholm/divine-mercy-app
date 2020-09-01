@@ -28,4 +28,8 @@ export class NovenaComponent implements OnInit {
             this.router.navigate(["../novena", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

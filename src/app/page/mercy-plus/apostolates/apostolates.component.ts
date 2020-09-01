@@ -28,4 +28,8 @@ export class ApostolatesComponent implements OnInit {
             this.router.navigate(["../apostolates", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

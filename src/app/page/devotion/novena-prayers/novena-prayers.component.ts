@@ -28,4 +28,8 @@ export class NovenaPrayersComponent implements OnInit {
             this.router.navigate(["../novena-prayers", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

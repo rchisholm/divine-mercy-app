@@ -27,19 +27,4 @@ export class MessageComponent implements OnInit {
         }
 
     }
-
-    getBigIconSource(icon: string): string {
-        const iconPrefix = isAndroid ? "res://" : "res://bigIcons/";
-
-        return iconPrefix + icon;
-    }
-
-    // screen size for debugging
-    getScreenWidth(): number {
-        return screen.mainScreen.widthPixels;
-    }
-
-    getScreenHeight(): number {
-        return screen.mainScreen.heightPixels;
-    }
 }

@@ -28,4 +28,8 @@ export class DiaryComponent implements OnInit {
             this.router.navigate(["../diary", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

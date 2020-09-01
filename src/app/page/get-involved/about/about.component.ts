@@ -6,6 +6,7 @@ import { DataService } from "~/app/shared/data.service";
 import * as phone from "nativescript-phone";
 import * as email from "nativescript-email";
 import { isAndroid } from "tns-core-modules/platform";
+import { RouterExtensions } from "nativescript-angular";
 
 @Component({
     selector: "About",
@@ -20,6 +21,7 @@ export class AboutComponent implements OnInit {
 
     constructor(
         private data: DataService,
+        private router: RouterExtensions
         // private formatter: TextFormatter
         ) { }
 
@@ -55,6 +57,10 @@ export class AboutComponent implements OnInit {
         }).catch((error) => {
             console.error(error); // log error for debugging
         });
+    }
+
+    onBackTap(): void {
+        this.router.back();
     }
 
 }

@@ -28,4 +28,8 @@ export class ShrineComponent implements OnInit {
             this.router.navigate(["../shrine", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

@@ -28,4 +28,8 @@ export class MercyPopesComponent implements OnInit {
             this.router.navigate(["../mercy-popes", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

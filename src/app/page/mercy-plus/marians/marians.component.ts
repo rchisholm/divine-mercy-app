@@ -28,4 +28,8 @@ export class MariansComponent implements OnInit {
             this.router.navigate(["../marians", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }

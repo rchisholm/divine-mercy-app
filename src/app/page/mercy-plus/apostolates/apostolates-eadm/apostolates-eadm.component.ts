@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/text/formatted-string";
 import { DataService, TextItem } from "~/app/shared/data.service";
+import { RouterExtensions } from "nativescript-angular";
 
 @Component({
     selector: "ApostolatesEadm",
@@ -14,7 +15,8 @@ export class ApostolatesEadmComponent implements OnInit {
 
     constructor(
         private data: DataService,
-        private formatter: TextFormatter
+        private formatter: TextFormatter,
+        private router: RouterExtensions
     ) { }
 
     ngOnInit(): void {
@@ -30,4 +32,9 @@ export class ApostolatesEadmComponent implements OnInit {
             this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
         });
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
+
 }

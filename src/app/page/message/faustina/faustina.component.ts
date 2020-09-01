@@ -28,4 +28,8 @@ export class FaustinaComponent implements OnInit {
             this.router.navigate(["../faustina", item.id], { relativeTo: this.currentRoute });
         }
     }
+
+    onBackTap(): void {
+        this.router.back();
+    }
 }
