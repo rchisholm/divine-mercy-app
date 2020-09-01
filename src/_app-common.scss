@@ -31,17 +31,15 @@
 
 .navigation_tab_strip  {
     background-color: rgb(26, 26, 26);
+    selected-item-color: white;
+    un-selected-item-color: rgb(175, 175, 175);
 
-    selected-item-color: $dm-light-red;
-    un-selected-item-color: white;
-
-    .navigation__item {
-
-        &:active,
-        &:active Label {
-            @include colorize($contrasted-color: complementary background 20% 0%);
-        }
-    }
+    // .navigation__item {
+    //     &:active,
+    //     &:active Label {
+    //         @include colorize($contrasted-color: complementary background 20% 0%);
+    //     }
+    // }
 }
 
 // Common page class
