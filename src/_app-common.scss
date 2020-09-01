@@ -24,11 +24,23 @@
 }
 
 // Custom tabstrip item class
-.navigation__item {
+// BottomNavigation {
+//     background:linear-gradient(red, green);
+// }
 
-    &:active,
-    &:active Label {
-        @include colorize($contrasted-color: complementary background 20% 0%);
+
+.navigation_tab_strip  {
+    background-color: rgb(26, 26, 26);
+
+    selected-item-color: $dm-light-red;
+    un-selected-item-color: white;
+
+    .navigation__item {
+
+        &:active,
+        &:active Label {
+            @include colorize($contrasted-color: complementary background 20% 0%);
+        }
     }
 }
 
