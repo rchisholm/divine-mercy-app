@@ -53,29 +53,25 @@
 //FlexBox big-icon-box classes
 .big-icon-box {
     align-items: center;
-    horizontal-align: center;
-    margin: auto;
     padding-top: 10%;
-
-    display: inline-block;
     height: auto;
-    position: relative;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 
     .big-icon {
-        align-items: center;
-        horizontal-align: center;
         margin: auto;
         padding-top: 5%;
         padding-bottom: 5%;
         text-align: center;
-        width: 48%;
+        width: 35%;
+        height: 30%;
 
         .big-icon-image {
             margin-right: 10%;
             margin-left: 10%;
+            height: 75%;
         }
 
         .big-icon-button {
