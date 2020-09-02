@@ -25,26 +25,27 @@
                     <Label row="0" [text]="item.title" class="slider-title"
                         *ngIf="!hideControls"
                         horizontalAlignment="left"
-                        verticalAlignment="top">
+                        verticalAlignment="top"
+                        (tap)="toggleHideControls()">
                     </Label>
-                    <GridLayout *ngIf="!hideControls" row="0" class="pager-nav" verticalAlignment="bottom">
-                        <Label
-                            *ngIf="(currentPage > 0)"
-                            text="&larr;"
-                            class="arrow"
-                            horizontalAlignment="left"
-                            verticalAlignment="bottom"
-                            (tap)="prevPage()">
-                        </Label>
-                        <Label
-                            *ngIf="(currentPage < maxPage)"
-                            text="&rarr;"
-                            class="arrow"
-                            horizontalAlignment="right"
-                            verticalAlignment="bottom"
-                            (tap)="nextPage()">
-                        </Label>
-                    </GridLayout>
+                    <Label
+                        row="0"
+                        *ngIf="(currentPage > 0) && !hideControls"
+                        text="&larr;"
+                        class="arrow"
+                        horizontalAlignment="left"
+                        verticalAlignment="bottom"
+                        (tap)="prevPage()">
+                    </Label>
+                    <Label
+                        row="0"
+                        *ngIf="(currentPage < maxPage) && !hideControls"
+                        text="&rarr;"
+                        class="arrow"
+                        horizontalAlignment="right"
+                        verticalAlignment="bottom"
+                        (tap)="nextPage()">
+                    </Label>
                 </GridLayout>
             </ng-template>
         </Pager>
