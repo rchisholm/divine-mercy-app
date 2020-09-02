@@ -156,6 +156,30 @@ ActionBar {
     }
 }
 
+Pager.image-pager {
+    background-color: black;
+
+    .pager-item {
+        .slider-title {
+            color: white;
+            margin:10px;
+            font-size: 20px;
+            font-style: italic;
+            transition: all 0.3s ease;
+        }
+        .pager-nav {
+            height: 100px;
+            transition: all 0.3s ease;
+            .arrow {
+                color: white;
+                margin: 30px 10px;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
 // dark mode
 .ns-dark {
     .page {

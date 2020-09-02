@@ -1,0 +1,52 @@
+<ActionBar class="action-bar">
+	<NavigationButton ios:visibility="collapsed"></NavigationButton>
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img/header-icons/nav-bar-back"></Image>
+		<Label row="0" col="1" class="action-bar-title" text="Divine Mercy Image"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://img/header-icons/nav-bar-dm" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<GridLayout class="page">
+    <GridLayout rows="560px" columns="*">
+        <Pager
+            row="0"
+            #pager
+            [items]="images"
+            class="pager image-pager"
+            [selectedIndex]="currentPage"
+            (selectedIndexChange)="onPageChanged($event)">
+            <ng-template let-i="index" let-item="item">
+                <GridLayout
+                    class="pager-item"
+                    rows="*"
+                    columns="*">
+                    <Image row="0" [src]="item.file" class="photo" stretch="aspectFill" (tap)="toggleHideControls()"></Image>
+                    <Label row="0" [text]="item.title" class="slider-title"
+                        *ngIf="!hideControls"
+                        horizontalAlignment="left"
+                        verticalAlignment="top">
+                    </Label>
+                    <GridLayout *ngIf="!hideControls" row="0" class="pager-nav" verticalAlignment="bottom">
+                        <Label
+                            *ngIf="(currentPage > 0)"
+                            text="&larr;"
+                            class="arrow"
+                            horizontalAlignment="left"
+                            verticalAlignment="bottom"
+                            (tap)="prevPage()">
+                        </Label>
+                        <Label
+                            *ngIf="(currentPage < maxPage)"
+                            text="&rarr;"
+                            class="arrow"
+                            horizontalAlignment="right"
+                            verticalAlignment="bottom"
+                            (tap)="nextPage()">
+                        </Label>
+                    </GridLayout>
+                </GridLayout>
+            </ng-template>
+        </Pager>
+    </GridLayout>
+</GridLayout>

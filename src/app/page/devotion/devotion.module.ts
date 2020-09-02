@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { PagerModule } from "nativescript-pager/angular";
 
 import { DevotionRoutingModule } from "./devotion-routing.module";
 import { DevotionComponent } from "./devotion.component";
@@ -10,12 +11,14 @@ import { NovenaPrayersItemDetailComponent } from "./novena-prayers/novena-prayer
 import { NovenaComponent } from "./novena-prayers/novena/novena.component" ;
 import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-detail.component" ;
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
+import { DmiComponent } from "./dmi/dmi.component" ;
 // import { ChapletComponent } from "./chaplet/chaplet.component";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        DevotionRoutingModule
+        DevotionRoutingModule,
+        PagerModule
     ],
     declarations: [
         DevotionComponent,
@@ -25,7 +28,8 @@ import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/nove
         NovenaPrayersItemDetailComponent,
         NovenaComponent,
         NovenaItemDetailComponent,
-        NovenaResourcesComponent
+        NovenaResourcesComponent,
+        DmiComponent
         // ChapletComponent
     ],
     schemas: [
