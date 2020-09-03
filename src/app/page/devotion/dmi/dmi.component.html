@@ -23,14 +23,14 @@
                     columns="*">
                     <Image row="0" [src]="item.file" class="photo" stretch="aspectFill" (tap)="toggleHideControls()"></Image>
                     <Label row="0" [text]="item.title" class="slider-title"
-                        *ngIf="!hideControls"
+                        *ngIf="!hideControls" [@fadeInOut]
                         horizontalAlignment="left"
                         verticalAlignment="top"
                         (tap)="toggleHideControls()">
                     </Label>
                     <Label
                         row="0"
-                        *ngIf="(currentPage > 0) && !hideControls"
+                        *ngIf="(currentPage > 0) && !hideControls" [@fadeInOut]
                         text="&larr;"
                         class="arrow"
                         horizontalAlignment="left"
@@ -39,7 +39,7 @@
                     </Label>
                     <Label
                         row="0"
-                        *ngIf="(currentPage < maxPage) && !hideControls"
+                        *ngIf="(currentPage < maxPage) && !hideControls" [@fadeInOut]
                         text="&rarr;"
                         class="arrow"
                         horizontalAlignment="right"

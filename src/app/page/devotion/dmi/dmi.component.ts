@@ -1,10 +1,22 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { style, state, animate, transition, trigger } from "@angular/animations";
 
 import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "Dmi",
-    templateUrl: "./dmi.component.html"
+    templateUrl: "./dmi.component.html",
+    animations: [
+        trigger("fadeInOut", [
+          transition(":enter", [   // :enter is alias to 'void => *'
+            style({opacity: 0}),
+            animate(500, style({opacity: 1}))
+          ]),
+          transition(":leave", [   // :leave is alias to '* => void'
+            animate(500, style({opacity: 0}))
+          ])
+        ])
+    ]
 })
 export class DmiComponent implements OnInit {
     images = [];
