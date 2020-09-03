@@ -33,12 +33,4 @@ export class GetInvolvedComponent implements OnInit {
         }
     }
 
-    openDMAppLink(): void {
-        if (isAndroid) {
-            openUrl("https://play.google.com/store/apps/details?id=com.jacobsmedia.divinem&hl=en");
-        } else {
-            openUrl("https://itunes.apple.com/us/app/divine-mercy/id410696366?mt=8");
-        }
-    }
-
 }
