@@ -1,36 +1,36 @@
 <ActionBar class="action-bar">
 	<NavigationButton ios:visibility="collapsed"></NavigationButton>
 	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
-		<Image row="0" col="0" class="ab-icon ab-left" src="res://img/header-icons/nav-bar-coa" stretch="aspectFit"></Image>
+		<Image row="0" col="0" class="ab-icon ab-left" src="res://img_header-icons_coa" stretch="aspectFit"></Image>
 		<Label row="0" col="1" class="action-bar-title" text="The Devotion"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img/header-icons/nav-bar-dm" stretch="aspectFit"></Image>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_header-icons_dm" stretch="aspectFit"></Image>
 	</GridLayout>
 </ActionBar>
 
 <DockLayout stretchLastChild="true">
 	<FlexBoxLayout dock="top" flexDirection="row" class="page page-content big-icon-box">
 		<StackLayout class="big-icon" [nsRouterLink]="['../chaplet']">
-			<Image src="res://img/large-icons/devotion/chaplet_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_devotion_chaplet" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Chaplet" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../image']">
-			<Image src="res://img/large-icons/devotion/image_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_devotion_image" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="The Image" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../three']">
-			<Image src="res://img/large-icons/devotion/three_button" stretch="aspectFit" class="big-icon-image circle"></Image>
+			<Image src="res://img_large-icons_devotion_three" stretch="aspectFit" class="big-icon-image circle"></Image>
 			<Label text="3 O'Clock Hour" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../feast']">
-			<Image src="res://img/large-icons/devotion/feast_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_devotion_feast" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Feast of Mercy" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../stations']">
-			<Image src="res://img/large-icons/devotion/stations_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_devotion_stations" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Way of the Cross" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../novena-prayers']">
-			<Image src="res://img/large-icons/devotion/prayers_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_devotion_prayers" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Novena & Prayers" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 	</FlexBoxLayout>

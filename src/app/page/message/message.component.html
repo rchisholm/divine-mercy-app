@@ -1,36 +1,36 @@
 <ActionBar class="action-bar">
 	<NavigationButton ios:visibility="collapsed"></NavigationButton>
 	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
-		<Image row="0" col="0" class="ab-icon ab-left" src="res://img/header-icons/nav-bar-coa" stretch="aspectFit"></Image>
+		<Image row="0" col="0" class="ab-icon ab-left" src="res://img_header-icons_coa" stretch="aspectFit"></Image>
 		<Label row="0" col="1" class="action-bar-title" text="The Message"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img/header-icons/nav-bar-dm" stretch="aspectFit"></Image>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_header-icons_dm" stretch="aspectFit"></Image>
 	</GridLayout>
 </ActionBar>
 
 <DockLayout stretchLastChild="true">
 	<FlexBoxLayout dock="top" flexDirection="row" class="page page-content big-icon-box">
 		<StackLayout class="big-icon" [nsRouterLink]="['../introduction']">
-			<Image src="res://img/large-icons/message/introduction_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_message_introduction" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Introduction" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../timeline']">
-			<Image src="res://img/large-icons/message/timeline_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_message_timeline" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Timeline" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../faustina']">
-			<Image src="res://img/large-icons/message/st_faustina_button" stretch="aspectFit" class="big-icon-image circle"></Image>
+			<Image src="res://img_large-icons_message_st_faustina" stretch="aspectFit" class="big-icon-image circle"></Image>
 			<Label text="St. Faustina" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../mercy-popes']">
-			<Image src="res://img/large-icons/message/mercy_popes_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_message_mercy_popes" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Mercy Popes" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../diary']">
-			<Image src="res://img/large-icons/message/diary_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_message_diary" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Diary" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 		<StackLayout class="big-icon" [nsRouterLink]="['../resources']">
-			<Image src="res://img/large-icons/message/resources_button" stretch="aspectFit" class="big-icon-image"></Image>
+			<Image src="res://img_large-icons_message_resources" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Resources" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
 	</FlexBoxLayout>
