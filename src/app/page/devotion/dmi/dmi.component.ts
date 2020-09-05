@@ -31,9 +31,9 @@ export class DmiComponent implements OnInit {
 
     ngOnInit(): void {
         this.images = [
-            { file: "res://img_page-images_dmi_hyla", title: "Hyla" },
-            { file: "res://img_page-images_dmi_skemp", title: "Skemp" },
-            { file: "res://img_page-images_dmi_vilnius", title: "Vilnius" }
+            { file: "res://img_pageimages_dmi_hyla", title: "Hyla" },
+            { file: "res://img_pageimages_dmi_skemp", title: "Skemp" },
+            { file: "res://img_pageimages_dmi_vilnius", title: "Vilnius" }
         ];
         this.maxPage = this.images.length - 1;
         this.hideControls = false;
