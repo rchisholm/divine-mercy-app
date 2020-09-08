@@ -3,9 +3,10 @@
 
     <!-- Application theme -->
     <style name="AppThemeBase21" parent="AppThemeBase">
-        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
         <item name="android:datePickerStyle">@style/SpinnerDatePicker</item>
         <item name="android:timePickerStyle">@style/SpinnerTimePicker</item>
+        <item name="android:statusBarColor">@color/dm_red</item>
     </style>
 
     <style name="AppTheme" parent="AppThemeBase21">
@@ -23,6 +24,6 @@
 
     <style name="NativeScriptToolbarStyle" parent="NativeScriptToolbarStyleBase">
         <item name="android:elevation">4dp</item>
-        <item name="android:paddingTop">24dp</item>
+        <!-- <item name="android:paddingTop">24dp</item> -->
     </style>
 </resources>
