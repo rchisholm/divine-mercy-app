@@ -511,7 +511,7 @@ export class DataService {
         about: new Array<TextItem>(
             {
                 id: 1,
-                description: "This Divine Mercy app was designed and developed by the Marian Fathers of the Immaculate Conception in Stockbridge, MA"
+                description: "This Divine Mercy app was designed and developed by the Marian Fathers of the Immaculate Conception in Stockbridge, MA."
             },
             {
                 id: 2,
