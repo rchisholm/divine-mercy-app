@@ -2,3 +2,11 @@
 @import "app-common";
 
 // Place any CSS rules you want to apply only on Android here
+ActionBar {
+    margin-left: -41px;
+
+    .ab-icon {
+        max-height: 100%;
+        width: 160px;
+    }
+}
