@@ -507,6 +507,32 @@ export class DataService {
                 id: 1,
                 description: "Healthcare Professionals..."
             }
+        ),
+        about: new Array<TextItem>(
+            {
+                id: 1,
+                description: "This Divine Mercy app was designed and developed by the Marian Fathers of the Immaculate Conception in Stockbridge, MA"
+            },
+            {
+                id: 2,
+                description: "For more information on Divine Mercy, visit our website:"
+            },
+            {
+                id: 3,
+                description: "To support the Marians and their good works, such as spreading the Message of Divine Mercy, please donate by..."
+            },
+            {
+                id: 4,
+                description: "postal mail: Marian Helper's Center, Eden Hill, Stockbridge, MA 01263, or"
+            },
+            {
+                id: 5,
+                description: "Also, please help the Marians spread the message of Divine Mercy by telling your friends and family about this FREE app and writing a review in the app store."
+            },
+            {
+                id: 6,
+                description: "<i>This app and its contents copyright 2020 Marian Fathers of the Immaculate Conception of the B.V.M. All rights reserved."
+            }
         )
 
     };
