@@ -1,0 +1,63 @@
+<ActionBar class="action-bar">
+	<NavigationButton ios:visibility="collapsed"></NavigationButton>
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+		<Label row="0" col="1" class="action-bar-title" text="Chaplet of Divine Mercy"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<GridLayout
+    rows="*"
+    columns="*, 120"
+    width="100%"
+    height="100%"
+    backgroundColor="#777">
+    <StackLayout
+        row="0" col="0"
+        backgroundColor="white"
+        class="chaplet-prayer-text">
+        <Label
+            [text]="chapletPrayer.name"
+            textWrap="true"
+            class="chaplet-prayer-title"
+            *ngIf="!beadsAreMoving"
+            [@fadeInOut]>
+        </Label>
+        <ScrollView>
+            <Label
+                [formattedText]="chapletPrayerBody"
+                textWrap="true"
+                class="chaplet-prayer-body"
+                *ngIf="!beadsAreMoving"
+                [@fadeInOut]>
+            </Label>
+        </ScrollView>
+    </StackLayout>
+    <AbsoluteLayout #beadBox
+        row="0"
+        col="1"
+        width="100%"
+        height="100%"
+        (pan)="onBeadPan($event)"
+        horizontalAlign="center"
+        clipToBounds="true">
+        <Image #beadGlow
+            left="0"
+            top="250"
+            [top] = "BEAD_GLOW_TOP_START"
+            src="res://img_chaplet_beadglow"
+            stretch="aspectFit"
+            width="90%"
+            *ngIf="!beadsAreMoving"
+            [@fadeInOut]>
+        </Image>
+        <Image #beads
+            [top]="BEAD_TOP_START"
+            id="beads"
+            src="res://img_chaplet_beads"
+            stretch="aspectFit"
+            width="90%">
+        </Image>
+    </AbsoluteLayout>
+</GridLayout>

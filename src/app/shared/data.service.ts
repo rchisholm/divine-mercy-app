@@ -533,6 +533,48 @@ export class DataService {
                 id: 6,
                 description: "<i>This app and its contents copyright 2020 Marian Fathers of the Immaculate Conception of the B.V.M. All rights reserved."
             }
+        ),
+        chaplet: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Make the Sign of the Cross",
+                description: "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.",
+            },
+            {
+                id: 2,
+                name: "Optional Opening Prayers",
+                description: "You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, envelop the whole world and empty Yourself out upon us.\n\n(3x) O Blood and Water, which gushed forth from the Heart of Jesus as a fount of Mercy for us, I trust in You!"
+            },
+            {
+                id: 3,
+                name: "Our Father",
+                description: "Our Father, Who art in heaven, hallowed be Thy name; Thy kingdom come; Thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil, Amen."
+            },
+            {
+                id: 4,
+                name: "Hail Mary",
+                description: "Hail Mary, full of grace. The Lord is with thee. Blessed art thou amongst women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death, Amen."
+            },
+            {
+                id: 5,
+                name: "The Apostle's Creed",
+                description: "I believe in God, the Father Almighty, Creator of heaven and earth, and in Jesus Christ, His only Son, Our Lord, Who was conceived by the Holy Spirit, born of the Virgin Mary, suffered under Pontius Pilate, was crucified, died, and was buried; He descended into Hell; the third day He arose again from the dead; He ascended into Heaven, and is seated at the right hand of God, the Father Almighty; from there He will come to judge the living and the dead. I believe in the Holy Spirit, the holy Catholic Church, the communion of saints, the forgiveness of sins, the resurrection of the body, and the life everlasting. Amen."
+            },
+            {
+                id: 6,
+                name: "The Eternal Father",
+                description: "Eternal Father, I offer you the Body and Blood, Soul and Divinity of Your Dearly Beloved Son, Our Lord, Jesus Christ, in atonement for our sins and those of the whole world."
+            },
+            {
+                id: 7,
+                name: "",
+                description: "For the sake of His sorrowful Passion, have mercy on us and on the whole world."
+            },
+            {
+                id: 8,
+                name: "Closing Prayers",
+                description: "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n\n\nOptional Closing Prayer\n\nEternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself."
+            }
         )
 
     };

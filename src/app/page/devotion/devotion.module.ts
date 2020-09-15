@@ -12,7 +12,7 @@ import { NovenaComponent } from "./novena-prayers/novena/novena.component" ;
 import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-detail.component" ;
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 import { DmiComponent } from "./dmi/dmi.component" ;
-// import { ChapletComponent } from "./chaplet/chaplet.component";
+import { ChapletComponent } from "./chaplet/chaplet.component";
 
 @NgModule({
     imports: [
@@ -29,8 +29,8 @@ import { DmiComponent } from "./dmi/dmi.component" ;
         NovenaComponent,
         NovenaItemDetailComponent,
         NovenaResourcesComponent,
-        DmiComponent
-        // ChapletComponent
+        DmiComponent,
+        ChapletComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

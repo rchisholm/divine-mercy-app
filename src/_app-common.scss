@@ -184,6 +184,23 @@ Pager.image-pager {
     }
 }
 
+.chaplet-prayer-text {
+    border-radius:20px;
+    margin:20px;
+
+    .chaplet-prayer-body {
+        margin: 40px;
+        font-size: 16;
+    }
+
+    .chaplet-prayer-title {
+        font-weight: bold;
+        margin: 20px;
+        font-size: 18;
+        text-align: center;
+    }
+}
+
 // dark mode
 .ns-dark {
     .page {
