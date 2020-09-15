@@ -38,7 +38,6 @@ export class ChapletComponent implements OnInit {
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly BEAD_TOP_START: number = isAndroid ? -800 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
-
     readonly BEAD_GLOW_TOP_START: number = isAndroid ? 250 : this.SCREEN_HEIGHT_DIP / 2 - 84;
 
     private beadIndex: number; // which bead we are on (0 - 11)
@@ -47,15 +46,19 @@ export class ChapletComponent implements OnInit {
     private startOverAttempted: boolean; // whether user has been prompted to restart
 
     private chapletPrayers: Array<TextItem>;
-    private readonly chapletPrayerIndex = [1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8];
+    private readonly chapletPrayerIndex = [1, 2, 3, 4, 5,
+        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+        6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8];
 
     // constant values
     private readonly BEAD_MAX: number = 60;
     private readonly BEAD_SHORT: number = 51.5;
     private readonly BEAD_LONG: number = 82;
     private readonly BEAD_CROSS: number = 132;
+    private readonly BEAD_END: number = 120;
     private readonly BEAD_TIME: number = 500;
     private readonly RESTART_TIME: number = 500;
     private readonly RESTART_SWIPES: number = 2;
@@ -80,9 +83,10 @@ export class ChapletComponent implements OnInit {
         // shorter variables for readability
         let A = this.BEAD_CROSS;
         let B = this.BEAD_LONG;
-        const C = this.BEAD_SHORT;
-        const D = this.BEAD_LONG - 10;
+        let C = this.BEAD_SHORT;
+        const D = this.BEAD_END;
 
+        // iOS device adjustment
         if (!isAndroid) {
 
             A -= 5;
@@ -91,26 +95,28 @@ export class ChapletComponent implements OnInit {
             // if iPhone X, XR or XS Max, smaller BEAD_SHORT by 2
             if (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812) {
                 B -= 2;
+                A += 9;
             }
 
-            // if iPad pro 11" or 12.9", smaller BEAD_SHORT by 1
-            if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
-                B -= 1;
-            }
+            // // if iPad pro 11" or 12.9", smaller BEAD_SHORT by 1
+            // if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
+            //     B -= 1;
+            // }
 
             // fix bead placement on iOS < 11
             if (parseFloat(device.osVersion) < 11) {
-                A += 14;
-                B += 4.5;
+                A += 7;
+                C += 1.5;
             }
 
         }
 
-        this.beadDistance = [A, B, C, C, B, B, C, C, C, C, C, C, C, C, C,
+        this.beadDistance = [A, B, C, C,
             B, B, C, C, C, C, C, C, C, C, C,
             B, B, C, C, C, C, C, C, C, C, C,
             B, B, C, C, C, C, C, C, C, C, C,
-            B, B, C, C, C, C, C, C, C, C, C, A ];
+            B, B, C, C, C, C, C, C, C, C, C,
+            B, B, C, C, C, C, C, C, C, C, C, D ];
 
         // initialize counts, etc.
         this.beadIndex = 0;
@@ -218,11 +224,15 @@ export class ChapletComponent implements OnInit {
     // prompt user if they want to start over;
     // happens on
     offerToStartOver() {
+        let actionList = ["Yes"];
+        if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
+            actionList.push("No");
+        }
         this.startOverAttempted = true;
         dialogs.action({// confirm with user
             message: "Start Over?",
             cancelButtonText: "No",
-            actions: ["Yes"]
+            actions: actionList
         }).then((result) => {// confirmed
             if (result === "Yes") {
                 this.startOver();
