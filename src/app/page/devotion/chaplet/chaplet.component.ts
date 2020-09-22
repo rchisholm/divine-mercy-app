@@ -13,18 +13,7 @@ import { style, animate, transition, trigger } from "@angular/animations";
 
 @Component({
     selector: "Chaplet",
-    templateUrl: "./chaplet.component.html",
-    animations: [
-        trigger("fadeInOut", [
-          transition(":enter", [   // :enter is alias to 'void => *'
-            style({opacity: 0}),
-            animate(500, style({opacity: 1}))
-          ]),
-          transition(":leave", [   // :leave is alias to '* => void'
-            animate(500, style({opacity: 0}))
-          ])
-        ])
-    ]
+    templateUrl: "./chaplet.component.html"
 })
 export class ChapletComponent implements OnInit {
 
@@ -37,7 +26,7 @@ export class ChapletComponent implements OnInit {
     beadsAreMoving: boolean; // whether beads are currently moving
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
-    readonly BEAD_TOP_START: number = isAndroid ? -800 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
+    readonly BEAD_TOP_START: number = isAndroid ? -3315 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
     readonly BEAD_GLOW_TOP_START: number = isAndroid ? 250 : this.SCREEN_HEIGHT_DIP / 2 - 84;
 
     private beadIndex: number; // which bead we are on (0 - 11)

@@ -21,16 +21,14 @@
             [text]="chapletPrayer.name"
             textWrap="true"
             class="chaplet-prayer-title"
-            *ngIf="!beadsAreMoving"
-            [@fadeInOut]>
+            *ngIf="!beadsAreMoving">
         </Label>
         <ScrollView>
             <Label
                 [formattedText]="chapletPrayerBody"
                 textWrap="true"
                 class="chaplet-prayer-body"
-                *ngIf="!beadsAreMoving"
-                [@fadeInOut]>
+                *ngIf="!beadsAreMoving">
             </Label>
         </ScrollView>
     </StackLayout>
@@ -49,8 +47,7 @@
             src="res://img_chaplet_beadglow"
             stretch="aspectFit"
             width="90%"
-            *ngIf="!beadsAreMoving"
-            [@fadeInOut]>
+            *ngIf="!beadsAreMoving">
         </Image>
         <Image #beads
             [top]="BEAD_TOP_START"
