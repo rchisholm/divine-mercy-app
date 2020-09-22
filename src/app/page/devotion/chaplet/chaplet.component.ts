@@ -13,7 +13,18 @@ import { style, animate, transition, trigger } from "@angular/animations";
 
 @Component({
     selector: "Chaplet",
-    templateUrl: "./chaplet.component.html"
+    templateUrl: "./chaplet.component.html",
+    animations: [
+        trigger("fadeInOut", [
+          transition(":enter", [   // :enter is alias to 'void => *'
+            style({opacity: 0}),
+            animate(250, style({opacity: 1}))
+          ]),
+          transition(":leave", [   // :leave is alias to '* => void'
+            animate(250, style({opacity: 0}))
+          ])
+        ])
+    ]
 })
 export class ChapletComponent implements OnInit {
 
@@ -24,6 +35,7 @@ export class ChapletComponent implements OnInit {
     chapletPrayer: TextItem; // the currently displayed prayer
     chapletPrayerBody: FormattedString; // the formatted prayer body
     beadsAreMoving: boolean; // whether beads are currently moving
+    invisibleElements: boolean;
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly BEAD_TOP_START: number = isAndroid ? -3315 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
@@ -112,6 +124,7 @@ export class ChapletComponent implements OnInit {
         this.backCount = 0;
         this.startOverAttempted = false;
         this.beadsAreMoving = false;
+        this.invisibleElements = false;
 
         // preload sounds
         // this.sound = require("nativescript-sound");
@@ -213,21 +226,23 @@ export class ChapletComponent implements OnInit {
     // prompt user if they want to start over;
     // happens on
     offerToStartOver() {
-        let actionList = ["Yes"];
-        if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
-            actionList.push("No");
-        }
-        this.startOverAttempted = true;
-        dialogs.action({// confirm with user
-            message: "Start Over?",
-            cancelButtonText: "No",
-            actions: actionList
-        }).then((result) => {// confirmed
-            if (result === "Yes") {
-                this.startOver();
+        setTimeout(() => {
+            let actionList = ["Yes"];
+            if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
+                actionList.push("No");
             }
-            this.backCount = 0;
-        });
+            this.startOverAttempted = true;
+            dialogs.action({// confirm with user
+                message: "Start Over?",
+                cancelButtonText: "No",
+                actions: actionList
+            }).then((result) => {// confirmed
+                if (result === "Yes") {
+                    this.startOver();
+                }
+                this.backCount = 0;
+            });
+        }, 500);
     }
 
     startOver() {
@@ -288,10 +303,14 @@ export class ChapletComponent implements OnInit {
 
     disableSwiping() {
         this.beadsAreMoving = true; // disable gestures
+        this.invisibleElements = true;
     }
 
     enableSwiping() {
-        this.beadsAreMoving = false; // enable gestures
+        setTimeout(() => {
+            this.beadsAreMoving = false;
+        }, 500);
+        this.invisibleElements = false; // enable gestures
     }
 
     testForStartOver() {
