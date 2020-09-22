@@ -16,7 +16,8 @@
     <StackLayout
         row="0" col="0"
         backgroundColor="white"
-        class="chaplet-prayer-text">
+        class="chaplet-prayer-text"
+        (tap)="advanceBeads()">
         <Label
             [text]="chapletPrayer.name"
             textWrap="true"
@@ -43,18 +44,17 @@
         horizontalAlign="center"
         clipToBounds="true">
         <Image #beadGlow
-            left="0"
-            top="250"
             [top] = "BEAD_GLOW_TOP_START"
             src="res://img_chaplet_beadglow"
             stretch="aspectFit"
             width="90%"
             *ngIf="!invisibleElements"
-            @fadeInOut>
+            @fadeInOut
+            background="black">
         </Image>
         <Image #beads
-            [top]="BEAD_TOP_START"
             id="beads"
+            [top]="BEAD_TOP_START"
             src="res://img_chaplet_beads"
             stretch="aspectFit"
             width="90%">

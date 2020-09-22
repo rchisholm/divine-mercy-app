@@ -38,6 +38,7 @@ export class ChapletComponent implements OnInit {
     invisibleElements: boolean;
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
+    readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
     readonly BEAD_TOP_START: number = isAndroid ? -3315 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
     readonly BEAD_GLOW_TOP_START: number = isAndroid ? 250 : this.SCREEN_HEIGHT_DIP / 2 - 84;
 
@@ -54,12 +55,30 @@ export class ChapletComponent implements OnInit {
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8];
 
+
+
+    // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+    // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+
+    private readonly beadHeight = (this.SCREEN_WIDTH_DIP * 0.9) * 34.54;
+    private readonly beadCrossPercentage = 0.01055;
+    private readonly beadShortPercentage = 0.00412;
+    private readonly beadLongPercentage = 0.00615;
+    private readonly beadEndPercentage = 0.00938;
+
+    private readonly beadCrossDistance = this.beadHeight * this.beadCrossPercentage;
+    private readonly beadShortDistance = this.beadHeight * this.beadShortPercentage;
+    private readonly beadLongDistance = this.beadHeight * this.beadLongPercentage;
+    private readonly beadEndDistance = this.beadHeight * this.beadEndPercentage;
+
+    // console.log("beadHeight: " + beadHeight);
+    // console.log("beadCrossDistance: " + beadCrossDistance);
+    // console.log("beadShortDistance: " + beadShortDistance);
+    // console.log("beadLongDistance: " + beadLongDistance);
+    // console.log("beadEndDistance: " + beadEndDistance);
+
     // constant values
     private readonly BEAD_MAX: number = 60;
-    private readonly BEAD_SHORT: number = 51.5;
-    private readonly BEAD_LONG: number = 82;
-    private readonly BEAD_CROSS: number = 132;
-    private readonly BEAD_END: number = 120;
     private readonly BEAD_TIME: number = 500;
     private readonly RESTART_TIME: number = 500;
     private readonly RESTART_SWIPES: number = 2;
@@ -79,38 +98,36 @@ export class ChapletComponent implements OnInit {
 
     ngOnInit(): void {
 
-        // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-
         // shorter variables for readability
-        let A = this.BEAD_CROSS;
-        let B = this.BEAD_LONG;
-        let C = this.BEAD_SHORT;
-        const D = this.BEAD_END;
+        const A = this.beadCrossDistance;
+        const B = this.beadLongDistance;
+        const C = this.beadShortDistance;
+        const D = this.beadEndDistance;
 
-        // iOS device adjustment
-        if (!isAndroid) {
+        // // iOS device adjustment
+        // if (!isAndroid) {
 
-            A -= 5;
-            B -= 3;
+        //     A -= 5;
+        //     B -= 3;
 
-            // if iPhone X, XR or XS Max, smaller BEAD_SHORT by 2
-            if (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812) {
-                B -= 2;
-                A += 9;
-            }
+        //     // if iPhone X, XR or XS Max, smaller BEAD_SHORT by 2
+        //     if (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812) {
+        //         B -= 2;
+        //         A += 9;
+        //     }
 
-            // // if iPad pro 11" or 12.9", smaller BEAD_SHORT by 1
-            // if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
-            //     B -= 1;
-            // }
+        //     // // if iPad pro 11" or 12.9", smaller BEAD_SHORT by 1
+        //     // if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
+        //     //     B -= 1;
+        //     // }
 
-            // fix bead placement on iOS < 11
-            if (parseFloat(device.osVersion) < 11) {
-                A += 7;
-                C += 1.5;
-            }
+        //     // fix bead placement on iOS < 11
+        //     if (parseFloat(device.osVersion) < 11) {
+        //         A += 7;
+        //         C += 1.5;
+        //     }
 
-        }
+        // }
 
         this.beadDistance = [A, B, C, C,
             B, B, C, C, C, C, C, C, C, C, C,
@@ -153,6 +170,12 @@ export class ChapletComponent implements OnInit {
     updatePrayer() {
         this.chapletPrayer = this.chapletPrayers[this.beadIndex];
         this.chapletPrayerBody = this.formatter.formatTagsFromString(this.chapletPrayer.description);
+    }
+
+    advanceBeads() {
+        if (!this.beadsAreMoving) {
+            this.moveBeadsDown();
+        }
     }
 
     // Fired when user moves finger on beads
@@ -255,7 +278,7 @@ export class ChapletComponent implements OnInit {
     moveBeadsVertical(translation: number, startOver: boolean) {
         this.disableSwiping();
         this.beads.nativeElement.animate({
-            duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT),
+            duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.beadShortDistance),
             curve: AnimationCurve.linear,
             translate: {x: 0, y: startOver ? 0 : this.beads.nativeElement.translateY + translation}
         }).then(() => {
