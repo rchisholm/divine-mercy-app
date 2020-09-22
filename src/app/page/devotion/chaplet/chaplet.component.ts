@@ -242,7 +242,7 @@ export class ChapletComponent implements OnInit {
                 }
                 this.backCount = 0;
             });
-        }, 500);
+        }, 300);
     }
 
     startOver() {
@@ -309,7 +309,7 @@ export class ChapletComponent implements OnInit {
     enableSwiping() {
         setTimeout(() => {
             this.beadsAreMoving = false;
-        }, 500);
+        }, 300);
         this.invisibleElements = false; // enable gestures
     }
 
