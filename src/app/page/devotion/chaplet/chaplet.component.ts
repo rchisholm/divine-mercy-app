@@ -39,8 +39,9 @@ export class ChapletComponent implements OnInit {
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
-    readonly BEAD_TOP_START: number = isAndroid ? -3315 : this.SCREEN_HEIGHT_DIP / 2 - 3660;
-    readonly BEAD_GLOW_TOP_START: number = isAndroid ? 250 : this.SCREEN_HEIGHT_DIP / 2 - 84;
+    readonly BEAD_TOP_START: number = this.SCREEN_HEIGHT_DIP / 2 - 3660;
+    readonly BEAD_GLOW_TOP_START: number =
+        isAndroid ? this.SCREEN_HEIGHT_DIP / 2 - 100 : this.SCREEN_HEIGHT_DIP / 2 - 54;
 
     private beadIndex: number; // which bead we are on (0 - 11)
     private beadDistance: Array<number>; // how far the beads are apart
@@ -55,27 +56,18 @@ export class ChapletComponent implements OnInit {
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8];
 
+    private readonly BEAD_RATIO = 34.54;
+    private readonly BEAD_HEIGHT = (120 * 0.9) * this.BEAD_RATIO;
 
+    private readonly BEAD_CROSS_PERCENT = 0.0345;
+    private readonly BEAD_LONG_PERCENT = 0.0215;
+    private readonly BEAD_SHORT_PERCENT = .01405;
+    private readonly BEAD_END_PERCENT = 0.030;
 
-    // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-    // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
-
-    private readonly beadHeight = (this.SCREEN_WIDTH_DIP * 0.9) * 34.54;
-    private readonly beadCrossPercentage = 0.01055;
-    private readonly beadShortPercentage = 0.00412;
-    private readonly beadLongPercentage = 0.00615;
-    private readonly beadEndPercentage = 0.00938;
-
-    private readonly beadCrossDistance = this.beadHeight * this.beadCrossPercentage;
-    private readonly beadShortDistance = this.beadHeight * this.beadShortPercentage;
-    private readonly beadLongDistance = this.beadHeight * this.beadLongPercentage;
-    private readonly beadEndDistance = this.beadHeight * this.beadEndPercentage;
-
-    // console.log("beadHeight: " + beadHeight);
-    // console.log("beadCrossDistance: " + beadCrossDistance);
-    // console.log("beadShortDistance: " + beadShortDistance);
-    // console.log("beadLongDistance: " + beadLongDistance);
-    // console.log("beadEndDistance: " + beadEndDistance);
+    private readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT;
+    private readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT;
+    private readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT;
+    private readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT;
 
     // constant values
     private readonly BEAD_MAX: number = 60;
@@ -99,10 +91,18 @@ export class ChapletComponent implements OnInit {
     ngOnInit(): void {
 
         // shorter variables for readability
-        const A = this.beadCrossDistance;
-        const B = this.beadLongDistance;
-        const C = this.beadShortDistance;
-        const D = this.beadEndDistance;
+        const A = this.BEAD_CROSS_DISTANCE;
+        const B = this.BEAD_LONG_DISTANCE;
+        const C = this.BEAD_SHORT_DISTANCE;
+        const D = this.BEAD_END_DISTANCE;
+
+        console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+        console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
+        console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
+        console.log("BEAD_SHORT_DISTANCE: " + this.BEAD_SHORT_DISTANCE);
+        console.log("BEAD_LONG_DISTANCE: " + this.BEAD_LONG_DISTANCE);
+        console.log("BEAD_END_DISTANCE: " + this.BEAD_END_DISTANCE);
 
         // // iOS device adjustment
         // if (!isAndroid) {
@@ -250,10 +250,8 @@ export class ChapletComponent implements OnInit {
     // happens on
     offerToStartOver() {
         setTimeout(() => {
-            let actionList = ["Yes"];
-            if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
-                actionList.push("No");
-            }
+            const actionList =
+                this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366 ? ["Yes", "No"] : ["Yes"];
             this.startOverAttempted = true;
             dialogs.action({// confirm with user
                 message: "Start Over?",
@@ -278,7 +276,7 @@ export class ChapletComponent implements OnInit {
     moveBeadsVertical(translation: number, startOver: boolean) {
         this.disableSwiping();
         this.beads.nativeElement.animate({
-            duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.beadShortDistance),
+            duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT_DISTANCE),
             curve: AnimationCurve.linear,
             translate: {x: 0, y: startOver ? 0 : this.beads.nativeElement.translateY + translation}
         }).then(() => {
