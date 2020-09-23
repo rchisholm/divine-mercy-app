@@ -112,7 +112,7 @@ export class ChapletComponent implements OnInit {
             beadDistanceFactor *= 1.019;
         }
         if (this.IPAD) {
-            beadDistanceFactor *= 1.0;
+            beadDistanceFactor *= 0.997;
         }
 
         // shorter variables for readability
