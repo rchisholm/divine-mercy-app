@@ -48,12 +48,16 @@ export class ChapletComponent implements OnInit {
     readonly BEAD_LONG_PERCENT = 0.0215;
     readonly BEAD_SHORT_PERCENT = .01405;
     readonly BEAD_END_PERCENT = 0.030;
-    readonly BEAD_OFFSET_PERCENT = 0.0265;
+    readonly BEAD_OFFSET_PERCENT = isAndroid ? 0.0290 : 0.0265;
+    // readonly BEAD_OFFSET_PERCENT = 0.0290;
 
-    readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT;
-    readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT;
-    readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT;
-    readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT;
+    readonly OS_FACTOR = isAndroid ? 1.0 : 0.986;
+    // readonly OS_FACTOR = 1;
+
+    readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT * this.OS_FACTOR;
+    readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT * this.OS_FACTOR;
+    readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT * this.OS_FACTOR;
+    readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT * this.OS_FACTOR;
     readonly BEAD_OFFSET_DISTANCE = this.BEAD_HEIGHT * this.BEAD_OFFSET_PERCENT;
 
     readonly BEAD_GLOW_TOP_START: number = (this.SCREEN_HEIGHT_DIP - this.BEAD_WIDTH) / 2;
