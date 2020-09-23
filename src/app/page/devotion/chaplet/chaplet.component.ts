@@ -52,16 +52,21 @@ export class ChapletComponent implements OnInit {
     // readonly BEAD_OFFSET_PERCENT = 0.0290;
 
     readonly OS_FACTOR = isAndroid ? 1.0 : 0.986;
+
+    readonly IPHONE_X = !isAndroid  && (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812);
+    readonly IPAD = !isAndroid && (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366);
+    readonly IOS_OLD = !isAndroid && (parseFloat(device.osVersion) < 11);
+
     // readonly OS_FACTOR = 1;
 
-    readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT * this.OS_FACTOR;
-    readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT * this.OS_FACTOR;
-    readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT * this.OS_FACTOR;
-    readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT * this.OS_FACTOR;
+    readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT;
+    readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT;
+    readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT;
+    readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT;
     readonly BEAD_OFFSET_DISTANCE = this.BEAD_HEIGHT * this.BEAD_OFFSET_PERCENT;
 
-    readonly BEAD_GLOW_TOP_START: number = (this.SCREEN_HEIGHT_DIP - this.BEAD_WIDTH) / 2;
-    readonly BEAD_TOP_START: number = this.SCREEN_HEIGHT_DIP / 2 - this.BEAD_HEIGHT + this.BEAD_OFFSET_DISTANCE;
+    BEAD_GLOW_TOP_START: number = (this.SCREEN_HEIGHT_DIP - this.BEAD_WIDTH) / 2;
+    BEAD_TOP_START: number = this.SCREEN_HEIGHT_DIP / 2 - this.BEAD_HEIGHT + this.BEAD_OFFSET_DISTANCE;
 
     private beadIndex: number; // which bead we are on (0 - 11)
     private beadDistance: Array<number>; // how far the beads are apart
@@ -97,19 +102,32 @@ export class ChapletComponent implements OnInit {
 
     ngOnInit(): void {
 
-        // shorter variables for readability
-        const A = this.BEAD_CROSS_DISTANCE;
-        const B = this.BEAD_LONG_DISTANCE;
-        const C = this.BEAD_SHORT_DISTANCE;
-        const D = this.BEAD_END_DISTANCE;
+        // determine multiplier
+        let beadDistanceFactor = this.OS_FACTOR;
+        if (this.IPHONE_X) {
+            beadDistanceFactor *= 0.99;
+            this.BEAD_GLOW_TOP_START -= 12;
+        }
+        if (this.IOS_OLD) {
+            beadDistanceFactor *= 1.019;
+        }
+        if (this.IPAD) {
+            beadDistanceFactor *= 1.0;
+        }
 
-        console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-        console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
-        console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
-        console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
-        console.log("BEAD_SHORT_DISTANCE: " + this.BEAD_SHORT_DISTANCE);
-        console.log("BEAD_LONG_DISTANCE: " + this.BEAD_LONG_DISTANCE);
-        console.log("BEAD_END_DISTANCE: " + this.BEAD_END_DISTANCE);
+        // shorter variables for readability
+        const A = this.BEAD_CROSS_DISTANCE * beadDistanceFactor;
+        const B = this.BEAD_LONG_DISTANCE * beadDistanceFactor;
+        const C = this.BEAD_SHORT_DISTANCE * beadDistanceFactor;
+        const D = this.BEAD_END_DISTANCE * beadDistanceFactor;
+
+        // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+        // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        // console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
+        // console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
+        // console.log("BEAD_SHORT_DISTANCE: " + this.BEAD_SHORT_DISTANCE);
+        // console.log("BEAD_LONG_DISTANCE: " + this.BEAD_LONG_DISTANCE);
+        // console.log("BEAD_END_DISTANCE: " + this.BEAD_END_DISTANCE);
 
         // // iOS device adjustment
         // if (!isAndroid) {
@@ -181,7 +199,9 @@ export class ChapletComponent implements OnInit {
 
     advanceBeads() {
         if (!this.beadsAreMoving) {
-            this.moveBeadsDown();
+            if (this.moveBeadsDown()) {
+                this.updatePrayer();
+            }
         }
     }
 
