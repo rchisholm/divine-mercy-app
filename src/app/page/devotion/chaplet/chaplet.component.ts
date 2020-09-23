@@ -39,9 +39,25 @@ export class ChapletComponent implements OnInit {
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
-    readonly BEAD_TOP_START: number = this.SCREEN_HEIGHT_DIP / 2 - 3660;
-    readonly BEAD_GLOW_TOP_START: number =
-        isAndroid ? this.SCREEN_HEIGHT_DIP / 2 - 100 : this.SCREEN_HEIGHT_DIP / 2 - 54;
+
+    readonly BEAD_RATIO = 34.54;
+    readonly BEAD_WIDTH = 108;
+    readonly BEAD_HEIGHT = 3730.32;
+
+    readonly BEAD_CROSS_PERCENT = 0.0345;
+    readonly BEAD_LONG_PERCENT = 0.0215;
+    readonly BEAD_SHORT_PERCENT = .01405;
+    readonly BEAD_END_PERCENT = 0.030;
+    readonly BEAD_OFFSET_PERCENT = 0.0265;
+
+    readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT;
+    readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT;
+    readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT;
+    readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT;
+    readonly BEAD_OFFSET_DISTANCE = this.BEAD_HEIGHT * this.BEAD_OFFSET_PERCENT;
+
+    readonly BEAD_GLOW_TOP_START: number = (this.SCREEN_HEIGHT_DIP - this.BEAD_WIDTH) / 2;
+    readonly BEAD_TOP_START: number = this.SCREEN_HEIGHT_DIP / 2 - this.BEAD_HEIGHT + this.BEAD_OFFSET_DISTANCE;
 
     private beadIndex: number; // which bead we are on (0 - 11)
     private beadDistance: Array<number>; // how far the beads are apart
@@ -55,19 +71,6 @@ export class ChapletComponent implements OnInit {
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
         6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8];
-
-    private readonly BEAD_RATIO = 34.54;
-    private readonly BEAD_HEIGHT = (120 * 0.9) * this.BEAD_RATIO;
-
-    private readonly BEAD_CROSS_PERCENT = 0.0345;
-    private readonly BEAD_LONG_PERCENT = 0.0215;
-    private readonly BEAD_SHORT_PERCENT = .01405;
-    private readonly BEAD_END_PERCENT = 0.030;
-
-    private readonly BEAD_CROSS_DISTANCE = this.BEAD_HEIGHT * this.BEAD_CROSS_PERCENT;
-    private readonly BEAD_LONG_DISTANCE = this.BEAD_HEIGHT * this.BEAD_LONG_PERCENT;
-    private readonly BEAD_SHORT_DISTANCE = this.BEAD_HEIGHT * this.BEAD_SHORT_PERCENT;
-    private readonly BEAD_END_DISTANCE = this.BEAD_HEIGHT * this.BEAD_END_PERCENT;
 
     // constant values
     private readonly BEAD_MAX: number = 60;
