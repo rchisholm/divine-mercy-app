@@ -56,6 +56,7 @@ export class ChapletComponent implements OnInit {
     readonly IPHONE_X = !isAndroid  && (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812);
     readonly IPAD = !isAndroid && (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366);
     readonly IOS_OLD = !isAndroid && (parseFloat(device.osVersion) < 11);
+    readonly PIXEL_3 = isAndroid && screen.mainScreen.heightPixels === 2960;
 
     // readonly OS_FACTOR = 1;
 
@@ -114,6 +115,9 @@ export class ChapletComponent implements OnInit {
         if (this.IPAD) {
             beadDistanceFactor *= 0.997;
         }
+        if (this.PIXEL_3) {
+            this.BEAD_GLOW_TOP_START -= 10;
+        }
 
         // shorter variables for readability
         const A = this.BEAD_CROSS_DISTANCE * beadDistanceFactor;
@@ -121,8 +125,9 @@ export class ChapletComponent implements OnInit {
         const C = this.BEAD_SHORT_DISTANCE * beadDistanceFactor;
         const D = this.BEAD_END_DISTANCE * beadDistanceFactor;
 
-        // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-        // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+        console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+
         // console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
         // console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
         // console.log("BEAD_SHORT_DISTANCE: " + this.BEAD_SHORT_DISTANCE);
