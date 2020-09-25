@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 export interface TextItem {
     id: number;
@@ -17,13 +18,28 @@ export interface ResourceItem {
     link: string;
 }
 
+export interface ArticleItem {
+    title: string;
+    imageURL: string;
+    linkURL: string;
+    body: string;
+}
+
 @Injectable({
     providedIn: "root"
 })
 export class DataService {
+    // tslint:disable: member-ordering
 
     // TODO: attempt to get data from server;
     // if not available, use this hard-coded data
+
+    private serverUrl = "https://api.marian.org/fetch";
+    private headers = new HttpHeaders({
+        "Content-Type": "application/json"
+    });
+
+    constructor(private http: HttpClient) { }
 
     private textItems = {
         introduction: new Array<TextItem>(
@@ -538,7 +554,7 @@ export class DataService {
             {
                 id: 1,
                 name: "Make the Sign of the Cross",
-                description: "In the name of the Father, and of the Son, and of the Holy Spirit. Amen.",
+                description: "In the name of the Father, and of the Son, and of the Holy Spirit. Amen."
             },
             {
                 id: 2,
@@ -669,6 +685,20 @@ export class DataService {
 
     getResourceItem(page: string, id: number): ResourceItem {
         return this.resourceItems[page].filter((item) => item.id === id)[0];
+    }
+
+    postData(data: any) {
+        const headers = this.headers;
+
+        return this.http.post(
+            this.serverUrl,
+            { data },
+            { headers }
+        );
+    }
+
+    getNewsArticles() {
+       return this.postData({fetchCode: "tdm-articles-news"});
     }
 
 }
