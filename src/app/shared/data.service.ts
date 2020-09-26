@@ -34,10 +34,8 @@ export class DataService {
     // TODO: attempt to get data from server;
     // if not available, use this hard-coded data
 
-    private serverUrl = "https://api.marian.org/fetch";
-    private headers = new HttpHeaders({
-        "Content-Type": "application/json"
-    });
+    private serverUrl = "https://api-dev.marian.org/fetch";
+    private headers = new HttpHeaders().set("Content-Type", "application/json");
 
     constructor(private http: HttpClient) { }
 
@@ -688,17 +686,18 @@ export class DataService {
     }
 
     postData(data: any) {
-        const headers = this.headers;
 
         return this.http.post(
             this.serverUrl,
-            { data },
-            { headers }
+            data,
+            { headers: this.headers }
         );
     }
 
     getNewsArticles() {
-       return this.postData({fetchCode: "tdm-articles-news"});
+        return this.postData(
+            { fetchCode: "tdm-articles-news" }
+        );
     }
 
 }

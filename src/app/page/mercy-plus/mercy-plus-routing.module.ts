@@ -23,6 +23,7 @@ import { ApostolatesHpdmComponent } from "./apostolates/apostolates-hpdm/apostol
 import { ApostolatesJpiiComponent } from "./apostolates/apostolates-jpii/apostolates-jpii.component";
 import { ApostolatesMommComponent } from "./apostolates/apostolates-momm/apostolates-momm.component";
 import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostolates-what.component";
+import { ArticlesComponent } from "./articles/articles.component";
 
 const routes: Routes = [
     { path: "default", component: MercyPlusComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
     { path: "apostolates-hpdm", component: ApostolatesHpdmComponent },
     { path: "apostolates-jpii", component: ApostolatesJpiiComponent },
     { path: "apostolates-momm", component: ApostolatesMommComponent },
-    { path: "apostolates-what", component: ApostolatesWhatComponent }
+    { path: "apostolates-what", component: ApostolatesWhatComponent },
+    { path: "articles", component: ArticlesComponent }
 ];
 
 @NgModule({

@@ -20,7 +20,11 @@ export class ArticlesComponent implements OnInit {
         this.data
             .getNewsArticles()
             .subscribe((res) => {
+                console.log((<any>res));
                 this.items = (<any>res).json.data.articles;
+            },
+            (err) => {
+                console.log(err);
             });
     }
 

@@ -23,6 +23,7 @@ import { ApostolatesHpdmComponent } from "./apostolates/apostolates-hpdm/apostol
 import { ApostolatesJpiiComponent } from "./apostolates/apostolates-jpii/apostolates-jpii.component";
 import { ApostolatesMommComponent } from "./apostolates/apostolates-momm/apostolates-momm.component";
 import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostolates-what.component";
+import { ArticlesComponent } from "./articles/articles.component";
 
 @NgModule({
     imports: [
@@ -50,7 +51,8 @@ import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostol
         ApostolatesHpdmComponent,
         ApostolatesJpiiComponent,
         ApostolatesMommComponent,
-        ApostolatesWhatComponent
+        ApostolatesWhatComponent,
+        ArticlesComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
