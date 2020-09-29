@@ -8,7 +8,7 @@
 </ActionBar>
 
 <GridLayout class="page">
-    <GridLayout rows="560px" columns="*">
+    <GridLayout rows="*" columns="*">
         <Pager
             row="0"
             #pager
@@ -21,7 +21,7 @@
                     class="pager-item"
                     rows="*"
                     columns="*">
-                    <Image row="0" [src]="item.file" class="photo" stretch="aspectFill" (tap)="toggleHideControls()"></Image>
+                    <Image row="0" [src]="item.file" class="photo" stretch="aspectFit" (tap)="toggleHideControls()"></Image>
                     <Label row="0" [text]="item.title" class="slider-title"
                         *ngIf="!hideControls" [@fadeInOut]
                         horizontalAlignment="left"

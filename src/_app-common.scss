@@ -160,17 +160,10 @@ ActionBar {
     }
 }
 
-Pager.image-pager {
+Pager {
     background-color: black;
 
     .pager-item {
-        .slider-title {
-            color: white;
-            margin:10px;
-            font-size: 20px;
-            font-style: italic;
-            transition: all 0.3s ease;
-        }
 
         .arrow {
             color: white;
@@ -180,7 +173,20 @@ Pager.image-pager {
             transition: all 0.3s ease;
         }
     }
+
+    &.image-pager {
+        .pager-item {
+            .slider-title {
+                color: white;
+                margin:10px;
+                font-size: 20px;
+                font-style: italic;
+                transition: all 0.3s ease;
+            }
+        }
+    }
 }
+
 
 .chaplet-prayer-text {
     border-radius:20px;
