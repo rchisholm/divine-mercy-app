@@ -5,6 +5,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { FormattedString } from "tns-core-modules/ui/text-base";
+import { ScrollView } from "tns-core-modules/ui/scroll-view";
 
 @Component({
     selector: "Stations",
@@ -29,6 +30,7 @@ export class StationsComponent implements OnInit {
     stationTitle: string;
     stationTextItems: Array<TextItem>;
     @ViewChild("pager", {static: true}) pager: ElementRef;
+    @ViewChild("scroller", {static: true}) scroller: ElementRef;
 
     constructor(
         private data: DataService,
@@ -57,6 +59,7 @@ export class StationsComponent implements OnInit {
 
         this.stationTextItems = this.data.getTextItems("stations");
         this.updateStationText();
+
     }
 
     nextPage() {
@@ -79,6 +82,7 @@ export class StationsComponent implements OnInit {
     updateStationText() {
         this.stationTitle = this.stationTextItems[this.currentPage].name;
         this.stationText = this.formatter.formatTagsFromString(this.stationTextItems[this.currentPage].description);
+        this.scroller.nativeElement.scrollToVerticalOffset(0, false);
     }
 
     onBackTap(): void {

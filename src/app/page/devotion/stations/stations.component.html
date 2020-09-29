@@ -44,7 +44,7 @@
             verticalAlignment="center"
             (tap)="nextPage()">
         </Label>
-        <ScrollView row="3" class="stations-text-scroller">
+        <ScrollView row="3" #scroller class="stations-text-scroller">
             <Label row="1" class="m-10 h3 stations-text" [formattedText]="stationText" verticalAlignment="top" textWrap="true"></Label>
         </ScrollView>
     </GridLayout>
