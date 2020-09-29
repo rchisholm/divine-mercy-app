@@ -20,8 +20,8 @@ export interface ResourceItem {
 
 export interface ArticleItem {
     title: string;
-    imageURL: string;
-    linkURL: string;
+    image: string;
+    path: string;
     body: string;
 }
 
@@ -694,10 +694,39 @@ export class DataService {
         );
     }
 
-    getNewsArticles() {
-        return this.postData(
-            { fetchCode: "tdm-articles-news" }
+    getData(params = null) {
+        let queryString = "";
+        const queryArray = [];
+        if (params) {
+            for (const property in params) {
+                if (property) {
+                    queryArray.push(property + "=" + params[property]);
+                }
+            }
+            if (queryArray.length > 0) {
+                queryString += "?" + queryArray.join("&");
+            }
+        }
+
+        return this.http.get(
+            this.serverUrl + queryString,
+            { headers: this.headers }
         );
+    }
+
+    // getNewsArticles() {
+    //     return this.postData(
+    //         { fetchCode: "tdm-articles-news" }
+    //     );
+    // }
+
+    getNewsArticles() {
+        return this.getData({
+            fetchCode: "tdm-articles-news",
+            truncateBody: 200,
+            plainTextBody: true,
+            imageStyle: "3-wide_teaser_image"
+        });
     }
 
 }

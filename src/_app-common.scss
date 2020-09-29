@@ -157,8 +157,6 @@ ActionBar {
             font-size: 16;
             horizontal-align: center;
         }
-
-
     }
 }
 
@@ -199,6 +197,20 @@ Pager.image-pager {
         font-size: 18;
         text-align: center;
     }
+}
+
+.tdm-article {
+    max-width: 100%;
+
+    .article-title {
+        font-weight: bold;
+        font-size: 15;
+    }
+}
+
+.read-more-link {
+    font-weight: bold;
+    font-size: 15;
 }
 
 // dark mode
