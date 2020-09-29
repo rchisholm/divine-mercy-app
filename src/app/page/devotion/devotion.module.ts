@@ -13,6 +13,7 @@ import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-d
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 import { DmiComponent } from "./dmi/dmi.component" ;
 import { ChapletComponent } from "./chaplet/chaplet.component";
+import { StationsComponent } from "./stations/stations.component";
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { ChapletComponent } from "./chaplet/chaplet.component";
         NovenaItemDetailComponent,
         NovenaResourcesComponent,
         DmiComponent,
-        ChapletComponent
+        ChapletComponent,
+        StationsComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

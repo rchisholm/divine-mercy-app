@@ -12,6 +12,7 @@ import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-d
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 import { DmiComponent } from "./dmi/dmi.component" ;
 import { ChapletComponent } from "./chaplet/chaplet.component";
+import { StationsComponent } from "./stations/stations.component";
 
 const routes: Routes = [
     { path: "default", component: DevotionComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
     { path: "novena/:id", component: NovenaItemDetailComponent },
     { path: "novena-resources", component: NovenaResourcesComponent },
     { path: "image", component: DmiComponent },
-    { path: "chaplet", component: ChapletComponent }
+    { path: "chaplet", component: ChapletComponent },
+    { path: "stations", component: StationsComponent }
 ];
 
 @NgModule({

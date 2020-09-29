@@ -185,6 +185,36 @@ Pager {
             }
         }
     }
+
+    &.stations-pager {
+        .arrow {
+            margin: 10px 20px;
+        }
+
+    }
+}
+
+.stations-page {
+    background-color: black;
+    Label {
+        color: white;
+        &.stations-title {
+            font-size: 18;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+    .stations-text-scroller {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .arrow {
+        color: white;
+        margin: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        font-style: italic;
+    }
 }
 
 
