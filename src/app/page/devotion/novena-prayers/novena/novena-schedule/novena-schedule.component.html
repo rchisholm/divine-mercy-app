@@ -7,10 +7,14 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout rows="250px, 50px, *" columns="*" class="page novena-schedule-page">
+<GridLayout rows="100px, 100px, 50px, *" columns="*" class="page novena-schedule-page">
     <DatePicker row="0"
         (dateChange)="onDateChanged($event)"
-        (loaded)="onDatePickerLoaded($event)"
         verticalAlignment="center">
     </DatePicker>
+    <TimePicker row="1"
+        (timeChange)="onTimeChanged($event)"
+        verticalAlignment="center">
+    </TimePicker>
+    <Label row="2" (tap)="showDate()" text="show date..."></Label>
 </GridLayout>
