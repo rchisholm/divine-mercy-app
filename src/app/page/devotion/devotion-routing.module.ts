@@ -8,6 +8,7 @@ import { FeastItemDetailComponent } from "./feast/feast-item-detail.component" ;
 import { NovenaPrayersComponent } from "./novena-prayers/novena-prayers.component" ;
 import { NovenaPrayersItemDetailComponent } from "./novena-prayers/novena-prayers-item-detail.component" ;
 import { NovenaComponent } from "./novena-prayers/novena/novena.component" ;
+import { NovenaScheduleComponent } from "./novena-prayers/novena/novena-schedule/novena-schedule.component";
 import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-detail.component" ;
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 import { DmiComponent } from "./dmi/dmi.component" ;
@@ -21,6 +22,7 @@ const routes: Routes = [
     { path: "novena-prayers", component: NovenaPrayersComponent },
     { path: "novena-prayers/:id", component: NovenaPrayersItemDetailComponent },
     { path: "novena", component: NovenaComponent },
+    { path: "novena-schedule", component: NovenaScheduleComponent },
     { path: "novena/:id", component: NovenaItemDetailComponent },
     { path: "novena-resources", component: NovenaResourcesComponent },
     { path: "image", component: DmiComponent },
