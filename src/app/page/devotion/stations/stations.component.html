@@ -23,24 +23,6 @@
                     rows="*"
                     columns="*">
                     <Image row="0" [src]="item.file" class="photo" stretch="aspectFit"></Image>
-                    <!-- <Label
-                        row="0"
-                        *ngIf="(currentPage > 0)" [@fadeInOut]
-                        text="&larr;"
-                        class="arrow"
-                        horizontalAlignment="left"
-                        verticalAlignment="center"
-                        (tap)="prevPage()">
-                    </Label>
-                    <Label
-                        row="0"
-                        *ngIf="(currentPage < maxPage)" [@fadeInOut]
-                        text="&rarr;"
-                        class="arrow"
-                        horizontalAlignment="right"
-                        verticalAlignment="center"
-                        (tap)="nextPage()">
-                    </Label> -->
                 </GridLayout>
             </ng-template>
         </Pager>
