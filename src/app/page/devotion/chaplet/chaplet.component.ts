@@ -53,7 +53,9 @@ export class ChapletComponent implements OnInit {
 
     readonly OS_FACTOR = isAndroid ? 1.0 : 0.986;
 
-    readonly IPHONE_X = !isAndroid  && (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812);
+    readonly IPHONE_X = !isAndroid  && this.SCREEN_HEIGHT_DIP === 812;
+    readonly IPHONE_11 = !isAndroid && this.SCREEN_HEIGHT_DIP === 896 && screen.mainScreen.heightPixels === 1792;
+    readonly IPHONE_11_PM = !isAndroid && this.SCREEN_HEIGHT_DIP === 896 && screen.mainScreen.heightPixels === 2688;
     readonly IPAD = !isAndroid && (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366);
     readonly IOS_OLD = !isAndroid && (parseFloat(device.osVersion) < 11);
     readonly PIXEL_3 = isAndroid && screen.mainScreen.heightPixels === 2960;
@@ -105,10 +107,20 @@ export class ChapletComponent implements OnInit {
 
         // determine multiplier
         let beadDistanceFactor = this.OS_FACTOR;
+        if (this.IPHONE_11) {
+            console.log("IPHONE_11");
+            beadDistanceFactor *= 0.99;
+            this.BEAD_GLOW_TOP_START -= 3;
+        }
+        if (this.IPHONE_11_PM) {
+            console.log("IPHONE_11_PM");
+            beadDistanceFactor *= 0.99;
+            this.BEAD_GLOW_TOP_START -= 10;
+        }
         if (this.IPHONE_X) {
             console.log("IPHONE_X");
             beadDistanceFactor *= 0.99;
-            this.BEAD_GLOW_TOP_START -= 3;
+            this.BEAD_GLOW_TOP_START -= 12;
         }
         if (this.IOS_OLD) {
             console.log("IOS_OLD");
@@ -131,6 +143,9 @@ export class ChapletComponent implements OnInit {
 
         console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
         console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        console.log("SCREEN_HEIGHT_PIX: " + screen.mainScreen.heightPixels);
+        console.log("SCREEN_WIDTH_PIX: " + screen.mainScreen.widthPixels);
+        console.log("SCREEN_SCALE: " + screen.mainScreen.scale);
 
         // console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
         // console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
