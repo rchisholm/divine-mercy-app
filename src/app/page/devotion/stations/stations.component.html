@@ -7,45 +7,43 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout class="page stations-page">
-    <GridLayout rows="50px, 300px, 35px, *" columns="*">
-        <Label row="0" class="m-10 h3 stations-title" [text]="stationTitle"></Label>
-        <Pager
-            row="1"
-            #pager
-            [items]="images"
-            class="pager stations-pager"
-            [selectedIndex]="currentPage"
-            (selectedIndexChange)="onPageChanged($event)">
-            <ng-template let-i="index" let-item="item">
-                <GridLayout
-                    class="pager-item"
-                    rows="*"
-                    columns="*">
-                    <Image row="0" [src]="item.file" class="photo" stretch="aspectFit"></Image>
-                </GridLayout>
-            </ng-template>
-        </Pager>
-        <Label
-            row="2"
-            *ngIf="(currentPage > 0)" [@fadeInOut]
-            text="&larr; previous"
-            class="arrow"
-            horizontalAlignment="left"
-            verticalAlignment="center"
-            (tap)="prevPage()">
-        </Label>
-        <Label
-            row="2"
-            *ngIf="(currentPage < maxPage)" [@fadeInOut]
-            text="next &rarr;"
-            class="arrow"
-            horizontalAlignment="right"
-            verticalAlignment="center"
-            (tap)="nextPage()">
-        </Label>
-        <ScrollView row="3" #scroller class="stations-text-scroller">
-            <Label row="1" class="m-10 h3 stations-text" [formattedText]="stationText" verticalAlignment="top" textWrap="true"></Label>
-        </ScrollView>
-    </GridLayout>
+<GridLayout rows="40px, 245px, 30px, *" columns="*" class="page stations-page">
+    <Label row="0" class="m-10 h3 stations-title" [text]="stationTitle"></Label>
+    <Pager
+        row="1"
+        #pager
+        [items]="images"
+        class="pager stations-pager"
+        [selectedIndex]="currentPage"
+        (selectedIndexChange)="onPageChanged($event)">
+        <ng-template let-i="index" let-item="item">
+            <GridLayout
+                class="pager-item"
+                rows="*"
+                columns="*">
+                <Image row="0" [src]="item.file" class="photo" stretch="aspectFit"></Image>
+            </GridLayout>
+        </ng-template>
+    </Pager>
+    <Label
+        row="2"
+        *ngIf="(currentPage > 0)" [@fadeInOut]
+        text="&larr; previous"
+        class="arrow"
+        horizontalAlignment="left"
+        verticalAlignment="center"
+        (tap)="prevPage()">
+    </Label>
+    <Label
+        row="2"
+        *ngIf="(currentPage < maxPage)" [@fadeInOut]
+        text="next &rarr;"
+        class="arrow"
+        horizontalAlignment="right"
+        verticalAlignment="center"
+        (tap)="nextPage()">
+    </Label>
+    <ScrollView row="3" #scroller class="stations-text-scroller">
+        <Label row="1" class="m-10 h3 stations-text" [formattedText]="stationText" verticalAlignment="top" textWrap="true"></Label>
+    </ScrollView>
 </GridLayout>
