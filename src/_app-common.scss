@@ -244,6 +244,29 @@ Pager {
     }
 }
 
+
+.novena-schedule-page {
+    .novena-schedule-label {
+        font-weight: bold;
+        text-align: center;
+        font-size: 15;
+    }
+
+    .novena-button {
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .novena-schedule-paragraph {
+        margin: 20px;
+        vertical-align: top;
+        font-size: 15px;
+    }
+}
+
+
 .read-more-link {
     font-weight: bold;
     font-size: 15;

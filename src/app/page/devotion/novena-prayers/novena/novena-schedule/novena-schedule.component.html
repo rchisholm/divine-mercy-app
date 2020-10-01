@@ -7,18 +7,20 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout rows="100px, 100px, 50px, *" columns="*" class="page novena-schedule-page">
-    <DatePicker row="0"
+<GridLayout rows="50px, 200px, 100px, 50px, *" columns="*" class="page novena-schedule-page">
+    <Label row="0" text="Choose a date:" class="novena-schedule-label"></Label>
+    <DatePicker row="1"
         (dateChange)="onDateChanged($event)"
         verticalAlignment="center">
     </DatePicker>
-    <TimePicker row="1"
+    <TimePicker row="2"
         (timeChange)="onTimeChanged($event)"
         verticalAlignment="center">
     </TimePicker>
-    <SegmentedBar row="2"
-        [items]="controlOptions"
-        [selectedIndex]="controlIndex"
-        (selectedIndexChange)="onSelectedIndexChange($event)"></SegmentedBar>
+    <GridLayout row="3" rows="*" columns = "*, *">
+        <Button col="0" text="Schedule Novena Notification" textWrap="true" class="novena-button" (tap)="scheduleNotifications()" backgroundColor="#961300"></Button>
+        <Button col="1" text="Cancel Notifications" textWrap="true" class="novena-button" (tap)="clearNotifications()" backgroundColor="#961300"></Button>
+    </GridLayout>
+    <Label row="4" class="novena-schedule-paragraph" text="Pick a date and time to receive the day 1 novena prayer reminder and select start to schedule the reminder notifications." textWrap="true"></Label>
     <!-- <Label row="2" (tap)="showDate()" text="show date..."></Label> -->
 </GridLayout>
