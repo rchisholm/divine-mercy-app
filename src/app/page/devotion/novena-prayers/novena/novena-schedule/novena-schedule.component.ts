@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { TimePicker } from "tns-core-modules/ui/time-picker";
+import { SegmentedBar, SegmentedBarItem, SelectedIndexChangedEventData } from "tns-core-modules/ui/segmented-bar";
 
 @Component({
     selector: "NovenaSchedule",
@@ -16,11 +17,25 @@ export class NovenaScheduleComponent implements OnInit {
     minute: number;
     second: number;
 
+    controlOptions: Array<SegmentedBarItem> = [];
+    startNovenaOptions: SegmentedBarItem;
+    clearNotificationsItem: SegmentedBarItem;
+    controlIndex: number;
+
     constructor(
         private router: RouterExtensions
     ) { }
 
     ngOnInit(): void {
+
+        this.startNovenaOptions = new SegmentedBarItem();
+        this.startNovenaOptions.title = "Start Novena Notifications";
+        this.clearNotificationsItem = new SegmentedBarItem();
+        this.clearNotificationsItem.title = "Clear Notifications";
+
+        this.controlOptions.push(this.startNovenaOptions, this.clearNotificationsItem);
+        this.controlIndex = null;
+
         this.scheduleDate = new Date();
         this.year = this.scheduleDate.getFullYear();
         this.month = this.scheduleDate.getMonth();
@@ -67,20 +82,13 @@ export class NovenaScheduleComponent implements OnInit {
         this.scheduleDate = new Date(this.year, this.month , this.day, this.hour, this.minute);
     }
 
-    // onDayChanged(args) {
-    //     console.log("Day New value: " + args.value);
-    //     console.log("Day Old value: " + args.oldValue);
-    // }
-
-    // onMonthChanged(args) {
-    //     console.log("Month New value: " + args.value);
-    //     console.log("Month Old value: " + args.oldValue);
-    // }
-
-    // onYearChanged(args) {
-    //     console.log("Year New value: " + args.value);
-    //     console.log("Year Old value: " + args.oldValue);
-    // }
+    onSelectedIndexChange(args: SelectedIndexChangedEventData) {
+        const segmentedBar = args.object as SegmentedBar;
+        const oldIndex = args.oldIndex;
+        const newIndex = args.newIndex;
+        console.log(newIndex);
+        this.controlIndex = null;
+    }
 
     onBackTap(): void {
         this.router.back();

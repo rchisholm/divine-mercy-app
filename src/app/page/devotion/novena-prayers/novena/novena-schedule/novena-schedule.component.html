@@ -16,5 +16,9 @@
         (timeChange)="onTimeChanged($event)"
         verticalAlignment="center">
     </TimePicker>
-    <Label row="2" (tap)="showDate()" text="show date..."></Label>
+    <SegmentedBar row="2"
+        [items]="controlOptions"
+        [selectedIndex]="controlIndex"
+        (selectedIndexChange)="onSelectedIndexChange($event)"></SegmentedBar>
+    <!-- <Label row="2" (tap)="showDate()" text="show date..."></Label> -->
 </GridLayout>
