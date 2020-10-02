@@ -5,7 +5,6 @@ import { TimePicker } from "tns-core-modules/ui/time-picker";
 import { LocalNotifications } from "nativescript-local-notifications";
 import { Color } from "tns-core-modules/color";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { getBoolean, getNumber, getString, setBoolean, setNumber, setString } from "tns-core-modules/application-settings";
 
 @Component({
     selector: "NovenaSchedule",
@@ -78,14 +77,13 @@ export class NovenaScheduleComponent implements OnInit {
     }
 
     scheduleNovena() {
-        if (getBoolean("novenaIsSet")) {
+        this.novenaIsScheduled(() => {
             dialogs.action({// confirm clearing current novena
                 message: "A Novena is already scheduled. Cancel it and start a new Novena?",
                 cancelButtonText: "No, keep current Novena",
                 actions: ["Yes, start new Novena"]
             }).then((result) => {
                 if (result === "Yes, start new Novena") {// user confirms
-                    setBoolean("novenaIsSet", false);
                     this.clearNotifications(); // clear current novena
                     this.scheduleNovena(); // set new novena
                 } else {// nevermind - user cancels
@@ -94,7 +92,7 @@ export class NovenaScheduleComponent implements OnInit {
                     return;
                 }
             });
-        } else {// request permission first
+        }, () => {
             LocalNotifications.requestPermission().then((granted) => {
                 if (granted) {
                     let novenaDate: Date;
@@ -112,7 +110,6 @@ export class NovenaScheduleComponent implements OnInit {
                         message: "Novena has been scheduled.",
                         okButtonText: "OK"
                     }).then(() => {
-                        setBoolean("novenaIsSet", true); // set novena variable
                         this.onBackTap();
                     });
                 } else {
@@ -123,8 +120,7 @@ export class NovenaScheduleComponent implements OnInit {
                     });
                 }
             });
-        }
-
+        });
     }
 
     scheduleNotification(date: Date, dayNumber: number) {
@@ -152,24 +148,22 @@ export class NovenaScheduleComponent implements OnInit {
 
     cancelNovena() {
         console.log("clearing notifications...");
-        if (getBoolean("novenaIsSet")) {
+        this.novenaIsScheduled(() => {
             console.log("novena is set...");
             this.clearNotifications();
             dialogs.alert({// notify user
                 title: "Novena",
                 message: "Novena notifiations cancelled.",
                 okButtonText: "OK"
-            }).then(() => {
-                setBoolean("novenaIsSet", false); // set novena variable
             });
-        } else {
+        }, () => {
             console.log("novena is not set...");
             dialogs.alert({
                 title: "Novena",
                 message: "No Novena notifiations were scheduled.",
                 okButtonText: "OK"
             });
-        }
+        });
     }
 
     clearNotifications() {
@@ -185,6 +179,38 @@ export class NovenaScheduleComponent implements OnInit {
                 }
             );
         });
+    }
+
+    novenaIsScheduled(yes: () => void, no: () => void): void {
+        let isScheduled = false;
+        LocalNotifications.getScheduledIds().then(
+            (ids) => {
+                // ids.forEach((id) => {
+                for (const id of ids) {
+                    if (this.arrayContains(this.notificationIds, id)) {
+                        console.log("novena IS scheduled.");
+                        yes();
+                        isScheduled = true;
+                        break;
+                    }
+                }
+                // });
+                if (!isScheduled) {
+                    console.log("novena is NOT scheduled.");
+                    no();
+                }
+            }
+        );
+    }
+
+    arrayContains(array, obj): boolean {
+        for (const element of array) {
+            if (element === obj) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     onBackTap(): void {
