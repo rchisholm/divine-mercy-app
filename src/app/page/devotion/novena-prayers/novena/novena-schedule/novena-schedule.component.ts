@@ -38,16 +38,7 @@ export class NovenaScheduleComponent implements OnInit {
         this.notificationIds = [901, 902, 903, 904, 905, 906, 907, 908, 909];
     }
 
-    onDatePickerLoaded(args) {
-        // const datePicker = args.object as DatePicker;
-        console.log(args.object);
-    }
-
     onDateChanged(args) {
-        // console.log("Date: " + args.value);
-        // console.log("Year:  " + args.value.getFullYear());
-        // console.log("Month:  " + args.value.getMonth());
-        // console.log("Day:  " + args.value.getDate());
         this.year = args.value.getFullYear();
         this.month = args.value.getMonth();
         this.day = args.value.getDate();
@@ -55,21 +46,9 @@ export class NovenaScheduleComponent implements OnInit {
     }
 
     onTimeChanged(args) {
-        // console.log("Hours:  " + args.value.getHours());
-        // console.log("Minutes:  " + args.value.getMinutes());
-        // console.log("Seconds:  " + args.value.getSeconds());
         this.hour = args.value.getHours();
         this.minute = args.value.getMinutes();
         this.updateScheduleDate();
-    }
-
-    showDate() {
-        console.log("Year:  " + this.year);
-        console.log("Month:  " + this.month);
-        console.log("Day:  " + this.day);
-        console.log("Hours:  " + this.hour);
-        console.log("Minutes:  " + this.minute);
-        console.log("Full Date: " + this.scheduleDate);
     }
 
     updateScheduleDate() {
@@ -78,17 +57,15 @@ export class NovenaScheduleComponent implements OnInit {
 
     scheduleNovena() {
         this.novenaIsScheduled(() => {
-            dialogs.action({// confirm clearing current novena
+            dialogs.action({
                 message: "A Novena is already scheduled. Cancel it and start a new Novena?",
                 cancelButtonText: "No, keep current Novena",
                 actions: ["Yes, start new Novena"]
             }).then((result) => {
-                if (result === "Yes, start new Novena") {// user confirms
-                    this.clearNotifications(); // clear current novena
-                    this.scheduleNovena(); // set new novena
-                } else {// nevermind - user cancels
-                    console.log("cancelled"); // debug
-
+                if (result === "Yes, start new Novena") {
+                    this.clearNotifications();
+                    this.scheduleNovena();
+                } else {
                     return;
                 }
             });
@@ -96,16 +73,13 @@ export class NovenaScheduleComponent implements OnInit {
             LocalNotifications.requestPermission().then((granted) => {
                 if (granted) {
                     let novenaDate: Date;
-                    console.log("scheduling notifications starting at date:");
-                    console.log(this.scheduleDate);
                     for (let x = 0; x < 9; x++) {
                         novenaDate = new Date(this.scheduleDate);
-                        novenaDate.setSeconds(this.scheduleDate.getSeconds() + (x * 5));
-                        // novenaDate.setDate(this.scheduleDate.getDate() + x);
-                        console.log("date: " + novenaDate);
+                        // novenaDate.setSeconds(this.scheduleDate.getSeconds() + (x * 5)); // debug mode
+                        novenaDate.setDate(this.scheduleDate.getDate() + x);
                         this.scheduleNotification(novenaDate, x + 1);
                     }
-                    dialogs.alert({// notify user
+                    dialogs.alert({
                         title: "Novena",
                         message: "Novena has been scheduled.",
                         okButtonText: "OK"
@@ -138,18 +112,16 @@ export class NovenaScheduleComponent implements OnInit {
             priority: 2
           }]).then(
               (scheduledIds) => {
-                console.log("Notification " + dayNumber + " scheduled for date: " + date);
+                // console.log("Notification " + dayNumber + " scheduled for date: " + date);
               },
               (error) => {
-                console.log("scheduling error: " + error);
+                // console.log("scheduling error: " + error);
               }
           );
     }
 
     cancelNovena() {
-        console.log("clearing notifications...");
         this.novenaIsScheduled(() => {
-            console.log("novena is set...");
             this.clearNotifications();
             dialogs.alert({// notify user
                 title: "Novena",
@@ -157,7 +129,6 @@ export class NovenaScheduleComponent implements OnInit {
                 okButtonText: "OK"
             });
         }, () => {
-            console.log("novena is not set...");
             dialogs.alert({
                 title: "Novena",
                 message: "No Novena notifiations were scheduled.",
@@ -168,13 +139,12 @@ export class NovenaScheduleComponent implements OnInit {
 
     clearNotifications() {
         this.notificationIds.forEach((notificationId) => {
-            console.log("cancelling notification " + notificationId);
             LocalNotifications.cancel(notificationId).then(
                 (foundAndCanceled) => {
                     if (foundAndCanceled) {
-                      console.log("Notification " + notificationId + " cancelled.");
+                    //   console.log("Notification " + notificationId + " cancelled.");
                     } else {
-                      console.log("No notification " + notificationId);
+                    //   console.log("No notification " + notificationId);
                     }
                 }
             );
@@ -188,7 +158,6 @@ export class NovenaScheduleComponent implements OnInit {
                 // ids.forEach((id) => {
                 for (const id of ids) {
                     if (this.arrayContains(this.notificationIds, id)) {
-                        console.log("novena IS scheduled.");
                         yes();
                         isScheduled = true;
                         break;
@@ -196,7 +165,6 @@ export class NovenaScheduleComponent implements OnInit {
                 }
                 // });
                 if (!isScheduled) {
-                    console.log("novena is NOT scheduled.");
                     no();
                 }
             }
