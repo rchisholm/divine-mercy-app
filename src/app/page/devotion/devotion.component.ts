@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { isAndroid, screen } from "tns-core-modules/platform";
 import { getBoolean, getNumber, setBoolean } from "tns-core-modules/application-settings/application-settings";
+import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -15,16 +14,11 @@ export class DevotionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        /* disables landscape orientation, unless the orientation class bug is fixed */
-        // let orientation = require("nativescript-orientation");
-        // orientation.setOrientation("portrait");
-
-        // Use the "ngOnInit" handler to initialize data for the view.
-        if (getBoolean("goToNovena")) {
-            this.router.navigate(["../novena-day", getNumber("goToNovenaDay")], { relativeTo: this.currentRoute });
-            setBoolean("goToNovena", false);
-            console.log("navigated via stored boolean");
-        }
-
+        console.log("DevotionComponent OnInit called.");
+        // if (getBoolean("goToNovena")) {
+        //     this.router.navigate(["../novena", getNumber("goToNovenaDay")], { relativeTo: this.currentRoute });
+        //     setBoolean("goToNovena", false);
+        //     console.log("navigated via stored boolean");
+        // }
     }
 }

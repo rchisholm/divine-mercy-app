@@ -279,52 +279,52 @@ export class DataService {
         ),
         novena: new Array<TextItem>(
             {
-                id: 1,
+                id: 0,
                 name: "Schedule Novena Notification",
                 route: "novena-schedule"
             },
             {
-                id: 2,
+                id: 1,
                 name: "Day 1",
                 description: "1"
             },
             {
-                id: 3,
+                id: 2,
                 name: "Day 2",
                 description: "2"
             },
             {
-                id: 4,
+                id: 3,
                 name: "Day 3",
                 description: "3"
             },
             {
-                id: 5,
+                id: 4,
                 name: "Day 4",
                 description: "4"
             },
             {
-                id: 6,
+                id: 5,
                 name: "Day 5",
                 description: "5"
             },
             {
-                id: 7,
+                id: 6,
                 name: "Day 6",
                 description: "6"
             },
             {
-                id: 8,
+                id: 7,
                 name: "Day 7",
                 description: "7"
             },
             {
-                id: 9,
+                id: 8,
                 name: "Day 8",
                 description: "8"
             },
             {
-                id: 10,
+                id: 9,
                 name: "Day 9",
                 description: "9"
             }

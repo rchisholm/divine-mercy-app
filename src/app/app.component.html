@@ -1,4 +1,4 @@
-<BottomNavigation>
+<BottomNavigation #navigation (selectedIndexChanged)="onTabChanged($event)">
     <TabStrip class="navigation_tab_strip">
         <TabStripItem class="navigation__item">
             <Label text="The Message"></Label>
