@@ -53,7 +53,6 @@ export class AppComponent implements OnInit {
     goToNovena(novenaDay) {
         setBoolean("novenaRouteA", !getBoolean("novenaRouteA"));
         const novenaRoute = getBoolean("novenaRouteA") ? "novena-a" : "novena-b";
-        console.log("novena route: " + novenaRoute);
         this.navigation.nativeElement.selectedIndex = 1;
         this.ngZone.run(() => {
             this.router.navigate(
