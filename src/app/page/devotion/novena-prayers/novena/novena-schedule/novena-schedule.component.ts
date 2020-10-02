@@ -2,12 +2,17 @@ import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { TimePicker } from "tns-core-modules/ui/time-picker";
+import { LocalNotifications } from "nativescript-local-notifications";
+import { Color } from "tns-core-modules/color";
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import { getBoolean, getNumber, getString, setBoolean, setNumber, setString } from "tns-core-modules/application-settings";
 
 @Component({
     selector: "NovenaSchedule",
     templateUrl: "./novena-schedule.component.html"
 })
 export class NovenaScheduleComponent implements OnInit {
+    today: Date;
     scheduleDate: Date;
     year: number;
     month: number;
@@ -16,18 +21,22 @@ export class NovenaScheduleComponent implements OnInit {
     minute: number;
     second: number;
 
+    notificationIds: Array<number>;
+
     constructor(
         private router: RouterExtensions
     ) { }
 
     ngOnInit(): void {
-
+        this.today = new Date();
         this.scheduleDate = new Date();
         this.year = this.scheduleDate.getFullYear();
         this.month = this.scheduleDate.getMonth();
         this.day = this.scheduleDate.getDate();
         this.hour = this.scheduleDate.getHours();
         this.minute = this.scheduleDate.getMinutes();
+
+        this.notificationIds = [901, 902, 903, 904, 905, 906, 907, 908, 909];
     }
 
     onDatePickerLoaded(args) {
@@ -68,13 +77,114 @@ export class NovenaScheduleComponent implements OnInit {
         this.scheduleDate = new Date(this.year, this.month , this.day, this.hour, this.minute);
     }
 
-    scheduleNotifications() {
-        console.log("scheduling notifications starting at date:");
-        console.log(this.scheduleDate);
+    scheduleNovena() {
+        if (getBoolean("novenaIsSet")) {
+            dialogs.action({// confirm clearing current novena
+                message: "A Novena is already scheduled. Cancel it and start a new Novena?",
+                cancelButtonText: "No, keep current Novena",
+                actions: ["Yes, start new Novena"]
+            }).then((result) => {
+                if (result === "Yes, start new Novena") {// user confirms
+                    setBoolean("novenaIsSet", false);
+                    this.clearNotifications(); // clear current novena
+                    this.scheduleNovena(); // set new novena
+                } else {// nevermind - user cancels
+                    console.log("cancelled"); // debug
+
+                    return;
+                }
+            });
+        } else {// request permission first
+            LocalNotifications.requestPermission().then((granted) => {
+                if (granted) {
+                    let novenaDate: Date;
+                    console.log("scheduling notifications starting at date:");
+                    console.log(this.scheduleDate);
+                    for (let x = 0; x < 9; x++) {
+                        novenaDate = new Date(this.scheduleDate);
+                        novenaDate.setSeconds(this.scheduleDate.getSeconds() + (x * 5));
+                        // novenaDate.setDate(this.scheduleDate.getDate() + x);
+                        console.log("date: " + novenaDate);
+                        this.scheduleNotification(novenaDate, x + 1);
+                    }
+                    dialogs.alert({// notify user
+                        title: "Novena",
+                        message: "Novena has been scheduled.",
+                        okButtonText: "OK"
+                    }).then(() => {
+                        setBoolean("novenaIsSet", true); // set novena variable
+                        this.onBackTap();
+                    });
+                } else {
+                    dialogs.alert({
+                        title: "Novena",
+                        message: "Novena could not be scheduled. Please allow notifications.",
+                        okButtonText: "OK"
+                    });
+                }
+            });
+        }
+
+    }
+
+    scheduleNotification(date: Date, dayNumber: number) {
+        LocalNotifications.schedule([{
+            id: 900 + dayNumber, // generated id if not set
+            title: "Novena to Divine Mercy",
+            body: "Pray the Novena to Divine Mercy: Day " + dayNumber,
+            // ticker: "The ticker",
+            color: new Color("#961300"),
+            badge: 1,
+            // icon: "res://img_notification",
+            // image: "res://img_headericons_dm",
+            thumbnail: true,
+            at: date,
+            priority: 2
+          }]).then(
+              (scheduledIds) => {
+                console.log("Notification " + dayNumber + " scheduled for date: " + date);
+              },
+              (error) => {
+                console.log("scheduling error: " + error);
+              }
+          );
+    }
+
+    cancelNovena() {
+        console.log("clearing notifications...");
+        if (getBoolean("novenaIsSet")) {
+            console.log("novena is set...");
+            this.clearNotifications();
+            dialogs.alert({// notify user
+                title: "Novena",
+                message: "Novena notifiations cancelled.",
+                okButtonText: "OK"
+            }).then(() => {
+                setBoolean("novenaIsSet", false); // set novena variable
+            });
+        } else {
+            console.log("novena is not set...");
+            dialogs.alert({
+                title: "Novena",
+                message: "No Novena notifiations were scheduled.",
+                okButtonText: "OK"
+            });
+        }
     }
 
     clearNotifications() {
-        console.log("clearing notifications...");
+        this.notificationIds.forEach((notificationId) => {
+            console.log("cancelling notification " + notificationId);
+            LocalNotifications.cancel(notificationId).then(
+                (foundAndCanceled) => {
+                    if (foundAndCanceled) {
+                      console.log("Notification " + notificationId + " cancelled.");
+                    } else {
+                      console.log("No notification " + notificationId);
+                    }
+                }
+            );
+        });
     }
 
     onBackTap(): void {
