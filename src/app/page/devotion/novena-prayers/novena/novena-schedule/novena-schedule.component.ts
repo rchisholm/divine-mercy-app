@@ -75,8 +75,8 @@ export class NovenaScheduleComponent implements OnInit {
                     let novenaDate: Date;
                     for (let x = 0; x < 9; x++) {
                         novenaDate = new Date(this.scheduleDate);
-                        novenaDate.setSeconds(this.scheduleDate.getSeconds() + (x * 10)); // debug mode
-                        // novenaDate.setDate(this.scheduleDate.getDate() + x); // production
+                        // novenaDate.setSeconds(this.scheduleDate.getSeconds() + (x * 10)); // debug mode
+                        novenaDate.setDate(this.scheduleDate.getDate() + x); // production
                         this.scheduleNotification(novenaDate, x + 1);
                     }
                     dialogs.alert({
@@ -131,7 +131,7 @@ export class NovenaScheduleComponent implements OnInit {
         }, () => {
             dialogs.alert({
                 title: "Novena",
-                message: "No Novena notifiations were scheduled.",
+                message: "No Novena notifiations are scheduled.",
                 okButtonText: "OK"
             });
         });
