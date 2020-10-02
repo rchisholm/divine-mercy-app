@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
                 }).then((result) => {
                     if (result === "Yes") {
                         const novenaDay = notification.id - 900;
-                        console.log("Pray the novena, day: " + novenaDay);
                         this.goToNovena(novenaDay);
                     } else {
                         return;
