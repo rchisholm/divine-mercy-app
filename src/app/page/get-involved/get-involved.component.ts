@@ -7,18 +7,12 @@ import { openUrl } from "tns-core-modules/utils/utils";
     templateUrl: "./get-involved.component.html"
 })
 export class GetInvolvedComponent implements OnInit {
-    aboutLinkText: string;
     constructor() {
         // Use the constructor to inject services.
     }
 
     ngOnInit(): void {
         // Use the "ngOnInit" handler to initialize data for the view.
-        if (isAndroid) {
-            this.aboutLinkText = "About this App";
-        } else {
-            this.aboutLinkText = "About";
-        }
     }
 
     openLink(url: string): void {

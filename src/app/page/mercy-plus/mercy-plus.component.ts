@@ -1,8 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { isAndroid, screen } from "tns-core-modules/platform";
-import { getBoolean, getNumber, setBoolean } from "tns-core-modules/application-settings/application-settings";
-import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "MercyPlus",
@@ -10,7 +6,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class MercyPlusComponent implements OnInit {
 
-    constructor(private router: RouterExtensions, private currentRoute: ActivatedRoute) {
+    constructor() {
         // Use the component constructor to inject providers.
     }
 
@@ -20,11 +16,6 @@ export class MercyPlusComponent implements OnInit {
         // orientation.setOrientation("portrait");
 
         // Use the "ngOnInit" handler to initialize data for the view.
-        if (getBoolean("goToNovena")) {
-            this.router.navigate(["../novena-day", getNumber("goToNovenaDay")], { relativeTo: this.currentRoute });
-            setBoolean("goToNovena", false);
-            console.log("navigated via stored boolean");
-        }
 
     }
 }
