@@ -24,6 +24,8 @@ const routes: Routes = [
     { path: "novena", component: NovenaComponent },
     { path: "novena-schedule", component: NovenaScheduleComponent },
     { path: "novena/:id", component: NovenaItemDetailComponent },
+    { path: "novena-a/:id", component: NovenaItemDetailComponent },
+    { path: "novena-b/:id", component: NovenaItemDetailComponent },
     { path: "novena-resources", component: NovenaResourcesComponent },
     { path: "image", component: DmiComponent },
     { path: "chaplet", component: ChapletComponent },

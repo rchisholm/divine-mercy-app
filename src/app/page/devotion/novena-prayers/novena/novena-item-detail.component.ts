@@ -28,6 +28,7 @@ export class NovenaItemDetailComponent implements OnInit {
     }
 
     onBackTap(): void {
+        console.log("novena day back tap");
         this._routerExtensions.back();
     }
 }

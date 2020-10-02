@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, NgZone } from "@angular/core";
 import { LocalNotifications } from "nativescript-local-notifications";
-import { setBoolean, setNumber } from "tns-core-modules/application-settings";
+import { getBoolean, setBoolean, setNumber } from "tns-core-modules/application-settings";
 import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 import * as dialogs from "tns-core-modules/ui/dialogs";
@@ -44,21 +44,20 @@ export class AppComponent implements OnInit {
         );
     }
 
-    onTabChanged(args): void {
-        console.log("native index: " + this.navigation.nativeElement.selectedIndex);
-        // console.log("navigation tab selected: " + this.tabIndex);
-        // console.log("TAB EVENT: ");
-        // console.log(args.object.selectedIndex);
-    }
+    // onTabChanged(args): void {
+    //     // console.log("native index: " + this.navigation.nativeElement.selectedIndex);
+    //     // console.log("TAB EVENT: ");
+    //     // console.log(args.object.selectedIndex);
+    // }
 
     goToNovena(novenaDay) {
-        // setBoolean("goToNovena", true);
-        // setNumber("goToNovenaDay", novenaDay);
-        console.log("current route: " + this.currentRoute);
+        setBoolean("novenaRouteA", !getBoolean("novenaRouteA"));
+        const novenaRoute = getBoolean("novenaRouteA") ? "novena-a" : "novena-b";
+        console.log("novena route: " + novenaRoute);
         this.navigation.nativeElement.selectedIndex = 1;
         this.ngZone.run(() => {
             this.router.navigate(
-                ["/", { outlets: { devotionTab: ["devotion", "novena", novenaDay] } }],
+                ["/", { outlets: { devotionTab: ["devotion", novenaRoute, novenaDay] } }],
                 { relativeTo: this.currentRoute }
             );
         });
