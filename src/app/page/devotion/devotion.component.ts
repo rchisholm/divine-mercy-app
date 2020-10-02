@@ -14,11 +14,6 @@ export class DevotionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log("DevotionComponent OnInit called.");
-        // if (getBoolean("goToNovena")) {
-        //     this.router.navigate(["../novena", getNumber("goToNovenaDay")], { relativeTo: this.currentRoute });
-        //     setBoolean("goToNovena", false);
-        //     console.log("navigated via stored boolean");
-        // }
+        // console.log("DevotionComponent OnInit called.");
     }
 }

@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "org.nativescript.divinemercyapp",
-    "tns-ios": {
-      "version": "6.5.0"
-    },
     "tns-android": {
       "version": "6.5.3"
+    },
+    "tns-ios": {
+      "version": "6.5.0"
     }
   },
   "description": "NativeScript Application",
