@@ -14,6 +14,7 @@ import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/nove
 import { DmiComponent } from "./dmi/dmi.component" ;
 import { ChapletComponent } from "./chaplet/chaplet.component";
 import { StationsComponent } from "./stations/stations.component";
+import { HourComponent } from "./hour/hour.component";
 
 const routes: Routes = [
     { path: "default", component: DevotionComponent },
@@ -21,6 +22,8 @@ const routes: Routes = [
     { path: "feast/:id", component: FeastItemDetailComponent },
     { path: "novena-prayers", component: NovenaPrayersComponent },
     { path: "novena-prayers/:id", component: NovenaPrayersItemDetailComponent },
+    { path: "prayers-a/:id", component: NovenaPrayersItemDetailComponent },
+    { path: "prayers-b/:id", component: NovenaPrayersItemDetailComponent },
     { path: "novena", component: NovenaComponent },
     { path: "novena-schedule", component: NovenaScheduleComponent },
     { path: "novena/:id", component: NovenaItemDetailComponent },
@@ -29,7 +32,8 @@ const routes: Routes = [
     { path: "novena-resources", component: NovenaResourcesComponent },
     { path: "image", component: DmiComponent },
     { path: "chaplet", component: ChapletComponent },
-    { path: "stations", component: StationsComponent }
+    { path: "stations", component: StationsComponent },
+    { path: "hour", component: HourComponent }
 ];
 
 @NgModule({

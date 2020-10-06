@@ -26,18 +26,32 @@ export class AppComponent implements OnInit {
         LocalNotifications.addOnMessageReceivedCallback(
             (notification) => {
 
-                dialogs.action({
-                    message: "Pray the Novena now?",
-                    cancelButtonText: "No",
-                    actions: ["Yes"]
-                }).then((result) => {
-                    if (result === "Yes") {
-                        const novenaDay = notification.id - 900;
-                        this.goToNovena(novenaDay);
-                    } else {
-                        return;
-                    }
-                });
+                if (notification.id === 300) {
+                    dialogs.action({
+                        message: "Pray the Three O'Clock Prayer now?",
+                        cancelButtonText: "No",
+                        actions: ["Yes"]
+                    }).then((result) => {
+                        if (result === "Yes") {
+                            this.goToThreePrayer();
+                        } else {
+                            return;
+                        }
+                    });
+                } else if (notification.id >= 900 && notification.id <= 909) {
+                    dialogs.action({
+                        message: "Pray the Novena now?",
+                        cancelButtonText: "No",
+                        actions: ["Yes"]
+                    }).then((result) => {
+                        if (result === "Yes") {
+                            const novenaDay = notification.id - 900;
+                            this.goToNovena(novenaDay);
+                        } else {
+                            return;
+                        }
+                    });
+                }
 
             }
         );
@@ -59,5 +73,18 @@ export class AppComponent implements OnInit {
                 { relativeTo: this.currentRoute }
             );
         });
+    }
+
+    goToThreePrayer() {
+        setBoolean("prayersRouteA", !getBoolean("prayersRouteA"));
+        const prayersRoute = getBoolean("prayersRouteA") ? "prayers-a" : "prayers-b";
+        this.navigation.nativeElement.selectedIndex = 1;
+        this.ngZone.run(() => {
+            this.router.navigate(
+                ["/", { outlets: { devotionTab: ["devotion", prayersRoute, 2] } }],
+                { relativeTo: this.currentRoute }
+            );
+        });
+
     }
 }

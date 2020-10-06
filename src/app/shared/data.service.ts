@@ -662,6 +662,36 @@ export class DataService {
                 name: "XIV: Jesus is laid in the tomb",
                 description: "We adore You, O Christ, and we praise You. \n\nBecause by Your holy Cross and Resurrection, You have redeemed the world. \n\nThey took the body of Jesus and bound It with burial cloths along with the spices, according to the Jewish burial custom. Now in the place where He had been crucified there was a garden, and in the garden a new tomb, in which no one had yet been buried. So they laid Jesus there because of the Jewish preparation day; for the tomb was close by (John 19:38-42). \n\n<b>(Jesus) But child, you are not yet in your homeland; so go, fortified by My grace, and fight for My kingdom in human souls; fight as a king's child would; and remember that the days of your exile will pass quickly, and with them the possibility of earning merit for heaven. I expect from you, My child, a great number of souls who will glorify My mercy for all eternity (1489). </b>\n\n<i>(Saint Faustina) Every soul You have entrusted to me, Jesus, I will try to aid with prayer and sacrifice, so that Your grace can work in them. O great lover of souls, my Jesus, I thank You for this immense confidence with which You have deigned to place souls in our care (245).</i> \n\nGrant, Merciful Lord, that not even one of those souls which You have entrusted to me be lost. \n\nYou, who suffered wounds for us, Christ Jesus, have mercy on us. \n\nMy Jesus, my only hope, I thank You for this book which You opened to the eyes of my soul. This book is Your Passion, undertaken out of love for me. From this book, I learn how to love God and souls. This book contains inexhaustible treasures. O Jesus, how few souls understand You in Your martyrdom of love. Happy the soul that has come to understand the love of the heart of Jesus!"
             }
+        ),
+        hour: new Array<TextItem>(
+            {
+                id: 0,
+                description: "A"
+            },
+            {
+                id: 1,
+                description: "B"
+            },
+            {
+                id: 2,
+                description: "C"
+            },
+            {
+                id: 3,
+                description: "D"
+            },
+            {
+                id: 4,
+                description: "E"
+            },
+            {
+                id: 5,
+                description: "F"
+            },
+            {
+                id: 6,
+                description: "G"
+            }
         )
 
     };

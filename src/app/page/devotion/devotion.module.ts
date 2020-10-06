@@ -15,6 +15,7 @@ import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/nove
 import { DmiComponent } from "./dmi/dmi.component";
 import { ChapletComponent } from "./chaplet/chaplet.component";
 import { StationsComponent } from "./stations/stations.component";
+import { HourComponent } from "./hour/hour.component";
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import { StationsComponent } from "./stations/stations.component";
         NovenaResourcesComponent,
         DmiComponent,
         ChapletComponent,
-        StationsComponent
+        StationsComponent,
+        HourComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
