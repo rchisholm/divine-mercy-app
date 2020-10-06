@@ -141,42 +141,17 @@ export class ChapletComponent implements OnInit {
         const C = this.BEAD_SHORT_DISTANCE * beadDistanceFactor;
         const D = this.BEAD_END_DISTANCE * beadDistanceFactor;
 
-        console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-        console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
-        console.log("SCREEN_HEIGHT_PIX: " + screen.mainScreen.heightPixels);
-        console.log("SCREEN_WIDTH_PIX: " + screen.mainScreen.widthPixels);
-        console.log("SCREEN_SCALE: " + screen.mainScreen.scale);
+        // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+        // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        // console.log("SCREEN_HEIGHT_PIX: " + screen.mainScreen.heightPixels);
+        // console.log("SCREEN_WIDTH_PIX: " + screen.mainScreen.widthPixels);
+        // console.log("SCREEN_SCALE: " + screen.mainScreen.scale);
 
         // console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
         // console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
         // console.log("BEAD_SHORT_DISTANCE: " + this.BEAD_SHORT_DISTANCE);
         // console.log("BEAD_LONG_DISTANCE: " + this.BEAD_LONG_DISTANCE);
         // console.log("BEAD_END_DISTANCE: " + this.BEAD_END_DISTANCE);
-
-        // // iOS device adjustment
-        // if (!isAndroid) {
-
-        //     A -= 5;
-        //     B -= 3;
-
-        //     // if iPhone X, XR or XS Max, smaller BEAD_SHORT by 2
-        //     if (this.SCREEN_HEIGHT_DIP === 896 || this.SCREEN_HEIGHT_DIP === 812) {
-        //         B -= 2;
-        //         A += 9;
-        //     }
-
-        //     // // if iPad pro 11" or 12.9", smaller BEAD_SHORT by 1
-        //     // if (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366) {
-        //     //     B -= 1;
-        //     // }
-
-        //     // fix bead placement on iOS < 11
-        //     if (parseFloat(device.osVersion) < 11) {
-        //         A += 7;
-        //         C += 1.5;
-        //     }
-
-        // }
 
         this.beadDistance = [A, B, C, C,
             B, B, C, C, C, C, C, C, C, C, C,

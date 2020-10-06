@@ -60,19 +60,16 @@ export class HourComponent implements OnInit {
     }
 
     notificationOptionChange(args: SelectedIndexChangedEventData) {
-        // const segmentedBar = args.object as SegmentedBar;
         // const oldIndex = args.oldIndex;
         const newIndex = args.newIndex;
         const storedIndex = getNumber("hour-notification-index");
-        console.log("storedIndex: " + storedIndex);
-        console.log("newIndex: " + newIndex);
+
         if (storedIndex !== newIndex) {
             setNumber("hour-notification-index", newIndex);
             if (newIndex === 0) {
                 this.cancelReminder();
             } else {
                 const offset = (newIndex - 1) * 5;
-                console.log("offset: " + offset);
                 this.scheduleReminder(offset);
             }
         }
