@@ -34,7 +34,7 @@ export class DataService {
     // TODO: attempt to get data from server;
     // if not available, use this hard-coded data
 
-    private serverUrl = "https://api-dev.marian.org/fetch";
+    private serverUrl = "https://api-dev.marian.org/fetch/";
     private headers = new HttpHeaders().set("Content-Type", "application/json");
 
     constructor(private http: HttpClient) { }
@@ -772,6 +772,7 @@ export class DataService {
         )
     };
 
+    // get static data hard-coded in the app
     getTextItems(page: string): Array<TextItem> {
         return this.textItems[page];
     }
@@ -786,6 +787,36 @@ export class DataService {
 
     getResourceItem(page: string, id: number): ResourceItem {
         return this.resourceItems[page].filter((item) => item.id === id)[0];
+    }
+
+    // get live data from web service
+    getLiveTextItems(page: string) {
+        return this.fetchAppData({
+            itemType: "text",
+            itemPage: page
+        });
+    }
+
+    getLiveTextItem(page: string, id: number) {
+        return this.fetchAppData({
+            itemType: "text",
+            itemPage: page,
+            itemId: id
+        });
+    }
+    getLiveResourceItems(page: string) {
+        return this.fetchAppData({
+            itemType: "resource",
+            itemPage: page
+        });
+    }
+
+    getLiveResourceItem(page: string, id: number) {
+        return this.fetchAppData({
+            itemType: "resource",
+            itemPage: page,
+            itemId: id
+        });
     }
 
     postData(data: any) {
@@ -817,19 +848,39 @@ export class DataService {
         );
     }
 
-    // getNewsArticles() {
-    //     return this.postData(
-    //         { fetchCode: "tdm-articles-news" }
-    //     );
-    // }
+    fetchData(fetchCode: string, params: any = null) {
+        let queryString = "";
+        const queryArray = [];
+        if (params) {
+            for (const property in params) {
+                if (property) {
+                    queryArray.push(property + "=" + params[property]);
+                }
+            }
+            if (queryArray.length > 0) {
+                queryString += "?" + queryArray.join("&");
+            }
+        }
+
+        return this.http.get(
+            this.serverUrl + fetchCode + queryString,
+            { headers: this.headers }
+        );
+    }
+
+    fetchAppData(params: any = null) {
+        return this.fetchData("divine-mercy-app", params);
+    }
 
     getNewsArticles() {
-        return this.getData({
-            fetchCode: "tdm-articles-news",
-            truncateBody: 200,
-            plainTextBody: true,
-            imageStyle: "3-wide_teaser_image"
-        });
+        return this.fetchData(
+            "tdm-articles-news",
+            {
+                truncateBody: 200,
+                plainTextBody: true,
+                imageStyle: "3-wide_teaser_image"
+            }
+        );
     }
 
 }
