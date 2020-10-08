@@ -8,9 +8,8 @@
 </ActionBar>
 
 <GridLayout>
-    <Label class="m-10 h3" text="Loading..." *ngIf="!loadingDone" @fadeInOut textAlignment="center" verticalAlignment="top"></Label>
     <ScrollView>
-        <StackLayout class="page text-page" *ngIf="loadingDone" @fadeInOut>
+        <StackLayout class="page text-page">
             <Label class="m-10 h3 text-divider" verticalAlignment="top" text="Life of Faustina (short version)"></Label>
             <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[0]"></Label>
         </StackLayout>
