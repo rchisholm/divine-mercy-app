@@ -8,6 +8,6 @@
 </ActionBar>
 
 <GridLayout class="page">
-    <Label class="m-10 h3" text="Loading...." *ngIf="!loadingDone" @fadeInOut textAlignment="center"></Label>
+    <Label class="m-10 h3" text="Loading...." *ngIf="!loadingDone" @fadeInOut textAlignment="center" verticalAlignment="top"></Label>
     <Label class="m-10 h3" verticalAlignment="top" [formattedText]="formattedDescription" *ngIf="loadingDone" @fadeInOut></Label>
 </GridLayout>

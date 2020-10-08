@@ -66,7 +66,7 @@ export class IntroductionItemDetailComponent implements OnInit {
                 },
                 (err) => {
                     console.log("http error");
-                    console.log(err);
+                    // console.log(err);
                     this.formattedDescription = this.formatter.formatTagsFromString(this.item.description);
                     setTimeout(() => {
                         this.loadingDone = true;

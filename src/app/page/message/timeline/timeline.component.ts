@@ -33,9 +33,7 @@ export class TimelineComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("timeline");
         this.loadingDone = false;
-
         this.data
             .getLiveTextItems("timeline")
             .subscribe(
@@ -66,15 +64,6 @@ export class TimelineComponent implements OnInit {
                     }, 501);
                 }
             );
-
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
 
         // this.appVersion = this.data.getAppVersion();
         // this.bodyItems = new Array<FormattedString>();
