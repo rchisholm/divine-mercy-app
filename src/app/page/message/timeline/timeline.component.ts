@@ -64,14 +64,6 @@ export class TimelineComponent implements OnInit {
                     }, 501);
                 }
             );
-
-        // this.appVersion = this.data.getAppVersion();
-        // this.bodyItems = new Array<FormattedString>();
-        // for (const item of this.data.getAboutItems()) {
-        //     this.bodyItems.push(this.formatter.formatTagsFromString(item));
-        // }
-
-        // this.donationUrl = this.data.getDonationUrl(isAndroid);
     }
 
     onBackTap(): void {

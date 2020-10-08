@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
-import { style, state, animate, transition, trigger } from "@angular/animations";
 import { DataService, TextItem } from "~/app/shared/data.service";
+import { style, state, animate, transition, trigger } from "@angular/animations";
 
 @Component({
     selector: "Introduction",
