@@ -8,7 +8,7 @@
 </ActionBar>
 
 <GridLayout class="page">
-    <Label class="m-10 h3" text="Loading..." *ngIf="!loadingDone" @fadeInOut textAlignment="center"></Label>
+    <Label class="m-10 h3" text="Loading..." *ngIf="!loadingDone" @fadeInOut textAlignment="center" verticalAlignment="top"></Label>
     <ListView [items]="items" *ngIf="loadingDone" @fadeInOut>
         <ng-template let-item="item">
             <StackLayout>

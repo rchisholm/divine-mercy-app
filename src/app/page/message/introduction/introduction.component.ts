@@ -51,7 +51,7 @@ export class IntroductionComponent implements OnInit {
                 },
                 (err) => {
                     console.log("http error");
-                    console.log(err);
+                    // console.log(err);
                     this.items = this.data.getTextItems("introduction");
                     setTimeout(() => {
                         this.loadingDone = true;
