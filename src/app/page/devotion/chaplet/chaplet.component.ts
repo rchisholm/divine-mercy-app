@@ -134,6 +134,8 @@ export class ChapletComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.audioPlayer = new TNSPlayer();
+        this.audioPlayer.debug = true;
 
         // determine multiplier
         let beadDistanceFactor = this.OS_FACTOR;
@@ -445,6 +447,7 @@ export class ChapletComponent implements OnInit {
     }
 
     playAudio(audioIndex): void {
+        this.audioPlayer.pause();
         const audioPath = "~/audio/" + this.audioTracks[audioIndex] + ".mp3";
         this.audioPlayer.playFromFile({
             audioFile: audioPath,
