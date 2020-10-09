@@ -10,6 +10,7 @@ import { ScrollView } from "tns-core-modules/ui/scroll-view";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { style, animate, transition, trigger } from "@angular/animations";
+import { TNSPlayer } from "nativescript-audio";
 
 @Component({
     selector: "Chaplet",
@@ -95,13 +96,42 @@ export class ChapletComponent implements OnInit {
     private readonly BOUNCE_TIME: number = 250;
     private readonly BOUNCE_DISTANCE: number = 42;
 
-    // sounds
+    // audio
+    private audioPlayer: TNSPlayer;
+    private audioTracks = {
+        1: "soc",
+        2: "opening",
+        3: "ourfather",
+        4: "hailmary",
+        5: "creed",
+        6: "eternalfather",
+        7: "passion",
+        8: "closing"
+    };
+    // private closingPlayer: TNSPlayer;
+    // private creedPlayer: TNSPlayer;
+    // private eternalFatherPlayer: TNSPlayer;
+    // private hailMaryPlayer: TNSPlayer;
+    // private openingPlayer: TNSPlayer;
+    // private ourFatherPlayer: TNSPlayer;
+    // private passionPlayer: TNSPlayer;
+    // private signOfCrossPlayer: TNSPlayer;
+
     // private sound: any;//sound library
     // private dink_sound: any;//forward bead sound
     // private donk_sound: any;//backward bead sound
     // private error_sound: any;//error bead sound
 
-    constructor(private data: DataService, private router: RouterExtensions, private formatter: TextFormatter) { }
+    constructor(private data: DataService, private router: RouterExtensions, private formatter: TextFormatter) {
+        // this.closingPlayer.initFromFile({ audioFile: "~/audio/closing.mp3", loop: false });
+        // this.creedPlayer.initFromFile({ audioFile: "~/audio/creed.mp3", loop: false });
+        // this.eternalFatherPlayer.initFromFile({ audioFile: "~/audio/eternalather.mp3", loop: false });
+        // this.hailMaryPlayer.initFromFile({ audioFile: "~/audio/hailmary.mp3", loop: false });
+        // this.openingPlayer.initFromFile({ audioFile: "~/audio/opening.mp3", loop: false });
+        // this.ourFatherPlayer.initFromFile({ audioFile: "~/audio/ourfather.mp3", loop: false });
+        // this.passionPlayer.initFromFile({ audioFile: "~/audio/passion.mp3", loop: false });
+        // this.signOfCrossPlayer.initFromFile({ audioFile: "~/audio/soc.mp3", loop: false });
+    }
 
     ngOnInit(): void {
 
@@ -194,6 +224,7 @@ export class ChapletComponent implements OnInit {
     updatePrayer() {
         this.chapletPrayer = this.chapletPrayers[this.beadIndex];
         this.chapletPrayerBody = this.formatter.formatTagsFromString(this.chapletPrayer.description);
+        this.playAudio(this.chapletPrayerIndex[this.beadIndex]);
     }
 
     advanceBeads() {
@@ -410,6 +441,14 @@ export class ChapletComponent implements OnInit {
             } else {
                 return;
             }
+        });
+    }
+
+    playAudio(audioIndex): void {
+        const audioPath = "~/audio/" + this.audioTracks[audioIndex] + ".mp3";
+        this.audioPlayer.playFromFile({
+            audioFile: audioPath,
+            loop: false
         });
     }
 
