@@ -11,6 +11,8 @@ import { TextFormatter } from "~/app/shared/text-formatter";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { style, animate, transition, trigger } from "@angular/animations";
 import { TNSPlayer } from "nativescript-audio";
+import { EventData } from "tns-core-modules/data/observable";
+import { Switch } from "tns-core-modules/ui/switch";
 
 @Component({
     selector: "Chaplet",
@@ -135,7 +137,7 @@ export class ChapletComponent implements OnInit {
 
     ngOnInit(): void {
         this.audioPlayer = new TNSPlayer();
-        this.audioPlayer.debug = true;
+        // this.audioPlayer.debug = true;
 
         // determine multiplier
         let beadDistanceFactor = this.OS_FACTOR;
@@ -226,7 +228,7 @@ export class ChapletComponent implements OnInit {
     updatePrayer() {
         this.chapletPrayer = this.chapletPrayers[this.beadIndex];
         this.chapletPrayerBody = this.formatter.formatTagsFromString(this.chapletPrayer.description);
-        this.playAudio(this.chapletPrayerIndex[this.beadIndex]);
+        this.playCurrentAudio();
     }
 
     advanceBeads() {
@@ -453,6 +455,22 @@ export class ChapletComponent implements OnInit {
             audioFile: audioPath,
             loop: false
         });
+    }
+
+    playCurrentAudio() {
+        if (getBoolean("chaplet-audio-enabled")) {
+            this.playAudio(this.chapletPrayerIndex[this.beadIndex]);
+        }
+    }
+
+    audioToggle(args: EventData) {
+        this.audioPlayer.pause();
+        const sw = args.object as Switch;
+        const isChecked = sw.checked; // boolean
+        setBoolean("chaplet-audio-enabled", isChecked);
+        if (isChecked) {
+            this.playCurrentAudio();
+        }
     }
 
     onBackTap(): void {

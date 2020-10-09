@@ -13,18 +13,19 @@
     width="100%"
     height="100%"
     backgroundColor="#777">
-    <StackLayout
-        row="0" col="0"
+    <GridLayout row="0" col="0"
+        rows="auto, *, 100px"
         backgroundColor="white"
         class="chaplet-prayer-text">
         <Label
+            row="0"
             [text]="chapletPrayer.name"
             textWrap="true"
             class="chaplet-prayer-title"
             *ngIf="!invisibleElements"
             @fadeInOut>
         </Label>
-        <ScrollView>
+        <ScrollView row="1" verticalAlignment="top">
             <Label
                 [formattedText]="chapletPrayerBody"
                 textWrap="true"
@@ -33,7 +34,11 @@
                 @fadeInOut>
             </Label>
         </ScrollView>
-    </StackLayout>
+        <GridLayout row="2" columns="*, auto, auto" rows="*" verticalAlignment="bottom">
+            <Label col="1" text="Audio:"></Label>
+            <Switch col="2" checked="false" (checkedChange)="audioToggle($event)"></Switch>
+        </GridLayout>
+    </GridLayout>
     <AbsoluteLayout #beadBox
         row="0"
         col="1"
