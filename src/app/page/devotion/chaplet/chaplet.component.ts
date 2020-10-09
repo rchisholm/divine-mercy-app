@@ -39,6 +39,7 @@ export class ChapletComponent implements OnInit {
     chapletPrayerBody: FormattedString; // the formatted prayer body
     beadsAreMoving: boolean; // whether beads are currently moving
     invisibleElements: boolean;
+    audioIsEnabled: boolean;
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
@@ -136,6 +137,8 @@ export class ChapletComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+        this.audioIsEnabled = getBoolean("chaplet-audio-enabled");
         this.audioPlayer = new TNSPlayer();
         // this.audioPlayer.debug = true;
 
@@ -474,6 +477,7 @@ export class ChapletComponent implements OnInit {
     }
 
     onBackTap(): void {
+        this.audioPlayer.pause();
         this.router.back();
     }
 
