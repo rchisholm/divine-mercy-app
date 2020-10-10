@@ -135,6 +135,9 @@ ActionBar {
             horizontal-align: right;
             text-align: right;
             float: right;
+            &.info {
+                width: 60px;
+            }
         }
 
         .ab-link {

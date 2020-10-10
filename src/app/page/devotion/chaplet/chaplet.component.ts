@@ -116,6 +116,9 @@ export class ChapletComponent implements OnInit {
 
     ngOnInit(): void {
 
+        if (!hasKey("chaplet-audio-enabled")) {
+            setBoolean("chaplet-audio-enabled", false);
+        }
         this.audioIsEnabled = getBoolean("chaplet-audio-enabled");
         this.audioPlayer = new TNSPlayer();
         // this.audioPlayer.debug = true;
