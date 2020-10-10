@@ -111,30 +111,8 @@ export class ChapletComponent implements OnInit {
         7: "passion",
         8: "closing"
     };
-    // private closingPlayer: TNSPlayer;
-    // private creedPlayer: TNSPlayer;
-    // private eternalFatherPlayer: TNSPlayer;
-    // private hailMaryPlayer: TNSPlayer;
-    // private openingPlayer: TNSPlayer;
-    // private ourFatherPlayer: TNSPlayer;
-    // private passionPlayer: TNSPlayer;
-    // private signOfCrossPlayer: TNSPlayer;
 
-    // private sound: any;//sound library
-    // private dink_sound: any;//forward bead sound
-    // private donk_sound: any;//backward bead sound
-    // private error_sound: any;//error bead sound
-
-    constructor(private data: DataService, private router: RouterExtensions, private formatter: TextFormatter) {
-        // this.closingPlayer.initFromFile({ audioFile: "~/audio/closing.mp3", loop: false });
-        // this.creedPlayer.initFromFile({ audioFile: "~/audio/creed.mp3", loop: false });
-        // this.eternalFatherPlayer.initFromFile({ audioFile: "~/audio/eternalather.mp3", loop: false });
-        // this.hailMaryPlayer.initFromFile({ audioFile: "~/audio/hailmary.mp3", loop: false });
-        // this.openingPlayer.initFromFile({ audioFile: "~/audio/opening.mp3", loop: false });
-        // this.ourFatherPlayer.initFromFile({ audioFile: "~/audio/ourfather.mp3", loop: false });
-        // this.passionPlayer.initFromFile({ audioFile: "~/audio/passion.mp3", loop: false });
-        // this.signOfCrossPlayer.initFromFile({ audioFile: "~/audio/soc.mp3", loop: false });
-    }
+    constructor(private data: DataService, private router: RouterExtensions, private formatter: TextFormatter) {}
 
     ngOnInit(): void {
 
@@ -220,11 +198,6 @@ export class ChapletComponent implements OnInit {
 
         this.updatePrayer();
 
-        // if user hasn't set sounds on or off, set them on
-        if (!hasKey("playChapletSounds")) {
-            setBoolean("playChapletSounds", true);
-        }
-
     }
 
     // display the title and body of currently selected prayer
@@ -275,7 +248,6 @@ export class ChapletComponent implements OnInit {
         // console.log("Swiped Beads down!")
         if (this.beadIndex < this.BEAD_MAX) {
             // move beads forward by one
-            this.playForwardSound();
             this.moveBeadsVertical(this.beadDistance[this.beadIndex], false);
             this.beadIndex++;
             this.backCount = 0;
@@ -295,7 +267,6 @@ export class ChapletComponent implements OnInit {
         // console.log("Swiped Beads down!")
         if (this.beadIndex > 0) {
             // move beads backwards by one
-            this.playBackSound();
             this.moveBeadsVertical(0 - this.beadDistance[this.beadIndex - 1], false);
             this.beadIndex--;
             this.backCount++;
@@ -355,7 +326,6 @@ export class ChapletComponent implements OnInit {
             curve: AnimationCurve.easeOut,
             translate: {x: 0, y: this.beads.nativeElement.translateY + this.BOUNCE_DISTANCE}
         }).then(() => {
-            this.playErrorSound();
             this.beads.nativeElement.animate({
                 duration: this.BOUNCE_TIME,
                 curve: AnimationCurve.spring,
@@ -375,7 +345,6 @@ export class ChapletComponent implements OnInit {
             curve: AnimationCurve.easeOut,
             translate: {x: 0, y: this.beads.nativeElement.translateY - this.BOUNCE_DISTANCE}
         }).then(() => {
-            this.playErrorSound();
             this.beads.nativeElement.animate({
                 duration: this.BOUNCE_TIME,
                 curve: AnimationCurve.spring,
@@ -402,53 +371,6 @@ export class ChapletComponent implements OnInit {
         console.log("startOverAttempted: " + this.startOverAttempted);
         console.log("backCount: " + this.backCount);
         console.log("RESTART_SWIPES: " + this.RESTART_SWIPES);
-    }
-
-    playForwardSound() {
-        if (getBoolean("playChapletSounds")) {
-            // this.dink_sound.play();
-        }
-    }
-
-    playBackSound() {
-        if (getBoolean("playChapletSounds")) {
-            // this.donk_sound.play();
-        }
-    }
-
-    playErrorSound() {
-        if (getBoolean("playChapletSounds")) {
-            // this.error_sound.play();
-        }
-    }
-
-    showSettings() {
-        dialogs.action({// show options to user
-            // title: "Settings",//if this is set, message doesn't display
-            message: "Make sound (vibration if silent) when bead changes?",
-            cancelButtonText: "Cancel",
-            actions: ["Turn sound on", "Turn sound off"]
-        }).then((result) => {// choice has been made or cancelled
-            console.log("Dialog result: " + result);
-            if (result === "Turn sound on") {
-                setBoolean("playChapletSounds", true); // turn sound on
-                dialogs.alert({// notify user
-                    title: "Settings",
-                    message: "Bead sounds have been turned on.",
-                    okButtonText: "OK"
-                });
-                this.playForwardSound();
-            } else if (result === "Turn sound off") {
-                setBoolean("playChapletSounds", false); // turn sound off
-                dialogs.alert({// notify user
-                    title: "Settings",
-                    message: "Bead sounds have been turned off.",
-                    okButtonText: "OK"
-                });
-            } else {
-                return;
-            }
-        });
     }
 
     playAudio(audioIndex): void {
