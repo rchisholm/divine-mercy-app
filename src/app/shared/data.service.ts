@@ -692,6 +692,19 @@ export class DataService {
                 id: 6,
                 description: "G"
             }
+        ),
+        chaplet_info: new Array<TextItem>(
+            {
+                id: 1,
+                description: "Prayed on ordinary rosary beads..."
+            }
+        ),
+        dmi_info: new Array<TextItem>(
+            {
+                id: 1,
+                description: "In 1931, Our Lord..."
+            }
+
         )
 
     };

@@ -13,7 +13,9 @@ import { NovenaScheduleComponent } from "./novena-prayers/novena/novena-schedule
 import { NovenaItemDetailComponent } from "./novena-prayers/novena/novena-item-detail.component";
 import { NovenaResourcesComponent } from "./novena-prayers/novena-resources/novena-resources.component";
 import { DmiComponent } from "./dmi/dmi.component";
+import { DmiInfoComponent } from "./dmi/dmi-info/dmi-info.component";
 import { ChapletComponent } from "./chaplet/chaplet.component";
+import { ChapletInfoComponent } from "./chaplet/chaplet-info/chaplet-info.component";
 import { StationsComponent } from "./stations/stations.component";
 import { HourComponent } from "./hour/hour.component";
 
@@ -34,7 +36,9 @@ import { HourComponent } from "./hour/hour.component";
         NovenaItemDetailComponent,
         NovenaResourcesComponent,
         DmiComponent,
+        DmiInfoComponent,
         ChapletComponent,
+        ChapletInfoComponent,
         StationsComponent,
         HourComponent
     ],
