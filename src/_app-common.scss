@@ -109,7 +109,6 @@ ActionBar {
         width: 100%;
 
         .action-bar-title {
-            horizontal-align: center;
             text-align: center;
             color: white;
             font-weight: bold;
@@ -126,17 +125,16 @@ ActionBar {
         }
 
         .ab-left {
-            horizontal-align: left;
             text-align: left;
             float: left;
         }
 
         .ab-right {
-            horizontal-align: right;
             text-align: right;
             float: right;
             &.info {
                 width: 60px;
+                margin-right: 10px;
             }
         }
 
