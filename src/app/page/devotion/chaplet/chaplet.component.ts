@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, NgZone } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild, NgZone, OnChanges } from "@angular/core";
 import { getBoolean, hasKey, setBoolean } from "tns-core-modules/application-settings";
 import { RouterExtensions } from "nativescript-angular/router";
 import { device, isAndroid, screen } from "tns-core-modules/platform";
@@ -21,10 +21,10 @@ import { Switch } from "tns-core-modules/ui/switch";
         trigger("fadeInOut", [
           transition(":enter", [   // :enter is alias to 'void => *'
             style({opacity: 0}),
-            animate(250, style({opacity: 1}))
+            animate(500, style({opacity: 1}))
           ]),
           transition(":leave", [   // :leave is alias to '* => void'
-            animate(250, style({opacity: 0}))
+            animate(500, style({opacity: 0}))
           ])
         ])
     ]
@@ -207,24 +207,26 @@ export class ChapletComponent implements OnInit {
         });
 
         this.updatePrayer();
+    }
 
+    OnDestroy(): void {
+        console.log("component destroyed...");
+        this.autoIsEnabled = false;
+        this.audioPlayer.pause();
     }
 
     // display the title and body of currently selected prayer
     updatePrayer() {
         this.chapletPrayer = this.chapletPrayers[this.beadIndex];
         this.chapletPrayerBody = this.formatter.formatTagsFromString(this.chapletPrayer.description);
-        this.playCurrentAudio();
     }
 
     advanceBeads() {
-        setTimeout(() => {
-            if (!this.beadsAreMoving) {
-                if (this.moveBeadsDown()) {
-                    this.updatePrayer();
-                }
+        if (!this.beadsAreMoving) {
+            if (this.moveBeadsDown()) {
+                this.updatePrayer();
             }
-        }, 500);
+        }
     }
 
     // Fired when user moves finger on beads
@@ -320,7 +322,6 @@ export class ChapletComponent implements OnInit {
     }
 
     moveBeadsVertical(translation: number, startOver: boolean) {
-        console.log("moveBeadsVertical");
         this.disableSwiping();
         this.beads.nativeElement.animate({
             duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT_DISTANCE),
@@ -328,6 +329,11 @@ export class ChapletComponent implements OnInit {
             translate: {x: 0, y: startOver ? 0 : this.beads.nativeElement.translateY + translation}
         }).then(() => {
             this.enableSwiping();
+            this.playCurrentAudio();
+        }, (error) => {
+            this.updatePrayer();
+            this.enableSwiping();
+            this.autoIsEnabled = false;
         });
     }
 
@@ -346,7 +352,14 @@ export class ChapletComponent implements OnInit {
                 this.offerToStartOver();
                 this.startOverAttempted = false;
                 this.enableSwiping();
+                this.playCurrentAudio();
+            }, (error) => {
+                this.enableSwiping();
+                this.autoIsEnabled = false;
             });
+        }, (error) => {
+            this.enableSwiping();
+            this.autoIsEnabled = false;
         });
     }
 
@@ -363,12 +376,17 @@ export class ChapletComponent implements OnInit {
                 translate: {x: 0, y: this.beads.nativeElement.translateY + this.BOUNCE_DISTANCE}
             }).then(() => {
                 this.enableSwiping();
+            }, (error) => {
+                this.enableSwiping();
+                this.autoIsEnabled = false;
             });
+        }, (error) => {
+            this.enableSwiping();
+            this.autoIsEnabled = false;
         });
     }
 
     disableSwiping() {
-        console.log("disableSwiping");
         this.beadsAreMoving = true; // disable gestures
         this.invisibleElements = true;
     }
@@ -423,6 +441,9 @@ export class ChapletComponent implements OnInit {
         const sw = args.object as Switch;
         const isChecked = sw.checked; // boolean
         this.autoIsEnabled = isChecked;
+        if (!this.audioPlayer.isAudioPlaying()) {
+            this.playCurrentAudio();
+        }
     }
 
     onBackTap(): void {
