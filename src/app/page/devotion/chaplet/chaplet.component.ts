@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild, NgZone } from "@angular/core";
 import { getBoolean, hasKey, setBoolean } from "tns-core-modules/application-settings";
 import { RouterExtensions } from "nativescript-angular/router";
 import { device, isAndroid, screen } from "tns-core-modules/platform";
@@ -40,6 +40,7 @@ export class ChapletComponent implements OnInit {
     beadsAreMoving: boolean; // whether beads are currently moving
     invisibleElements: boolean;
     audioIsEnabled: boolean;
+    autoIsEnabled: boolean;
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
@@ -112,7 +113,12 @@ export class ChapletComponent implements OnInit {
         8: "closing"
     };
 
-    constructor(private data: DataService, private router: RouterExtensions, private formatter: TextFormatter) {}
+    constructor(
+        private data: DataService,
+        private router: RouterExtensions,
+        private formatter: TextFormatter,
+        private ngZone: NgZone
+    ) {}
 
     ngOnInit(): void {
 
@@ -120,6 +126,7 @@ export class ChapletComponent implements OnInit {
             setBoolean("chaplet-audio-enabled", false);
         }
         this.audioIsEnabled = getBoolean("chaplet-audio-enabled");
+        this.autoIsEnabled = false;
         this.audioPlayer = new TNSPlayer();
         // this.audioPlayer.debug = true;
 
@@ -211,11 +218,13 @@ export class ChapletComponent implements OnInit {
     }
 
     advanceBeads() {
-        if (!this.beadsAreMoving) {
-            if (this.moveBeadsDown()) {
-                this.updatePrayer();
+        setTimeout(() => {
+            if (!this.beadsAreMoving) {
+                if (this.moveBeadsDown()) {
+                    this.updatePrayer();
+                }
             }
-        }
+        }, 500);
     }
 
     // Fired when user moves finger on beads
@@ -277,7 +286,6 @@ export class ChapletComponent implements OnInit {
             return true;
         } else {
             // we are at the beginning of the beads; cannot go backward
-            console.log("start of beads");
             this.startBounce();
 
             return false;
@@ -312,6 +320,7 @@ export class ChapletComponent implements OnInit {
     }
 
     moveBeadsVertical(translation: number, startOver: boolean) {
+        console.log("moveBeadsVertical");
         this.disableSwiping();
         this.beads.nativeElement.animate({
             duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT_DISTANCE),
@@ -359,6 +368,7 @@ export class ChapletComponent implements OnInit {
     }
 
     disableSwiping() {
+        console.log("disableSwiping");
         this.beadsAreMoving = true; // disable gestures
         this.invisibleElements = true;
     }
@@ -381,12 +391,19 @@ export class ChapletComponent implements OnInit {
         const audioPath = "~/audio/" + this.audioTracks[audioIndex] + ".mp3";
         this.audioPlayer.playFromFile({
             audioFile: audioPath,
-            loop: false
+            loop: false,
+            completeCallback: () => {
+                this.ngZone.run(() => {
+                    if (this.autoIsEnabled && this.audioIsEnabled) {
+                        this.advanceBeads();
+                    }
+                });
+            }
         });
     }
 
     playCurrentAudio() {
-        if (getBoolean("chaplet-audio-enabled")) {
+        if (this.audioIsEnabled) {
             this.playAudio(this.chapletPrayerIndex[this.beadIndex]);
         }
     }
@@ -396,9 +413,16 @@ export class ChapletComponent implements OnInit {
         const sw = args.object as Switch;
         const isChecked = sw.checked; // boolean
         setBoolean("chaplet-audio-enabled", isChecked);
+        this.audioIsEnabled = isChecked;
         if (isChecked) {
             this.playCurrentAudio();
         }
+    }
+
+    autoToggle(args: EventData) {
+        const sw = args.object as Switch;
+        const isChecked = sw.checked; // boolean
+        this.autoIsEnabled = isChecked;
     }
 
     onBackTap(): void {

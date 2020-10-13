@@ -34,9 +34,11 @@
                 @fadeInOut>
             </Label>
         </ScrollView>
-        <GridLayout row="2" columns="*, auto, auto" rows="*" verticalAlignment="bottom">
-            <Label col="1" text="Audio:" verticalAlignment="center"></Label>
-            <Switch col="2" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
+        <GridLayout row="2" columns="*, auto, auto, auto, auto" rows="*" verticalAlignment="bottom">
+            <Label col="1" text="Auto:" verticalAlignment="center" *ngIf="audioIsEnabled" @fadeInOut></Label>
+            <Switch col="2" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)" *ngIf="audioIsEnabled" @fadeInOut></Switch>
+            <Label col="3" text="Audio:" verticalAlignment="center"></Label>
+            <Switch col="4" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
         </GridLayout>
     </GridLayout>
     <AbsoluteLayout #beadBox
