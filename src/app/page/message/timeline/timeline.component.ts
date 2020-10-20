@@ -9,7 +9,6 @@ import { RouterExtensions } from "nativescript-angular";
     templateUrl: "./timeline.component.html"
 })
 export class TimelineComponent implements OnInit {
-    items: Array<TextItem>;
     item: TextItem;
     html: string;
 
@@ -20,7 +19,6 @@ export class TimelineComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("timeline");
         this.item = this.data.getTextItem("timeline", 1);
         this.html = this.formatter.prepareForHtmlView(this.item.description);
     }

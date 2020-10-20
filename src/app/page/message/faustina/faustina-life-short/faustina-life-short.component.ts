@@ -9,9 +9,8 @@ import { RouterExtensions } from "nativescript-angular";
     templateUrl: "./faustina-life-short.component.html"
 })
 export class FaustinaLifeShortComponent implements OnInit {
-    items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    item: TextItem;
+    html: string;
 
     constructor(
         private data: DataService,
@@ -20,17 +19,18 @@ export class FaustinaLifeShortComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("faustina_life_short");
+        this.item = this.data.getTextItem("faustina_life_short", 1);
+        this.html = this.formatter.prepareForHtmlView(this.item.description);
 
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
+        // this.textBodyArray = [];
+        // this.formattedBodyArray = [];
 
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
+        // this.items.forEach((item) => {
+        //     this.textBodyArray.push(item.description);
+        // });
+        // this.textBodyArray.forEach((text) => {
+        //     this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
+        // });
 
         // this.appVersion = this.data.getAppVersion();
         // this.bodyItems = new Array<FormattedString>();
