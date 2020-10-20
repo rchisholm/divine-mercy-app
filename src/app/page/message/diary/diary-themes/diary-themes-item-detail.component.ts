@@ -12,7 +12,6 @@ import { DataService, TextItem } from "~/app/shared/data.service";
 })
 export class DiaryThemesItemDetailComponent implements OnInit {
     item: TextItem;
-    formattedDescription: FormattedString;
 
     constructor(
         private _data: DataService,
@@ -24,7 +23,7 @@ export class DiaryThemesItemDetailComponent implements OnInit {
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
         this.item = this._data.getTextItem("diary_themes", id);
-        this.formattedDescription = this.formatter.formatTagsFromString(this.item.description);
+        this.item.description = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

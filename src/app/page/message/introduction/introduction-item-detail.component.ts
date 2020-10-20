@@ -12,8 +12,6 @@ import { DataService, TextItem } from "~/app/shared/data.service";
 })
 export class IntroductionItemDetailComponent implements OnInit {
     item: TextItem;
-    formattedDescription: FormattedString;
-    loadingDone: boolean;
 
     constructor(
         private data: DataService,
@@ -24,9 +22,8 @@ export class IntroductionItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this.route.snapshot.params.id;
-
         this.item = this.data.getTextItem("introduction", id);
-        this.formattedDescription = this.formatter.formatTagsFromString(this.item.description);
+        this.item.description = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

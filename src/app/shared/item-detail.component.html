@@ -7,6 +7,8 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout class="page">
-    <Label class="m-10 h3" verticalAlignment="top" [formattedText]="formattedDescription"></Label>
-</GridLayout>
+<ScrollView class="page">
+	<!-- <Label class="m-10 h3" verticalAlignment="top" [formattedText]="formattedDescription" textWrap="true"></Label> -->
+	<!-- <WebView class="m-10 h3" [src]="item.description"></WebView> -->
+	<HtmlView class="m-10 h3" [html]="item.description"></HtmlView>
+</ScrollView>
