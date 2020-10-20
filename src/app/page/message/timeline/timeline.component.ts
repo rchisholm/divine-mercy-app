@@ -10,8 +10,8 @@ import { RouterExtensions } from "nativescript-angular";
 })
 export class TimelineComponent implements OnInit {
     items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    item: TextItem;
+    html: string;
 
     constructor(
         private data: DataService,
@@ -21,24 +21,8 @@ export class TimelineComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this.data.getTextItems("timeline");
-
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
-
-        // this.appVersion = this.data.getAppVersion();
-        // this.bodyItems = new Array<FormattedString>();
-        // for (const item of this.data.getAboutItems()) {
-        //     this.bodyItems.push(this.formatter.formatTagsFromString(item));
-        // }
-
-        // this.donationUrl = this.data.getDonationUrl(isAndroid);
+        this.item = this.data.getTextItem("timeline", 1);
+        this.html = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {
