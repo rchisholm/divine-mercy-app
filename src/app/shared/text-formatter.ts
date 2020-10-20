@@ -44,6 +44,17 @@ export class TextFormatter {
     // this formats any tags listed in the cases.
     formatTagsFromString(input: string): FormattedString {
         this.debug("initial string: " + input);
+
+        // replace common grouped tags with merged tags
+        input = input.replace(new RegExp("<i><p><strong>", "g"), "<p><b>");
+
+        // replace line breaks and paragraphs
+        input = input.replace(new RegExp("<p>", "g"), "\n");
+        input = input.replace(new RegExp("</p>", "g"), "\n");
+        input = input.replace(new RegExp("<br>", "g"), "\n");
+        input = input.replace(new RegExp("<br/>", "g"), "\n");
+        input = input.replace(new RegExp("<br />", "g"), "\n");
+
         const formattedResult = new FormattedString();
         let splitInput = new Array<string>();
         let finished: boolean = false;
@@ -67,31 +78,38 @@ export class TextFormatter {
                 taggedString = true;
                 const formattedSpan = new Span();
                 const tag = splitInput[0];
+                // let spanIsParagraph = false;
                 splitInput = this.splitWithTail(splitInput[1], "<");
                 this.debug("splitInput2: " + splitInput);
                 switch (tag.toLowerCase()) {
                     // case list begins (add cases here):
                     case "i": case "italic": case "italics": case "em":
-                    formattedSpan.fontStyle = "italic";
-                    break;
+                        formattedSpan.fontStyle = "italic";
+                        break;
                     case "b": case "bold": case "strong":
-                    formattedSpan.fontWeight = "bold";
-                    break;
+                        formattedSpan.fontWeight = "bold";
+                        break;
                     case "bi": case "ib":
-                    formattedSpan.fontWeight = "bold";
-                    formattedSpan.fontStyle = "italic";
-                    break;
+                        formattedSpan.fontWeight = "bold";
+                        formattedSpan.fontStyle = "italic";
+                        break;
                     case "green":
-                    formattedSpan.color = new Color("green");
-                    break;
+                        formattedSpan.color = new Color("green");
+                        break;
                     case "b-orange":
-                    formattedSpan.fontWeight = "bold";
-                    formattedSpan.color = new Color("orange");
-                    break;
+                        formattedSpan.fontWeight = "bold";
+                        formattedSpan.color = new Color("orange");
+                        break;
+                    // case "p":
+                    //     formattedSpan.cssClasses.add("text-paragraph");
+                    //     spanIsParagraph = true;
+                    //     break;
                     // case list ends
                     default:
                     break;
                 }
+                // formattedSpan.text = spanIsParagraph ? "\n" + splitInput[0] + "\n\n" : splitInput[0];
+                // spanIsParagraph = false;
                 formattedSpan.text = splitInput[0];
                 formattedResult.spans.push(formattedSpan);
             }
@@ -151,4 +169,8 @@ export class TextFormatter {
         }
     }
 
+    prepareForHtmlView(input: string): string {
+        // replace strong tag and paragraphs
+        return "<span style=font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,sans-serif;>" + input + "</span>";
+    }
 }
