@@ -856,32 +856,8 @@ export class DataService {
         ),
         hour: new Array<TextItem>(
             {
-                id: 0,
-                description: "A"
-            },
-            {
                 id: 1,
-                description: "B"
-            },
-            {
-                id: 2,
-                description: "C"
-            },
-            {
-                id: 3,
-                description: "D"
-            },
-            {
-                id: 4,
-                description: "E"
-            },
-            {
-                id: 5,
-                description: "F"
-            },
-            {
-                id: 6,
-                description: "G"
+                description: "<p>Three to four o'clock in the afternoon is the Hour of Great Mercy. Jesus promised St. Faustina that during this hour He would give extraordinary graces to whomever might ask for them. So that we don't let such an amazing opportunity pass us by, let's get the \"three o'clock habit\" and tap into these great graces. Before reading suggestions for how we might do this, let's first read Jesus' actual words to Faustina on this topic.</p><p>Jesus spoke to Faustina about the Hour of Great Mercy on two separate occasions. On the first occasion, he said:</p><p><strong>At three o'clock, implore My mercy, especially for sinners; and, if only for a brief moment, immerse yourself in My Passion, particularly in My abandonment at the moment of agony. This is the hour of great mercy for the whole world. I will allow you to enter into My mortal sorrow. In this hour, I will refuse nothing to the soul that makes a request of Me in virtue of My Passion </strong>(1320). </p><p>On the second occasion, Jesus spoke at greater length about this special time of grace:</p><p><strong>I remind you, My daughter, that as often as you hear the clock strike the third hour, immerse yourself completely in My mercy, adoring and glorifying it; invoke its omnipotence for the whole world, and particularly for poor sinners; for at that moment mercy was opened wide for every soul. In this hour you can obtain everything for yourself and for others for the asking; it was the hour of grace for the whole world, mercy triumphed over justice. My daughter, try your best to make the Stations of the Cross in this hour, provided that your duties permit it; and if you are not able to make the Stations of the Cross, then at least step into the chapel for a moment and adore, in the Blessed Sacrament, My Heart, which is full of mercy; and should you be unable to step into the chapel, immerse yourself in prayer there where you happen to be, if only for a very brief instant </strong>(1572).<strong></strong></p><p>In light of these two passages, let's consider three ways by which we can take advantage of the amazing graces available to us every day during the Hour of Great Mercy. We can choose the way or ways that work best for us.</p><p><u>First way</u>: We can immerse ourselves in the Lord's Passion, especially in his abandonment on the Cross. We can do this briefly, even \"for an instant\" or a longer period of time. If our duties allow us only a brief moment, we can simply call to mind an image of Jesus on the Cross or look at a crucifix or a picture of Jesus. We can also pray the \"Three O'clock Hour Prayer\" from the <em>Diary of St. Faustina</em>:</p><p>You expired, Jesus, but the source of life gushed forth for souls, and the ocean of mercy opened up for the whole world. O Fount of Life, unfathomable Divine Mercy, envelop the whole world and empty Yourself out upon us. O Blood and Water, which gushed forth from the Heart of Jesus as a fount of mercy for us, I trust in You (186, 1319).</p><p>If we have more time, we can pray the sorrowful mysteries of the Rosary or make the Stations of the Cross. Jesus told St. Faustina to try her best to make the Stations of the Cross during the three o'clock hour. Here's an idea for those who want to make the stations but don't have time because of other duties. First, pick one of the fourteen stations and keep it at the back of your mind as you work during the three o'clock hour, thinking about it from time to time. Then, meditate on the next station during the next day in the same way, and so on. The following list, which assigns a day of the week to each station (in two cycles), may be helpful to those who want to use this method:</p><p>(<em>Week One</em>)<br />Sunday: I. Jesus is condemned to death.<br />Monday: II. Jesus takes up his Cross.<br />Tuesday: III. Jesus falls the first time.<br />Wednesday: IV. Jesus meets his blessed mother.<br />Thursday: V. Simon of Cyrene helps Jesus to carry his Cross.<br />Friday: VI. Veronica wipes the face of Jesus.<br />Saturday: VII. Jesus falls a second time.</p><p>(<em>Week Two</em>)<br />Sunday: VIII. Jesus consoles the women of Jerusalem.<br />Monday: IX. Jesus falls the third time.<br />Tuesday: X. Jesus is stripped of his garments.<br />Wednesday: XI. Jesus is nailed to the Cross.<br />Thursday: XII. Jesus dies on the Cross.<br />Friday: XIII. Jesus is laid in the arms of his blessed mother.<br />Saturday: XIV. Jesus is laid in the tomb.</p><p><u>Second way</u>: We can confidently present our petitions to the Father by virtue of his Son's Passion. In particular, we can invoke God's mercy on the whole world and especially on unrepentant sinners. The Lord's promise that he would grant everything we ask for ourselves and for others during the three o'clock hour should help us to pray during it with great boldness and confidence. Of course, God always hears our prayers, but during the three o'clock hour, he has promised to be especially generous. It's a perfect time to pray for others and a great idea to do so through the Chaplet of Divine Mercy, which only takes about seven minutes. While we can surely pray for ourselves and for our family and friends during the Hour of Great Mercy, let's not forget to pray also for those who need it most: unrepentant sinners and the dying.</p><p><u>Third way</u>: We can visit Jesus, truly present in the Blessed Sacrament. Jesus asked St. Faustina (provided that her duties allowed it) to go to the chapel during the Hour of Great Mercy and adore his Eucharistic Heart, which is full of mercy. Of course, for most of us, it won't always be easy to visit a church or chapel during this hour. Still, if we have the time and an opportunity, for example, if while running errands we pass by a Catholic church, we just might want to pay Jesus a visit.</p>"
             }
         ),
         chaplet_info: new Array<TextItem>(

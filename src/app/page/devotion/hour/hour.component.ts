@@ -24,9 +24,8 @@ export class HourComponent implements OnInit {
     notificationOptions: Array<SegmentedBarItem> = [];
     notificationOptionsIndex: number;
 
-    items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    item: TextItem;
+    html: string;
 
     constructor(
         private data: DataService,
@@ -48,15 +47,8 @@ export class HourComponent implements OnInit {
         this.notificationOptionsIndex = getNumber("hour-notification-index");
         this.notificationId = 300;
 
-        this.items = this.data.getTextItems("hour");
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
+        this.item = this.data.getTextItem("hour", 1);
+        this.html = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     notificationOptionChange(args: SelectedIndexChangedEventData) {

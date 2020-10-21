@@ -14,13 +14,7 @@
         [selectedIndex]="notificationOptionsIndex"
         (selectedIndexChanged)="notificationOptionChange($event)">
     </SegmentedBar>
-    <StackLayout row="2">
-        <Label class="novena-schedule-paragraph" [formattedText]="formattedBodyArray[0]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph quote" [formattedText]="formattedBodyArray[1]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph" [formattedText]="formattedBodyArray[2]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph quote" [formattedText]="formattedBodyArray[3]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph" [formattedText]="formattedBodyArray[4]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph quote" [formattedText]="formattedBodyArray[5]" textWrap="true"></Label>
-        <Label class="novena-schedule-paragraph" [formattedText]="formattedBodyArray[6]" textWrap="true"></Label>
-    </StackLayout>
+    <ScrollView row="2">
+	    <HtmlView class="m-10 h3" [html]="html"></HtmlView>
+    </ScrollView>
 </GridLayout>
