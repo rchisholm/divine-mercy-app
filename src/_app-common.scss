@@ -84,7 +84,7 @@
         .big-icon-image {
             margin-right: 10%;
             margin-left: 10%;
-            height: 75%;
+            height: 65%;
         }
 
         .big-icon-button {
@@ -101,6 +101,7 @@
 //Action bar
 ActionBar {
     background: $dm-red;
+    padding:0;
 
     .ab-grid {
         padding: 0;
@@ -130,10 +131,10 @@ ActionBar {
         .ab-right {
             text-align: right;
             float: right;
-            &.info {
-                width: 60px;
-                margin-right: 10px;
-            }
+            // &.info {
+            //     width: 60px;
+            //     margin-right: 10px;
+            // }
         }
 
         .ab-link {
@@ -142,6 +143,30 @@ ActionBar {
         }
     }
 }
+
+
+// //Action bar debug colors
+// ActionBar {
+//     .ab-grid {
+//         background: blue;
+
+//         .action-bar-title {
+//             background: green;
+//         }
+
+//         .ab-icon {
+//             background:yellow;
+//         }
+
+//         .ab-left {
+//             background: purple;
+//         }
+
+//         .ab-right {
+//             background: orange;
+//         }
+//     }
+// }
 
 .page {
     width: 100%;
@@ -219,10 +244,11 @@ Pager {
 
 .chaplet-prayer-text {
     border-radius:20px;
-    margin:20px;
+    margin:10px;
+    padding: 10px;
 
     .chaplet-prayer-body {
-        margin: 40px;
+        margin: 15px;
         font-size: 16;
     }
 
@@ -231,6 +257,17 @@ Pager {
         margin: 20px;
         font-size: 18;
         text-align: center;
+    }
+
+    .chaplet-switches {
+        padding: 0 10px;
+        DockLayout {
+            margin-left: 20px;
+            Switch, Label {
+                padding: 0;
+                margin: 0;
+            }
+        }
     }
 }
 

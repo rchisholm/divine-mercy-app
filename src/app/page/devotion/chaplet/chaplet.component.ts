@@ -18,16 +18,7 @@ import { Switch } from "tns-core-modules/ui/switch";
     selector: "Chaplet",
     templateUrl: "./chaplet.component.html",
     animations: [
-        trigger("fadeInOutBeads", [
-          transition(":enter", [   // :enter is alias to 'void => *'
-            style({opacity: 0}),
-            animate(250, style({opacity: 1}))
-          ]),
-          transition(":leave", [   // :leave is alias to '* => void'
-            animate(250, style({opacity: 0}))
-          ])
-        ]),
-        trigger("fadeInOutSwitch", [
+        trigger("fadeInOut", [
           transition(":enter", [   // :enter is alias to 'void => *'
             style({opacity: 0}),
             animate(250, style({opacity: 1}))
@@ -320,7 +311,7 @@ export class ChapletComponent implements OnInit {
                 }
                 this.backCount = 0;
             });
-        }, 300);
+        }, 500);
     }
 
     startOver() {
@@ -403,7 +394,7 @@ export class ChapletComponent implements OnInit {
     enableSwiping() {
         setTimeout(() => {
             this.beadsAreMoving = false;
-        }, 300);
+        }, 500);
         this.invisibleElements = false; // enable gestures
     }
 
