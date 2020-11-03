@@ -9,6 +9,9 @@ import { MariansVocationComponent } from "./marians/marians-vocation/marians-voc
 import { MariansMeetComponent } from "./marians/marians-meet/marians-meet.component";
 import { MariansMissionsComponent } from "./marians/marians-missions/marians-missions.component";
 import { MariansSupportComponent } from "./marians/marians-support/marians-support.component";
+import { HelpersComponent } from "./helpers/helpers.component";
+import { HelpersWhatComponent } from "./helpers/helpers-what/helpers-what.component";
+import { HelpersMagazineComponent } from "./helpers/helpers-magazine/helpers-magazine.component";
 import { ShrineComponent } from "./shrine/shrine.component";
 import { ShrineAboutComponent } from "./shrine/shrine-about/shrine-about.component";
 import { ShrineCalendarComponent } from "./shrine/shrine-calendar/shrine-calendar.component";
@@ -33,6 +36,9 @@ const routes: Routes = [
     { path: "marians-vocation", component: MariansVocationComponent },
     { path: "marians-missions", component: MariansMissionsComponent },
     { path: "marians-support", component: MariansSupportComponent },
+    { path: "helpers", component: HelpersComponent },
+    { path: "helpers-what", component: HelpersWhatComponent },
+    { path: "helpers-magazine", component: HelpersMagazineComponent },
     { path: "shrine", component: ShrineComponent },
     { path: "shrine-about", component: ShrineAboutComponent },
     { path: "shrine-calendar", component: ShrineCalendarComponent },

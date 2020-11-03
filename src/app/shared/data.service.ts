@@ -876,6 +876,34 @@ export class DataService {
                 description: "In 1931, Our Lord..."
             }
 
+        ),
+        helpers: new Array<TextItem>(
+            {
+                id: 1,
+                name: "What is the Association of Marian Helpers?",
+                route: "helpers-what"
+            },
+            {
+                id: 2,
+                name: "Marian Helper Magazine",
+                route: "helpers-magazine"
+            },
+            {
+                id: 3,
+                name: "Marian Helpers YouTube"
+            }
+        ),
+        helpers_what: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<p><strong>From the Director of the Association of Marian Helpers</strong></p><p>Greetings from Eden Hill — the grounds of the Marian Helpers Center and the National Shrine of The Divine Mercy. This location, in Stockbridge, Massachusetts, is the spiritual home of the Association of Marian Helpers.</p><p>	Officially established in 1945, the Association began as a small handful of friends who believed in and supported the work of the Marians. Now with more than 1.5 million members, the Association is a spiritual benefit society which continues to prayerfully and financially support the priests and brothers of the Congregation of Marians of the Immaculate Conception in their service to Christ and the Church.</p><p>By decree of the Holy See, enrolled members share in the spiritual benefits of the Holy Masses, prayers, and good works of the Marians just as if they were a member of our religious community! Through our website, Marian Helper member magazine, and various other materials, members receive information about the Marian family and are encouraged to strive for personal holiness. You can enroll yourself or others, both living and deceased.</p><p>And we also have many other ministries and services:</p> - A toll-free <b>intercessory prayer line <a href=\"tel:1-800-804-3823\">(800-804-3823)</a></b>.<br> - <b>Novenas</b> throughout the year.<br> - <b>Votive candles</b> lit for prayer intentions.<br> - <b>Mail order catalog</b> and <b>online catalog</b>.<br> - <b>Pilgrimages</b> guided by a Marian.<br> - <b>Print materials</b> to promote devotion to Mary and Divine Mercy.<br><br></p><p>Please browse our website (marian.org) and discover the different ways you can enjoy being a member of the Association of Marian Helpers.</p><p>If you have questions and you live in the United States or Canada, you can speak to one of my associates by calling us toll free at <a href=\"tel:1-800-462-7426\">1-800-4MARIAN (1-800-462-7426)</a>. Or you can e-mail me at <a href=\"mailto:frjoseph@marian.org\">frjoseph@marian.org</a>.</p><p>May the Lord bless you and yours.</p><p>Sincerely in Jesus and Mary Immaculate,</p><p>Fr. Joseph, MIC<br>Director of the Association of Marian Helpers</p>"
+            }
+        ),
+        helpers_magazine: new Array<TextItem>(
+            {
+                id: 1,
+                description: "<p>Our quarterly publication, <em>Marian Helper</em>, is now <a href=\"http://marian.org/marianhelper/\">available in PDF format</a>.</p><p>Additionally, we have archived issues from Summer 1999 to Winter 2003-4.</p><p>You may also <a href=\"http://thedivinemercy.org/freeoffer/onefreehelper.php\">request a free printed issue</a> of the current Marian Helper.</p>"
+            }
         )
 
     };

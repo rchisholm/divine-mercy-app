@@ -9,6 +9,9 @@ import { MariansMeetComponent } from "./marians/marians-meet/marians-meet.compon
 import { MariansVocationComponent } from "./marians/marians-vocation/marians-vocation.component";
 import { MariansMissionsComponent } from "./marians/marians-missions/marians-missions.component";
 import { MariansSupportComponent } from "./marians/marians-support/marians-support.component";
+import { HelpersComponent } from "./helpers/helpers.component";
+import { HelpersWhatComponent } from "./helpers/helpers-what/helpers-what.component";
+import { HelpersMagazineComponent } from "./helpers/helpers-magazine/helpers-magazine.component";
 import { ShrineComponent } from "./shrine/shrine.component";
 import { ShrineAboutComponent } from "./shrine/shrine-about/shrine-about.component";
 import { ShrineCalendarComponent } from "./shrine/shrine-calendar/shrine-calendar.component";
@@ -38,6 +41,9 @@ import { ArticlesComponent } from "./articles/articles.component";
         MariansVocationComponent,
         MariansMissionsComponent,
         MariansSupportComponent,
+        HelpersComponent,
+        HelpersWhatComponent,
+        HelpersMagazineComponent,
         ShrineComponent,
         ShrineAboutComponent,
         ShrineCalendarComponent,
