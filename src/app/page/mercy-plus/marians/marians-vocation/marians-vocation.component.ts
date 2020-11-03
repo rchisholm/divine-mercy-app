@@ -10,8 +10,7 @@ import { RouterExtensions } from "nativescript-angular";
 })
 export class MariansVocationComponent implements OnInit {
     items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    html: Array<string>;
 
     constructor(
         private data: DataService,
@@ -21,16 +20,9 @@ export class MariansVocationComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this.data.getTextItems("marians_vocation");
-
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
+        this.html = [];
+        this.html[0] = this.formatter.prepareForHtmlView(this.items[0].description);
+        this.html[1] = this.formatter.prepareForHtmlView(this.items[1].description);
     }
 
     onBackTap(): void {

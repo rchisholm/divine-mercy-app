@@ -550,31 +550,35 @@ export class DataService {
         marians_who: new Array<TextItem>(
             {
                 id: 1,
-                description: "The Congregation..."
+                description: "<p>The Congregation of Marian Fathers of the Immaculate Conception of the Most Blessed Virgin Mary is a fraternal community of consecrated life in the Roman Catholic Church. In America, the members of the Congregation are perhaps best known for their work promoting the message of Divine Mercy from Stockbridge, Massachusetts. They are also known for their devotion to Mary Immaculate, dedication to praying for the poor souls in Purgatory, and active service to the Church.</p><p>Founded in Poland in 1673 by Saint Stanislaus Papczynski, today the Marian Congregation has well over 500 priests and brothers who labor in 19 countries: the USA, Argentina, Australia, Belarus, Brazil, Cameroon, Czech Republic, Germany, Italy, Kazakhstan, Latvia, Lithuania, Philippines, Poland, Portugal, Rwanda, Slovakia, Ukraine, and the United Kingdom.</p><p>The Marian Congregation is unique in that it has not only a founder, Saint Stanislaus, but also what the Marians call a \"Renovator\": Lithuanian-born Blessed George Matulaitis.</p><p>Blessed George is credited with saving the Marian Congregation from annihilation when he renovated and refounded it in 1910. Prior to the Renovation, the Marian Congregation had been reduced to just one member due to relentless persecution by Russian authorities. With the support of the Pope and bishops, Blessed George rewrote the Marians, Constitutions, gathered new members, and unleashed the renovated Marian Congregation as a zealous army for Christ and the Church in the modern world.</p>"
             }
         ),
         marians_meet: new Array<TextItem>(
             {
                 id: 1,
-                description: "The U.S. Province..."
+                description: "<p>The U.S. Province of the Marians of the Immaculate Conception has recently been blessed with an explosion of new vocations, young men dedicated to Christ, the Church, Divine Mercy, and Mary. Please pray for these courageous men as they prepare to serve the Church as priests and brothers.<p /><p><a href=\"http://www.marian.org/marians/meet.php\">Meet The Marians!</a></p>"
             }
         ),
         marians_vocation: new Array<TextItem>(
             {
                 id: 1,
-                description: "<b>\"I'm so glad you're here.\"</b>"
+                description: "<p><strong>\"I'm so glad you're here.\"</strong></p><p>Father Donald Calloway, MIC, welcomes you to the Marian Vocation office in the Marian House of Studies, Steubenville, Ohio.</p><p>Just by coming to this page, you've shown that you are open to wherever our Lord is calling you.</p><p>Whether or not your vocation is as a religious, and whether or not you're called to the Marians of the Immaculate Conception, I'm here to help you.</p><p>Please look through the information we have prepared for you on our website: <a href=\"http://marian.org/vocations/called.php\">http://marian.org/vocations/called.php</a>. If you would like to know more, I would be glad to send you printed information on the Marians of the Immaculate Conception.</p><p>From my own experience, I can tell you that my Congregation is totally consecrated to Mary Immaculate, faithful to authentic Church teaching, obedient to the Pope and Magisterium, and intensely Eucharistic.</p><p>Please feel free to call or email me. (See below.) You also might want to come to a Vocation Retreat. (For retreat dates, visit <a href=\"http://marian.org/vocations/retreat.php\">our website</a>.)</p><p>You may ask or tell me anything in confidence. You will not receive any phone calls or materials without your request.</p><p>Discerning a vocation takes prayer, time, and guidance. Please use the prayer at the end of this page to help you consider where God is calling you.</p><p>May our Merciful Savior bless you and guide you.</p><p>In the love of Mary Immaculate,</p><p>Fr. Donald Calloway, MIC <br />Vocation Director <br />Marians of the Immaculate Conception </p><p><strong><em>Write:</em></strong><br />Fr. Donald Calloway, MIC, <br />Vocation Director<br />Marians of the Immaculate Conception<br />515 Belleview Blvd. <br />Steubenville, OH 43952 </p><p><strong><em>Call Toll Free:</em></strong><br />(877) 261-8806</p><p><strong><em>Or e-mail:</em></strong><br /><a href=\"mailto:vocations@marian.org\">vocations@marian.org</a></p><p><strong>Vocation Prayer</strong></p>"
+            },
+            {
+                id: 2,
+                description: "<p>Hail Mary, full of grace; all generations call you blessed.</p><p>Hail Mother of God; when asked by the angel to bear the Son of the Most High, filled with faith, you responded: \"Let it be done unto me.\"</p><p>Holy Mother of Jesus, at the wedding feast at Cana, you prompted your Son to perform his first sign.</p><p>Be with us as we discern our life's work and guide us in the way we are called to follow in the footsteps of your Son.</p><p>Holy Mother of the Savior, at the foot of the cross you mourned the death of your only Son.</p><p>Bless and embrace the loving parents of all priests, deacons, brothers and sisters.</p><p>Holy Mother of the Good Shepherd, turn your motherly care to this nation.</p><p>Intercede for us to the Lord of the harvest to send more laborers to the harvest in this land dedicated to your honor.</p><p>Queen of Peace, Mirror of Justice, Health of the Sick, inspire vocations in our time.</p><p>Let the word of your Son be made flesh anew in the lives of persons anxious to proclaim the good news of everlasting life. Amen.</p><p><em>Prayer from the United States Conference of Catholic Bishops</em> </p>"
             }
         ),
         marians_missions: new Array<TextItem>(
             {
                 id: 1,
-                description: "Interested..."
+                description: "<p>Interested in bringing the message of Divine Mercy to your parish? Marian priests and brothers may be available to help! Our dynamic speakers bring the consoling message of Divine Mercy to parishes across the U.S.A. For more information, please contact our Parish Mission Team at <a href=\"mailto:ParishMissions@marian.org\">ParishMissions@marian.org</a> and 413-298-1349.</p>"
             }
         ),
         marians_support: new Array<TextItem>(
             {
                 id: 1,
-                description: "There are three..."
+                description: "<p>There are three main ways you can support the Marian Congregation:</p><p>(1) Pray - Consider adding the Marian priests, brothers, and seminarians to your daily prayer list.</p><p>(2) Volunteer - We can always use volunteers for our special events on Eden Hill. (See \"Volunteer\" in the Shrine section.)</p><p>(3) Donate - Your donation allows us to continue our good work, such as creating this free Divine Mercy app. <br />(<a href=\"http://www.marian.org/donation/index.php?source=app-dm-droid-0\">Donate online</a>)</p>"
             }
         ),
         shrine: new Array<TextItem>(
