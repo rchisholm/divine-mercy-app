@@ -14,7 +14,7 @@
     height="100%"
     backgroundColor="#777">
     <GridLayout row="0" col="0"
-        rows="auto, *, 100px"
+        rows="auto, *, auto"
         backgroundColor="white"
         class="chaplet-prayer-text">
         <Label
@@ -23,7 +23,7 @@
             textWrap="true"
             class="chaplet-prayer-title"
             *ngIf="!invisibleElements"
-            @fadeInOut>
+            @fadeInOutBeads>
         </Label>
         <ScrollView row="1" verticalAlignment="top">
             <Label
@@ -31,15 +31,19 @@
                 textWrap="true"
                 class="chaplet-prayer-body"
                 *ngIf="!invisibleElements"
-                @fadeInOut>
+                @fadeInOutBeads>
             </Label>
         </ScrollView>
-        <GridLayout row="2" columns="*, auto, auto, auto, auto" rows="*" verticalAlignment="bottom">
-            <Label col="1" text="Auto:" verticalAlignment="center" *ngIf="audioIsEnabled" @fadeInOut></Label>
-            <Switch col="2" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)" *ngIf="audioIsEnabled" @fadeInOut></Switch>
-            <Label col="3" text="Audio:" verticalAlignment="center"></Label>
-            <Switch col="4" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
-        </GridLayout>
+        <StackLayout row="2" verticalAlignment="bottom" class="chaplet-switches">
+            <DockLayout *ngIf="audioIsEnabled" @fadeInOutSwitch>
+                <Label dock="left" width="40" text="Auto:" verticalAlignment="center"></Label>
+                <Switch dock="right" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)"></Switch>
+            </DockLayout>
+            <DockLayout>
+                <Label dock="left" width="40" text="Audio:" verticalAlignment="center"></Label>
+                <Switch dock="right" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
+            </DockLayout>
+        </StackLayout>
     </GridLayout>
     <AbsoluteLayout #beadBox
         row="0"
@@ -55,7 +59,7 @@
             stretch="aspectFit"
             width="90%"
             *ngIf="!invisibleElements"
-            @fadeInOut>
+            @fadeInOutBeads>
         </Image>
         <Image #beads
             id="beads"

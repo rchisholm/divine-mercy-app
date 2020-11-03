@@ -18,13 +18,22 @@ import { Switch } from "tns-core-modules/ui/switch";
     selector: "Chaplet",
     templateUrl: "./chaplet.component.html",
     animations: [
-        trigger("fadeInOut", [
+        trigger("fadeInOutBeads", [
           transition(":enter", [   // :enter is alias to 'void => *'
             style({opacity: 0}),
-            animate(500, style({opacity: 1}))
+            animate(250, style({opacity: 1}))
           ]),
           transition(":leave", [   // :leave is alias to '* => void'
-            animate(500, style({opacity: 0}))
+            animate(250, style({opacity: 0}))
+          ])
+        ]),
+        trigger("fadeInOutSwitch", [
+          transition(":enter", [   // :enter is alias to 'void => *'
+            style({opacity: 0}),
+            animate(250, style({opacity: 1}))
+          ]),
+          transition(":leave", [   // :leave is alias to '* => void'
+            animate(250, style({opacity: 0}))
           ])
         ])
     ]
@@ -133,30 +142,30 @@ export class ChapletComponent implements OnInit {
         // determine multiplier
         let beadDistanceFactor = this.OS_FACTOR;
         if (this.IPHONE_11) {
-            // console.log("IPHONE_11");
+            console.log("IPHONE_11");
             beadDistanceFactor *= 0.99;
             this.BEAD_GLOW_TOP_START -= 3;
         }
         if (this.IPHONE_11_PM) {
-            // console.log("IPHONE_11_PM");
+            console.log("IPHONE_11_PM");
             beadDistanceFactor *= 0.99;
             this.BEAD_GLOW_TOP_START -= 10;
         }
         if (this.IPHONE_X) {
-            // console.log("IPHONE_X");
+            console.log("IPHONE_X");
             beadDistanceFactor *= 0.99;
             this.BEAD_GLOW_TOP_START -= 12;
         }
         if (this.IOS_OLD) {
-            // console.log("IOS_OLD");
+            console.log("IOS_OLD");
             beadDistanceFactor *= 1.019;
         }
         if (this.IPAD) {
-            // console.log("IPAD");
+            console.log("IPAD");
             beadDistanceFactor *= 0.997;
         }
         if (this.PIXEL_3) {
-            // console.log("PIXEL_3");
+            console.log("PIXEL_3");
             this.BEAD_GLOW_TOP_START -= 10;
         }
 
