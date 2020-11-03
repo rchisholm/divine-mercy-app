@@ -10,11 +10,15 @@
 <GridLayout rows="50px, 200px, 100px, 50px, *" columns="*" class="page novena-schedule-page">
     <Label row="0" text="Choose a date:" class="novena-schedule-label"></Label>
     <DatePicker row="1"
+        (loaded)="handleDatePickerLoaded($event)"
+        iosPreferredDatePickerStyle="1"
         minDate="today"
         (dateChange)="onDateChanged($event)"
         verticalAlignment="center">
     </DatePicker>
     <TimePicker row="2"
+        (loaded)="handleDatePickerLoaded($event)"
+        iosPreferredDatePickerStyle="1"
         (timeChange)="onTimeChanged($event)"
         verticalAlignment="center">
     </TimePicker>

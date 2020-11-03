@@ -5,6 +5,7 @@ import { TimePicker } from "tns-core-modules/ui/time-picker";
 import { LocalNotifications } from "nativescript-local-notifications";
 import { Color } from "tns-core-modules/color";
 import * as dialogs from "tns-core-modules/ui/dialogs";
+import { device, isIOS } from "tns-core-modules/platform";
 
 @Component({
     selector: "NovenaSchedule",
@@ -36,6 +37,13 @@ export class NovenaScheduleComponent implements OnInit {
         this.minute = this.scheduleDate.getMinutes();
 
         this.notificationIds = [901, 902, 903, 904, 905, 906, 907, 908, 909];
+    }
+
+    handleDatePickerLoaded(args) {
+        // apply inline/wheel style for iOS 14+
+        if (isIOS && parseFloat(device.osVersion) >= 14.0) {
+          args.object.ios.preferredDatePickerStyle = 1;
+        }
     }
 
     onDateChanged(args) {
