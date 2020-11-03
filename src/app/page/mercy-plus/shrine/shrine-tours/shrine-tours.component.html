@@ -9,8 +9,9 @@
 
 <GridLayout>
     <ScrollView>
-        <StackLayout class="page text-page">
-            <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[0]"></Label>
+        <StackLayout class="m-10 h3">
+            <Image src="res://img_pageimages_shrine_pilgrimage" stretch="aspectFill" style="margin-bottom: 30px;"></Image>
+            <HtmlView [html]="html"></HtmlView>
         </StackLayout>
     </ScrollView>
 </GridLayout>

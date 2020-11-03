@@ -9,9 +9,8 @@ import { RouterExtensions } from "nativescript-angular";
     templateUrl: "./shrine-tours.component.html"
 })
 export class ShrineToursComponent implements OnInit {
-    items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    item: TextItem;
+    html: string;
 
     constructor(
         private data: DataService,
@@ -20,17 +19,8 @@ export class ShrineToursComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("shrine_tours");
-
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
+        this.item = this.data.getTextItem("shrine_tours", 1);
+        this.html = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

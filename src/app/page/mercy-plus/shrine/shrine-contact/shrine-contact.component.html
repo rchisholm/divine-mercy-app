@@ -9,8 +9,6 @@
 
 <GridLayout>
     <ScrollView>
-        <StackLayout class="page text-page">
-            <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[0]"></Label>
-        </StackLayout>
+	    <HtmlView class="m-10 h3" [html]="html"></HtmlView>
     </ScrollView>
 </GridLayout>
