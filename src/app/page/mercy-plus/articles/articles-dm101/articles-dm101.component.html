@@ -7,12 +7,17 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout class="page">
-    <ListView [items]="items">
-        <ng-template let-item="item">
-            <StackLayout>
-                <Label [nsRouterLink]="['../articles-dm101', item.id]" [text]="item.name"></Label>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</GridLayout>
+<StackLayout class="page">
+    <Label class="m-10 h3" text="Loading..." *ngIf="loading" @fadeInOut textAlignment="center"></Label>
+    <Label class="m-10 h3" text="Couldn't load articles. Please check your connection." *ngIf="loadingFail" @fadeInOut textAlignment="center"></Label>
+    <GridLayout rows="*" columns="*" *ngIf="loadingSuccess" @fadeInOut>
+        <ListView row="0" col="0" [items]="items">
+            <ng-template let-item="item">
+                <GridLayout columns="*" rows="*" class="tdm-article" (tap)="onTap(item)">
+                    <Label row="0" col="0" class="tdm-article article-title" [text]="item.title" textWrap="true" whiteSpace="normal"></Label>
+                    <!-- <Label row="1" col="0" colSpan="2" class="article-body m-10 h3" [text]="item.body" textWrap="true" whiteSpace="normal"></Label> -->
+                </GridLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+</StackLayout>
