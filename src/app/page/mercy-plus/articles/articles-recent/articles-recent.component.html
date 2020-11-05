@@ -1,0 +1,25 @@
+<ActionBar class="action-bar">
+	<NavigationButton ios:visibility="collapsed"></NavigationButton>
+	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
+        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+		<Label row="0" col="1" class="action-bar-title" text="Recent Articles"></Label>
+		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+	</GridLayout>
+</ActionBar>
+
+<StackLayout class="page">
+    <Label class="m-10 h3" text="Loading..." *ngIf="loading" @fadeInOut textAlignment="center"></Label>
+    <Label class="m-10 h3" text="Couldn't load articles. Please check your connection." *ngIf="loadingFail" @fadeInOut textAlignment="center"></Label>
+    <GridLayout rows="*, 50" columns="*" *ngIf="loadingSuccess" @fadeInOut>
+        <ListView row="0" col="0" [items]="items">
+            <ng-template let-item="item">
+                <GridLayout columns="100, *" rows="50, *" class="tdm-article" (tap)="onTap(item)">
+                    <Image row="0" col="0" class="article-image" [src]="item.image"></Image>
+                    <Label row="0" col="1" class="article-title" [text]="item.title" textWrap="true" whiteSpace="normal"></Label>
+                    <!-- <Label row="1" col="0" colSpan="2" class="article-body m-10 h3" [text]="item.body" textWrap="true" whiteSpace="normal"></Label> -->
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        <Label row="1" col="0" class="m-10 h3 read-more-link" text="Read more articles..." @fadeInOut textAlignment="left" (tap)="goToNews()"></Label>
+    </GridLayout>
+</StackLayout>

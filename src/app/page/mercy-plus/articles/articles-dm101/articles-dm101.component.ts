@@ -6,10 +6,10 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { openUrl } from "tns-core-modules/utils/utils";
 
 @Component({
-    selector: "Articles",
-    templateUrl: "./articles.component.html"
+    selector: "ArticlesDm101",
+    templateUrl: "./articles-dm101.component.html"
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesDm101Component implements OnInit {
     items: Array<TextItem>;
 
     constructor(
@@ -19,13 +19,7 @@ export class ArticlesComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("articles");
-    }
-
-    onTap(item: TextItem) {
-        if (item.route) {
-            this.router.navigate(["../" + item.route], { relativeTo: this.currentRoute });
-        }
+        this.items = this._itemService.getTextItems("articles_dm101");
     }
 
     onBackTap(): void {

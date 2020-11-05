@@ -34,7 +34,7 @@ export class DataService {
     // TODO: attempt to get data from server;
     // if not available, use this hard-coded data
 
-    private serverUrl = "https://api-dev.marian.org/fetch/";
+    private serverUrl = "https://api.marian.org/fetch/";
     private headers = new HttpHeaders().set("Content-Type", "application/json");
 
     constructor(private http: HttpClient) { }
@@ -904,8 +904,41 @@ export class DataService {
                 id: 1,
                 description: "<p>Our quarterly publication, <em>Marian Helper</em>, is now <a href=\"http://marian.org/marianhelper/\">available in PDF format</a>.</p><p>Additionally, we have archived issues from Summer 1999 to Winter 2003-4.</p><p>You may also <a href=\"http://thedivinemercy.org/freeoffer/onefreehelper.php\">request a free printed issue</a> of the current Marian Helper.</p>"
             }
-        )
+        ),
+        articles: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Recent Articles",
+                route: "articles-recent"
+            },
+            {
+                id: 2,
+                name: "Divine Mercy 101",
+                route: "articles-dm101"
+            },
+            {
+                id: 3,
+                name: "Frequently Asked Questions",
+                route: "articles-faq"
+            }
+        ),
+        articles_dm101: new Array<TextItem>(
+            {
+                id: 1,
+                name: "What is Divine Mercy? (Part One)",
+                description: "Mercy Presents..."
+            }
+            /*
 
+            */
+        ),
+        articles_faq: new Array<TextItem>(
+            {
+                id: 1,
+                name: "Vigil Mass",
+                description: "Q: ..."
+            }
+        )
     };
 
     private resourceItems = {

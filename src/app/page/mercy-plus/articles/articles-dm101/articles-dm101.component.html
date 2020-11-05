@@ -2,7 +2,7 @@
 	<NavigationButton ios:visibility="collapsed"></NavigationButton>
 	<GridLayout class="ab-grid" columns="auto, *, auto" rows="auto">
         <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Articles"></Label>
+		<Label row="0" col="1" class="action-bar-title" text="Divine Mercy 101"></Label>
 		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
 	</GridLayout>
 </ActionBar>
@@ -11,7 +11,7 @@
     <ListView [items]="items">
         <ng-template let-item="item">
             <StackLayout>
-                <Label (tap)="onTap(item)" [text]="item.name"></Label>
+                <Label [nsRouterLink]="['../articles-dm101', item.id]" [text]="item.name"></Label>
             </StackLayout>
         </ng-template>
     </ListView>

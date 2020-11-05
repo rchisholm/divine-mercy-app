@@ -27,6 +27,11 @@ import { ApostolatesJpiiComponent } from "./apostolates/apostolates-jpii/apostol
 import { ApostolatesMommComponent } from "./apostolates/apostolates-momm/apostolates-momm.component";
 import { ApostolatesWhatComponent } from "./apostolates/apostolates-what/apostolates-what.component";
 import { ArticlesComponent } from "./articles/articles.component";
+import { ArticlesRecentComponent } from "./articles/articles-recent/articles-recent.component";
+import { ArticlesDm101Component } from "./articles/articles-dm101/articles-dm101.component";
+import { ArticlesDm101ItemDetailComponent } from "./articles/articles-dm101/articles-dm101-item-detail.component";
+import { ArticlesFaqComponent } from "./articles/articles-faq/articles-faq.component";
+import { ArticlesFaqItemDetailComponent } from "./articles/articles-faq/articles-faq-item-detail.component";
 
 @NgModule({
     imports: [
@@ -58,7 +63,12 @@ import { ArticlesComponent } from "./articles/articles.component";
         ApostolatesJpiiComponent,
         ApostolatesMommComponent,
         ApostolatesWhatComponent,
-        ArticlesComponent
+        ArticlesComponent,
+        ArticlesRecentComponent,
+        ArticlesDm101Component,
+        ArticlesDm101ItemDetailComponent,
+        ArticlesFaqComponent,
+        ArticlesFaqItemDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
