@@ -74,7 +74,8 @@
         padding-bottom: 5%;
         text-align: center;
         width: 35%;
-        height: 30%;
+        height: auto;
+        // background: lightblue;
 
         &.button {
             width: 45%;
@@ -84,7 +85,7 @@
         .big-icon-image {
             margin-right: 10%;
             margin-left: 10%;
-            height: 65%;
+            // height: 50%;
         }
 
         .big-icon-button {
