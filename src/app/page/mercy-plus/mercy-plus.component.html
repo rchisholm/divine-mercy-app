@@ -29,7 +29,7 @@
 			<Image src="res://img_largeicons_mercyplus_apostolates" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Apostolates" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>
-		<StackLayout class="big-icon" [nsRouterLink]="['../catalog']">
+		<StackLayout class="big-icon" (tap)="goToShopMercy()">
 			<Image src="res://img_largeicons_mercyplus_catalog" stretch="aspectFit" class="big-icon-image"></Image>
 			<Label text="Catalog" textWrap="true" class="big-icon-label"></Label>
 		</StackLayout>

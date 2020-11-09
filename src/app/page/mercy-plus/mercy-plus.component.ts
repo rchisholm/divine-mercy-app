@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { openUrl } from "tns-core-modules/utils/utils";
 
 @Component({
     selector: "MercyPlus",
@@ -17,5 +18,9 @@ export class MercyPlusComponent implements OnInit {
 
         // Use the "ngOnInit" handler to initialize data for the view.
 
+    }
+
+    goToShopMercy(): void {
+        openUrl("https://www.shopmercy.org");
     }
 }

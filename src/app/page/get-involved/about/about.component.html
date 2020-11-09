@@ -7,31 +7,8 @@
 	</GridLayout>
 </ActionBar>
 
-<GridLayout class="page">
+<GridLayout>
     <ScrollView>
-        <StackLayout>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[0]"></Label>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[1]"></Label>
-                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
-                    text="TheDivineMercy.org"
-                    (tap)="openLink('https://www.thedivinemercy.org')">
-                </Label>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[2]"></Label>
-                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
-                    text="phone: (800) 462-7426,"
-                    (tap)="callNumber('1-800-462-7426')">
-                </Label>
-                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
-                    text="email: service@marian.org,"
-                    (tap)="sendEmail('service@marian.org')">
-                </Label>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[3]"></Label>
-                <Label class="m-10 h3 link" verticalAlignment="top" textWrap="true"
-                    text="donate online at TheDivineMercy.org"
-                    (tap)="openLink(donationUrl)">
-                </Label>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[4]"></Label>
-                <Label class="m-10 h3" verticalAlignment="top" textWrap="true" [formattedText]="formattedBodyArray[5]"></Label>
-        </StackLayout>
+	    <HtmlView class="m-10 h3" [html]="html"></HtmlView>
     </ScrollView>
 </GridLayout>
