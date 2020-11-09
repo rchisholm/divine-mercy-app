@@ -663,7 +663,7 @@ export class DataService {
         apostolates: new Array<TextItem>(
             {
                 id: 1,
-                name: "What-are the Divine Mercy Apostolates?",
+                name: "What are the Divine Mercy Apostolates?",
                 route: "apostolates-what"
             },
             {
@@ -690,31 +690,31 @@ export class DataService {
         apostolates_what: new Array<TextItem>(
             {
                 id: 1,
-                description: "Four unique..."
+                description: "<p>Four unique lay outreach ministries of the Marians of the Immaculate Conception bring the message of Divine Mercy to churches and communities throughout the country. Working together with the National Shrine of The Divine Mercy and the Association of Marian Helpers in Stockbridge, Massachusetts, they promote and teach the true forms of the message and devotion to The Divine Mercy. In addition, they encourage people to live out the message of mercy in their daily lives through a collection of engaging programs, books, publications, and presentations for lay people and clergy alike.</p>"
             }
         ),
         apostolates_jpii: new Array<TextItem>(
             {
                 id: 1,
-                description: "Founded in 1966..."
+                description: "<p>Founded in 1996 under the guidance of renowned experts on Divine Mercy: Fr. Seraphim Michalenko, MIC, and Fr. George Kosicki, CSB, the John Paul II Institute of Divine Mercy provides instruction in Divine Mercy theology and spirituality to both parish leaders and clergy. At its inception, Pope John Paul II himself entrusted the Institute with the task of providing \"formation and research in The Divine Mercy message and devotion as it is revealed in Scripture, Sacred Tradition, and in the life and writings of St. Faustina Kowalska.\"</p><p><a href=\"http://thedivinemercy.org/jpii/\">Learn more</a>.</p>"
             }
         ),
         apostolates_eadm: new Array<TextItem>(
             {
                 id: 1,
-                description: "The Eucharistic..."
+                description: "<p>The Eucharistic Apostles of The Divine Mercy (EADM) is building the body of Christ through its worldwide network of Cenacles. This guided study program for prayer communities includes the study of Sacred Scripture, the <em>Catechism of the Catholic Church</em>, and the <em>Diary of St. Faustina</em>. Participants gather in local communities to learn more about God, the Holy Catholic Church and their place in the Body of Christ.</p><p>Genuine belief in the Real Presence of Our Lord in the Most Holy Eucharist. The apostolate promotes Eucharistic Adoration, together with hourly praying of The Divine Mercy Chaplet for the sick and dying.</p><p><a href=\"http://thedivinemercy.org/eadm/\">Learn more</a>.</p>"
             }
         ),
         apostolates_momm: new Array<TextItem>(
             {
                 id: 1,
-                description: "Want the Divine..."
+                description: "<p>Want the Divine Mercy message to come alive before your very eyes? Invite the Mother of Mercy Messengers (MOMM) to your church or community. MOMM brings the Divine Mercy message and devotion into parishes, schools and organizations across the country through a variety of unique and dramatic presentations. MOMM's prayerful events and programs are enriching, inspiring, and educational for hearts and souls of all ages.</p><p><a href=\"http://thedivinemercy.org/momm/\">Learn more</u>.</p>"
             }
         ),
         apostolates_hpdm: new Array<TextItem>(
             {
                 id: 1,
-                description: "Healthcare Professionals..."
+                description: "<p>Healthcare Professionals for Divine Mercy offers nurses, physicians, allied health and other caregivers a unique program of professional formation that integrates the spirituality and devotional elements of The Divine Mercy message in patient care.</p><p>Its program of spiritual and professional formation includes:</p><ul><li>The <em>Spiritual Care Plan</em> that thoroughly assesses patients' spiritual needs and fosters their spiritual an pastoral care;</li><li>The <em>Annual Divine Mercy Conference for Medical Professionals</em> called \"Medicine, Bioethics, and Spirituality\" that addresses current issues in bioethics and offers 15 CEUs and CMEs;</li><li>A concise handbook:<em> Nursing With the Hands of Jesus: A Guide to Nurses for Divine Mercy</em> that offers 8 CEUs for nurses;</li><li>Spiritual growth opportunities through Eucharistic Apostles' Cenacles program and specialized retreats.</li></ul><p><a href=\"http://thedivinemercy.org/healthcare/\">Learn more</a>.</p>"
             }
         ),
         about: new Array<TextItem>(

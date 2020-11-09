@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { TextFormatter } from "~/app/shared/text-formatter";
-import { FormattedString } from "tns-core-modules/text/formatted-string";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { RouterExtensions } from "nativescript-angular";
 
@@ -9,9 +8,8 @@ import { RouterExtensions } from "nativescript-angular";
     templateUrl: "./apostolates-eadm.component.html"
 })
 export class ApostolatesEadmComponent implements OnInit {
-    items: Array<TextItem>;
-    textBodyArray: Array<string>;
-    formattedBodyArray: Array<FormattedString>;
+    item: TextItem;
+    html: string;
 
     constructor(
         private data: DataService,
@@ -20,17 +18,8 @@ export class ApostolatesEadmComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.items = this.data.getTextItems("apostolates_eadm");
-
-        this.textBodyArray = [];
-        this.formattedBodyArray = [];
-
-        this.items.forEach((item) => {
-            this.textBodyArray.push(item.description);
-        });
-        this.textBodyArray.forEach((text) => {
-            this.formattedBodyArray.push(this.formatter.formatTagsFromString(text));
-        });
+        this.item = this.data.getTextItem("apostolates_eadm", 1);
+        this.html = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {
