@@ -309,6 +309,57 @@ Pager {
     font-size: 15;
 }
 
+.resource-container {
+
+    .resource-title, .resource-subtitle, .resource-author {
+        font-weight: bold;
+    }
+
+    .resource-author, .resource-description, .resource-link {
+        margin: 0 20;
+    }
+    .resource-title {
+        font-size: 16;
+    }
+    .resource-subtitle {
+        font-size: 14;
+    }
+    .resource-author {
+        font-size: 12;
+        font-weight: bold;
+    }
+    .resource-image {
+        width: 500px;
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    .resource-link {
+        padding: 5;
+        color: $dm-red;
+        border-width: 1px;
+        border-color: $dm-red;
+        border-radius: 10;
+    }
+}
+
+
+// .resource-title {
+//     font-size: 16;
+//     font-weight: bold;
+// }
+// .resource-subtitle {
+//     font-size: 14;
+//     font-weight: bold;
+// }
+// .resource-author {
+//     font-size: 12;
+//     font-weight: bold;
+// }
+// .resource-image {
+//     width: 500px;
+//     max-width: 100%;
+// }
+
 // dark mode
 .ns-dark {
     .page {

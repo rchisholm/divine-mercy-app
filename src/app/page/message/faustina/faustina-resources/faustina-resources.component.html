@@ -9,14 +9,16 @@
 
 <GridLayout class="page">
     <ListView [items]="resources">
-        <ng-template let-item="item">
-            <StackLayout>
-                <Label class="resource-name" [text]=item.name></Label>
-                <Label class="resource-subtitle" [text]=item.subtitle></Label>
-                <Label class="resource-author" [text]=item.author></Label>
-                <Label class="resource-image" [text]=item.image></Label>
-                <Label class="resource-description" [text]=item.description></Label>
-                <Label class="resource-link" [text]=item.link></Label>
+        <ng-template class="resource-template" let-item="item">
+            <StackLayout class="resource-container">
+                <Label class="resource-title" [text]=item.title *ngIf="item.title"></Label>
+                <Label class="resource-subtitle" [text]=item.subtitle *ngIf="item.subtitle"></Label>
+                <Label class="resource-author" [text]=item.author *ngIf="item.author"></Label>
+                <Image class="resource-image" stretch="aspectFit" [src]=item.image *ngIf="item.image"></Image>
+                <Label class="resource-description" textWrap="true" [text]=item.description></Label>
+                <GridLayout columns="auto, *">
+                    <Label col="0" class="resource-link" [text]="item.buttonText ? item.buttonText: 'Buy Online'" (tap)="openLink(item)"></Label>
+                </GridLayout>
             </StackLayout>
         </ng-template>
     </ListView>

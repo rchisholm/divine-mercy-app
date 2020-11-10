@@ -9,13 +9,15 @@ export interface TextItem {
 }
 
 export interface ResourceItem {
-    id: number;
-    name: string;
-    subtitle: string;
-    author: string;
-    image: string;
+    id?: number;
+    title?: string;
+    subtitle?: string;
+    image?: string;
+    author?: string;
     description: string;
-    link: string;
+    link?: string;
+    buttonText?: string;
+    tel?: string;
 }
 
 export interface ArticleItem {
@@ -1002,30 +1004,45 @@ export class DataService {
     };
 
     private resourceItems = {
-        faustina: new Array<ResourceItem>(
+        default: new Array<ResourceItem>(
             {
                 id: 0,
-                name: "Faustina, Saint for Our Times",
-                subtitle: "A Personal Look at Her Life, Spirituality, and Legacy",
-                author: "Rev. George Kosicki, CSB with David C. Came",
-                image: "image-1",
-                description: "bla bla",
-                link: "link-1"
-            },
+                description: "Products can also be ordered by calling the Marians.",
+                tel: "1-800-462-7426",
+                buttonText: "Call to Order"
+            }
+        ),
+        faustina: new Array<ResourceItem>(
             {
                 id: 1,
-                name: "Faustina, Saint for Our Times 2",
+                title: "Faustina, Saint for Our Times",
                 subtitle: "A Personal Look at Her Life, Spirituality, and Legacy",
+                image: "res://img_products_r_sft",
                 author: "Rev. George Kosicki, CSB with David C. Came",
-                image: "image-1",
-                description: "bla bla",
-                link: "link-1"
+                description: "In Faustina, Saint for Our Times, Fr. George Kosicki, CSB, gives us an insightful look into St. Maria Faustina Kowalska's life, spirituality, and mission. 167 pages.",
+                link: "https://shopmercy.org/faustina-saint-for-our-times.html"
+            },
+            {
+                id: 2,
+                title: "Life of Faustina Kowalska",
+                author: "Sr. Sophia Michlenko, CMGT",
+                image: "res://img_products_r_dml6",
+                description: "This biography, formerly titled Mercy My Mission, includes many excerpts from St. Faustina's famous Diary. Whether read alone or as a study aid to reading the Diary itself, this book is an inspiring and reliable introduction to this remarkable twentieth-century saint. 278 pages.",
+                link: "http://www.shopmercy.org/Life-of-Faustina-Kowalska/DML6/itd/07110007/101/271/APPDVMAND"
+            },
+            {
+                id: 3,
+                title: "Faustina, the Mystic & Her Message",
+                author: "Ewa K. Czaczkowska",
+                image: "res://img_products_r_fmhm",
+                description: "Follow the path of Faustina on her journey to sainthood. Faustina: The Mystic and Her Message provides new details about this remarkable woman and rare photographs of her. In this biography, get to know the real Faustina, her message, and her mission.",
+                link: "http://www.shopmercy.org/Faustina/BIOSF/itd/07110183/101/157/APPDVMAND"
             }
         ),
         mercy_popes: new Array<ResourceItem>(
             {
                 id: 0,
-                name: "Rich in Mercy",
+                title: "Rich in Mercy",
                 subtitle: "",
                 author: "",
                 image: "image-1",
@@ -1034,7 +1051,7 @@ export class DataService {
             },
             {
                 id: 1,
-                name: "Pope Benedict's Divine Mercy Mandate",
+                title: "Pope Benedict's Divine Mercy Mandate",
                 subtitle: "",
                 author: "David C. Came",
                 image: "image-1",
@@ -1045,7 +1062,7 @@ export class DataService {
         diary: new Array<ResourceItem>(
             {
                 id: 1,
-                name: "Diary of St. Maria Faustina Kowalska",
+                title: "Diary of St. Maria Faustina Kowalska",
                 subtitle: "",
                 author: "",
                 image: "image-1",
@@ -1056,7 +1073,7 @@ export class DataService {
         resources: new Array<ResourceItem>(
             {
                 id: 1,
-                name: "33 Days to Merciful Love",
+                title: "33 Days to Merciful Love",
                 subtitle: "",
                 author: "Fr. Michael Gaitley, MIC",
                 image: "image-1",
@@ -1067,7 +1084,7 @@ export class DataService {
         prayer_book: new Array<ResourceItem>(
             {
                 id: 1,
-                name: "Praying with St. Maria Faustina",
+                title: "Praying with St. Maria Faustina",
                 subtitle: "A Treasury of Prayers from the Diary of St. Maria Faustina",
                 author: "Colleen Free and Rev. George W. Kosicki, CSB",
                 image: "image-1",
@@ -1087,7 +1104,7 @@ export class DataService {
     }
 
     getResourceItems(page: string): Array<ResourceItem> {
-        return this.resourceItems[page];
+        return this.resourceItems.default.concat(this.resourceItems[page]);
     }
 
     getResourceItem(page: string, id: number): ResourceItem {
