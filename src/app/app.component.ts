@@ -4,6 +4,7 @@ import { getBoolean, setBoolean, setNumber } from "tns-core-modules/application-
 import { RouterExtensions } from "nativescript-angular/router";
 import { ActivatedRoute } from "@angular/router";
 import * as dialogs from "tns-core-modules/ui/dialogs";
+import { DataService } from "./shared/data.service";
 
 @Component({
     selector: "ns-app",
@@ -16,12 +17,16 @@ export class AppComponent implements OnInit {
     constructor(
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute,
-        private ngZone: NgZone
+        private ngZone: NgZone,
+        private data: DataService
     ) {
         // Use the component constructor to inject providers.
     }
 
     ngOnInit(): void {
+
+        this.data.loadAllStaticItems();
+
         // Init your component properties here.
         LocalNotifications.addOnMessageReceivedCallback(
             (notification) => {
@@ -55,6 +60,7 @@ export class AppComponent implements OnInit {
 
             }
         );
+
     }
 
     // onTabChanged(args): void {

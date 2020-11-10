@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { setString, hasKey, getString } from "tns-core-modules/application-settings";
 
 export interface TextItem {
     id: number;
@@ -1335,19 +1336,59 @@ export class DataService {
 
     // get static data hard-coded in the app
     getTextItems(page: string): Array <TextItem> {
-        return this.textItems[page];
+        // return this.textItems[page];
+        const pageKey = "text_item_" + page;
+
+        if (hasKey(pageKey)) {
+            return JSON.parse(getString(pageKey, JSON.stringify(this.textItems[page])));
+        } else {
+            console.log("stored array not found, using static array.");
+
+            return this.textItems[page];
+        }
     }
 
     getTextItem(page: string, id: number): TextItem {
-        return this.textItems[page].filter((item) => item.id === id)[0];
+        // return this.textItems[page].filter((item) => item.id === id)[0];
+        const pageKey = "text_item_" + page;
+        let textItemArray;
+        if (hasKey(pageKey)) {
+            textItemArray = JSON.parse(getString(pageKey, JSON.stringify(this.textItems[page])));
+        } else {
+            console.log("stored array not found, using static array.");
+            textItemArray = this.textItems[page];
+        }
+
+        return textItemArray.filter((item) => item.id === id)[0];
     }
 
     getResourceItems(page: string): Array <ResourceItem> {
-        return this.resourceItems.start.concat(this.resourceItems[page]).concat(this.resourceItems.end);
+        // return this.resourceItems.start.concat(this.resourceItems[page]).concat(this.resourceItems.end);
+        const pageKey = "resource_item_" + page;
+
+        if (hasKey(pageKey)) {
+            return this.resourceItems.start.concat(
+                JSON.parse(getString(pageKey, JSON.stringify(this.resourceItems[page])))).concat(
+                    this.resourceItems.end);
+        } else {
+            console.log("stored array not found, using static array.");
+
+            return this.resourceItems.start.concat(this.resourceItems[page]).concat(this.resourceItems.end);
+        }
     }
 
     getResourceItem(page: string, id: number): ResourceItem {
-        return this.resourceItems[page].filter((item) => item.id === id)[0];
+        // return this.resourceItems[page].filter((item) => item.id === id)[0];
+        const pageKey = "resource_item_" + page;
+        let resourceItemArray;
+        if (hasKey(pageKey)) {
+            resourceItemArray = JSON.parse(getString(pageKey, JSON.stringify(this.resourceItems[page])));
+        } else {
+            console.log("stored array not found, using static array.");
+            resourceItemArray = this.resourceItems[page];
+        }
+
+        return resourceItemArray.filter((item) => item.id === id)[0];
     }
 
     // get live data from web service
@@ -1455,4 +1496,24 @@ export class DataService {
         );
     }
 
+    loadAllStaticItems() {
+        for (const property in this.textItems) {
+            if (property) {
+                const key = "text_item_" + property;
+                // if (!hasKey(key)) {
+                setString(key, JSON.stringify(this.textItems[property]));
+                // console.log(key + ": " + getString(key));
+                // }
+            }
+        }
+        for (const property in this.resourceItems) {
+            if (property) {
+                const key = "resource_item_" + property;
+                // if (!hasKey(key)) {
+                setString(key, JSON.stringify(this.resourceItems[property]));
+                // console.log(key + ": " + getString(key));
+                // }
+            }
+        }
+    }
 }
