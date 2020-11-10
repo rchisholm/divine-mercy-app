@@ -1391,65 +1391,6 @@ export class DataService {
         return resourceItemArray.filter((item) => item.id === id)[0];
     }
 
-    // get live data from web service
-    getLiveTextItems(page: string) {
-        return this.fetchAppData({
-            itemType: "text",
-            itemPage: page
-        });
-    }
-
-    getLiveTextItem(page: string, id: number) {
-        return this.fetchAppData({
-            itemType: "text",
-            itemPage: page,
-            itemId: id
-        });
-    }
-    getLiveResourceItems(page: string) {
-        return this.fetchAppData({
-            itemType: "resource",
-            itemPage: page
-        });
-    }
-
-    getLiveResourceItem(page: string, id: number) {
-        return this.fetchAppData({
-            itemType: "resource",
-            itemPage: page,
-            itemId: id
-        });
-    }
-
-    postData(data: any) {
-
-        return this.http.post(
-            this.serverUrl,
-            data,
-            { headers: this.headers }
-        );
-    }
-
-    getData(params = null) {
-        let queryString = "";
-        const queryArray = [];
-        if (params) {
-            for (const property in params) {
-                if (property) {
-                    queryArray.push(property + "=" + params[property]);
-                }
-            }
-            if (queryArray.length > 0) {
-                queryString += "?" + queryArray.join("&");
-            }
-        }
-
-        return this.http.get(
-            this.serverUrl + queryString,
-            { headers: this.headers }
-        );
-    }
-
     fetchData(fetchCode: string, params: any = null) {
         let queryString = "";
         const queryArray = [];
@@ -1500,21 +1441,57 @@ export class DataService {
         for (const property in this.textItems) {
             if (property) {
                 const key = "text_item_" + property;
-                // if (!hasKey(key)) {
                 setString(key, JSON.stringify(this.textItems[property]));
-                // console.log(key + ": " + getString(key));
-                // }
             }
         }
         for (const property in this.resourceItems) {
             if (property) {
                 const key = "resource_item_" + property;
-                // if (!hasKey(key)) {
                 setString(key, JSON.stringify(this.resourceItems[property]));
-                // console.log(key + ": " + getString(key));
-                // }
             }
         }
         // find any items which need updates; update them.
+        let updateData = {};
+        this.fetchAppData()
+            .subscribe((res) => {
+                // console.log((<any>res));
+                if ((<any>res).ok) {
+                    updateData = (<any>res).data.updateData;
+                    for (const updateKey in updateData) {
+                        if (updateKey) {
+                            const updateArray = updateData[updateKey];
+                            console.log("updating " + updateKey);
+                            if (hasKey(updateKey)) {
+                                let arrayToUpdate = JSON.parse(getString(updateKey));
+                                // loop through new data, replace oldData elements
+                                updateArray.forEach((updateItem) => {
+                                    const updateItemId = updateItem.id;
+                                    const indexToUpdate = this.findWithAttr(arrayToUpdate, "id", updateItemId);
+                                    arrayToUpdate[indexToUpdate] = updateItem;
+                                });
+                                setString(updateKey, JSON.stringify(arrayToUpdate));
+                            } else {
+                                console.log("data not set: " + updateKey);
+                            }
+                        }
+                    }
+                } else {
+                    console.log("fetch error: " + (<any>res).message);
+                }
+            },
+            (err) => {
+                console.log("http error: " + err);
+            });
     }
+
+    findWithAttr(array, attr, value) {
+        for (let i = 0; i < array.length; i += 1) {
+            if (array[i][attr] === value) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
 }
