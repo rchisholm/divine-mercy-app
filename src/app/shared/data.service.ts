@@ -42,6 +42,7 @@ export class DataService {
 
     constructor(private http: HttpClient) { }
 
+    // plain text items used throughout app
     private textItems = {
         introduction: new Array<TextItem>(
             {
@@ -1004,6 +1005,7 @@ export class DataService {
         )
     };
 
+    // resource (purchaseable) items used in app
     private resourceItems = {
         start: new Array<ResourceItem>(
             {
@@ -1334,7 +1336,7 @@ export class DataService {
         )
     };
 
-    // get static data hard-coded in the app
+    // get an array of text items by page
     getTextItems(page: string): Array <TextItem> {
         // return this.textItems[page];
         const pageKey = "text_item_" + page;
@@ -1348,6 +1350,7 @@ export class DataService {
         }
     }
 
+    // get a single text item by page and id
     getTextItem(page: string, id: number): TextItem {
         // return this.textItems[page].filter((item) => item.id === id)[0];
         const pageKey = "text_item_" + page;
@@ -1362,6 +1365,7 @@ export class DataService {
         return textItemArray.filter((item) => item.id === id)[0];
     }
 
+    // get an array of resource items by page
     getResourceItems(page: string): Array <ResourceItem> {
         // return this.resourceItems.start.concat(this.resourceItems[page]).concat(this.resourceItems.end);
         const pageKey = "resource_item_" + page;
@@ -1377,6 +1381,7 @@ export class DataService {
         }
     }
 
+    // get a single resource item by page and id
     getResourceItem(page: string, id: number): ResourceItem {
         // return this.resourceItems[page].filter((item) => item.id === id)[0];
         const pageKey = "resource_item_" + page;
@@ -1391,6 +1396,7 @@ export class DataService {
         return resourceItemArray.filter((item) => item.id === id)[0];
     }
 
+    // get some data from the MHC fetch API
     fetchData(fetchCode: string, params: any = null) {
         let queryString = "";
         const queryArray = [];
@@ -1411,10 +1417,12 @@ export class DataService {
         );
     }
 
+    // get divine mercy app data from fetch API
     fetchAppData(params: any = null) {
         return this.fetchData("divine-mercy-app", params);
     }
 
+    // get a list of TDM news articles from fetch API
     getNewsArticles() {
         return this.fetchData(
             "tdm-articles-news",
@@ -1426,6 +1434,7 @@ export class DataService {
         );
     }
 
+    // get a list of DM101 articles from fetch API
     getDm101Articles() {
         return this.fetchData(
             "tdm-articles-dm101",
@@ -1437,6 +1446,8 @@ export class DataService {
         );
     }
 
+    // load up static items listed above into app settings,
+    // then check for any items that require an update via the API and apply updates.
     loadAllStaticItems() {
         for (const property in this.textItems) {
             if (property) {
@@ -1462,7 +1473,7 @@ export class DataService {
                             const updateArray = updateData[updateKey];
                             console.log("updating " + updateKey);
                             if (hasKey(updateKey)) {
-                                let arrayToUpdate = JSON.parse(getString(updateKey));
+                                const arrayToUpdate = JSON.parse(getString(updateKey));
                                 // loop through new data, replace oldData elements
                                 updateArray.forEach((updateItem) => {
                                     const updateItemId = updateItem.id;
@@ -1484,6 +1495,8 @@ export class DataService {
             });
     }
 
+    // get the index of an element in an array,
+    // by the value of an attribute contained in the elemennt
     findWithAttr(array, attr, value) {
         for (let i = 0; i < array.length; i += 1) {
             if (array[i][attr] === value) {
