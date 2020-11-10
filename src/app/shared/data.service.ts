@@ -1004,12 +1004,20 @@ export class DataService {
     };
 
     private resourceItems = {
-        default: new Array<ResourceItem>(
+        start: new Array<ResourceItem>(
             {
                 id: 0,
                 description: "Products can also be ordered by calling the Marians.",
                 tel: "1-800-462-7426",
                 buttonText: "Call to Order"
+            }
+        ),
+        end: new Array<ResourceItem>(
+            {
+                id: 999,
+                description: "See more at ShopMercy.org",
+                link: "https://www.shopmercy.org",
+                buttonText: "Shop Online"
             }
         ),
         faustina: new Array<ResourceItem>(
@@ -1041,33 +1049,28 @@ export class DataService {
         ),
         mercy_popes: new Array<ResourceItem>(
             {
-                id: 0,
+                id: 1,
                 title: "Rich in Mercy",
-                subtitle: "",
-                author: "",
-                image: "image-1",
-                description: "bla bla",
-                link: "link-1"
+                image: "res://img_products_r_rim",
+                description: "In his encyclical \"Rich in Mercy\" (Dives in Misericordia), Saint John Paul II demonstrated how God the Father is \"rich in mercy\" through a masterful exposition of Scripture, especially the Gospel parable of the prodigal son. 74 pages.",
+                link: "http://www.shopmercy.org/Rich-in-Mercy/RIM/itd/07110139/101/235/APPDVMAND"
             },
             {
-                id: 1,
-                title: "Pope Benedict's Divine Mercy Mandate",
-                subtitle: "",
-                author: "David C. Came",
-                image: "image-1",
-                description: "bla bla",
-                link: "link-1"
+                id: 2,
+                title: "The Second Greatest Story Ever Told",
+                author: "Michael E. Gaitley, MIC",
+                image: "res://img_products_r_sgsbk",
+                description: "In <i>The Second Greatest Story Ever Told</i>, Fr. Michael Gaitley, MIC, reveals St. John Paul II's witness for our time. Building on the prophetic voices of Margaret Mary Alacoque, Thérèse of Lisieux, Maximilian Kolbe, and Faustina Kowalska, and expounding on the profound connection between Divine Mercy and Marian consecration.",
+                link: "http://www.shopmercy.org/The-Second-Greatest-Story-Ever-Told/SGSBK/itd/07270160/101/161/APPDVMAND"
             }
         ),
         diary: new Array<ResourceItem>(
             {
                 id: 1,
                 title: "Diary of St. Maria Faustina Kowalska",
-                subtitle: "",
-                author: "",
-                image: "image-1",
-                description: "bla bla",
-                link: "link-1"
+                image: "res://img_products_r_nbfd",
+                description: "The Diary chronicles the spiritual experiences of St. Faustina, a Polish nun, before the outbreak of World War II. It includes revelations she received from Jesus for her to deliver to the whole world.",
+                link: "https://shopmercy.org/diary-of-saint-maria-faustina-kowalska.html"
             }
         ),
         resources: new Array<ResourceItem>(
@@ -1104,7 +1107,7 @@ export class DataService {
     }
 
     getResourceItems(page: string): Array<ResourceItem> {
-        return this.resourceItems.default.concat(this.resourceItems[page]);
+        return this.resourceItems.start.concat(this.resourceItems[page]).concat(this.resourceItems.end);
     }
 
     getResourceItem(page: string, id: number): ResourceItem {
