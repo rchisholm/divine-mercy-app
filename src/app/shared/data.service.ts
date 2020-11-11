@@ -1463,6 +1463,7 @@ export class DataService {
         }
         // find any items which need updates; update them.
         let updateData = {};
+        let newData = {};
         this.fetchAppData()
             .subscribe((res) => {
                 // console.log((<any>res));
@@ -1483,6 +1484,23 @@ export class DataService {
                                 setString(updateKey, JSON.stringify(arrayToUpdate));
                             } else {
                                 console.log("data not set: " + updateKey);
+                            }
+                        }
+                    }
+                    newData = (<any>res).data.newData;
+                    for (const newKey in newData) {
+                        if (newKey) {
+                            const newArray = newData[newKey];
+                            console.log("adding to " + newKey);
+                            if (hasKey(newKey)) {
+                                const arrayToUpdate = JSON.parse(getString(newKey));
+                                // loop through new data, replace oldData elements
+                                newArray.forEach((newItem) => {
+                                    arrayToUpdate.push(newItem);
+                                });
+                                setString(newKey, JSON.stringify(arrayToUpdate));
+                            } else {
+                                console.log("data not set: " + newKey);
                             }
                         }
                     }
