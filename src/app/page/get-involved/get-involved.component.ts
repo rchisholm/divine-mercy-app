@@ -21,9 +21,9 @@ export class GetInvolvedComponent implements OnInit {
 
     openMaryAppLink(): void {
         if (isAndroid) {
-            openUrl("https://play.google.com/store/apps/details?id=com.marianfathers.mary&hl=en");
+            openUrl("https://play.google.com/store/apps/details?id=com.marianfathers.mary&hl=en_US&gl=US");
         } else {
-            openUrl("http://itunes.apple.com/us/app/mary/id483256944?mt=8");
+            openUrl("https://apps.apple.com/us/app/mary/id483256944");
         }
     }
 
