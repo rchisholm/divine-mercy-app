@@ -8,7 +8,7 @@
 </ActionBar>
 
 <StackLayout class="page">
-    <Label class="m-10 h3" text="Loading..." *ngIf="loading" @fadeInOut textAlignment="center"></Label>
+    <ActivityIndicator [busy]="loading" *ngIf="loading" @fadeInOut color="#961300"></ActivityIndicator>
     <Label class="m-10 h3" text="Couldn't load articles. Please check your connection." *ngIf="loadingFail" @fadeInOut textAlignment="center"></Label>
     <GridLayout rows="*, 50" columns="*" *ngIf="loadingSuccess" @fadeInOut>
         <ListView row="0" col="0" [items]="items">

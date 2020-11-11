@@ -345,6 +345,11 @@ Pager {
     }
 }
 
+ActivityIndicator {
+    color: $dm-red;
+    margin-top: 50%;
+}
+
 
 // .resource-title {
 //     font-size: 16;
@@ -385,6 +390,10 @@ Pager {
                     background-color: $dark-mode-bg;
                 }
             }
+        }
+
+        GridLayout {
+            background-color: $dark-mode-bg;
         }
     }
 
