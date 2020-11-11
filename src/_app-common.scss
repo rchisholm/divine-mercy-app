@@ -242,31 +242,34 @@ Pager {
     }
 }
 
+.chaplet-page {
+    background-color: #777;
+    .chaplet-prayer-text {
+        background-color: lightgray;
+        border-radius:20px;
+        margin:10px;
+        padding: 10px;
 
-.chaplet-prayer-text {
-    border-radius:20px;
-    margin:10px;
-    padding: 10px;
+        .chaplet-prayer-body {
+            margin: 15px;
+            font-size: 16;
+        }
 
-    .chaplet-prayer-body {
-        margin: 15px;
-        font-size: 16;
-    }
+        .chaplet-prayer-title {
+            font-weight: bold;
+            margin: 20px;
+            font-size: 18;
+            text-align: center;
+        }
 
-    .chaplet-prayer-title {
-        font-weight: bold;
-        margin: 20px;
-        font-size: 18;
-        text-align: center;
-    }
-
-    .chaplet-switches {
-        padding: 0 10px;
-        DockLayout {
-            margin-left: 20px;
-            Switch, Label {
-                padding: 0;
-                margin: 0;
+        .chaplet-switches {
+            padding: 0 10px;
+            DockLayout {
+                margin-left: 20px;
+                Switch, Label {
+                    padding: 0;
+                    margin: 0;
+                }
             }
         }
     }
@@ -362,7 +365,9 @@ Pager {
 
 // dark mode
 .ns-dark {
+    // color: $dark-mode-text;
     .page {
+        background-color: $dark-mode-bg;
         width: 100%;
 
         Label {
@@ -370,6 +375,28 @@ Pager {
                 color: $light-link-color;
             }
         }
+
+        ListView {
+            background-color: $dark-mode-bg;
+            StackLayout {
+                background-color: $dark-mode-bg;
+
+                Label {
+                    background-color: $dark-mode-bg;
+                }
+            }
+        }
+    }
+
+    .chaplet-page {
+        background-color: $dark-mode-bg;
+        .chaplet-prayer-text {
+            background-color: #222;
+        }
+    }
+
+    HtmlView {
+        background-color: $dark-mode-bg;
     }
 
     ActionBar {
