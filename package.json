@@ -1,8 +1,8 @@
 {
   "nativescript": {
-    "id": "org.nativescript.divinemercyapp",
-    "tns-android": {
-      "version": "6.5.3"
+    "id": {
+      "ios": "net.marianweb.divinemercyapp",
+      "android": "com.jacobsmedia.divinem"
     },
     "tns-ios": {
       "version": "6.5.3"
