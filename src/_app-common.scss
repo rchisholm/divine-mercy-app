@@ -111,12 +111,17 @@ ActionBar {
         .action-bar-title {
             text-align: center;
             color: white;
-            font-weight: bold;
-            font-size: 20;
             padding: 0;
-            //white-space: nowrap;
-            //overflow: hidden;
-            //text-overflow: ellipsis;
+
+            // font-weight: bold;
+            // font-size: 20;
+            // padding: 0;
+
+            font-size: 40;
+            line-height: 50;
+            height: 50;
+            margin-top: -10;
+            font-family: "zapfino", "LTZapfino One"
         }
 
         .ab-icon {
@@ -132,10 +137,6 @@ ActionBar {
         .ab-right {
             text-align: right;
             float: right;
-            // &.info {
-            //     width: 60px;
-            //     margin-right: 10px;
-            // }
         }
 
         .ab-link {
@@ -245,7 +246,7 @@ Pager {
 .chaplet-page {
     background-color: #777;
     .chaplet-prayer-text {
-        background-color: lightgray;
+        background-color: white;
         border-radius:20px;
         margin:10px;
         padding: 10px;
@@ -332,7 +333,8 @@ Pager {
         font-weight: bold;
     }
     .resource-image {
-        width: 500px;
+        // width: 500;
+        height: 200;
         max-width: 100%;
         margin-top: 20px;
     }
