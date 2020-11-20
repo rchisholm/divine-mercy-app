@@ -21,23 +21,10 @@
     font-weight: 400;
 }
 
-// Custom tabstrip item class
-// BottomNavigation {
-//     background:linear-gradient(red, green);
-// }
-
-
 .navigation_tab_strip  {
     background-color: rgb(26, 26, 26);
     selected-item-color: white;
     un-selected-item-color: rgb(175, 175, 175);
-
-    // .navigation__item {
-    //     &:active,
-    //     &:active Label {
-    //         @include colorize($contrasted-color: complementary background 20% 0%);
-    //     }
-    // }
 }
 
 // Common page class
@@ -395,5 +382,19 @@ ActivityIndicator {
     ActionBar {
         background-color: $dm-red;
     }
+
+    .navigation_tab_strip  {
+        background: rgb(26, 26, 26);
+    }
 }
 
+// light mode overrides
+.ns-light {
+    ActionBar {
+        background-color: $dm-red;
+    }
+
+    .navigation_tab_strip  {
+        background: rgb(26, 26, 26);
+    }
+}
