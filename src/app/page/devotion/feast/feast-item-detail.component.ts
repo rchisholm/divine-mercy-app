@@ -14,7 +14,7 @@ export class FeastItemDetailComponent implements OnInit {
     item: TextItem;
 
     constructor(
-        private _data: DataService,
+        private data: DataService,
         private _route: ActivatedRoute,
         private _routerExtensions: RouterExtensions,
         private formatter: TextFormatter
@@ -22,8 +22,8 @@ export class FeastItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this._route.snapshot.params.id;
-        this.item = this._data.getTextItem("feast", id);
-        this.item.description = this.formatter.prepareForHtmlView(this.item.description);
+        this.item = this.data.getTextItem("feast", id);
+        this.item.description = this.data.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

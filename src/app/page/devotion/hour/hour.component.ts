@@ -48,7 +48,7 @@ export class HourComponent implements OnInit {
         this.notificationId = 300;
 
         this.item = this.data.getTextItem("hour", 1);
-        this.html = this.formatter.prepareForHtmlView(this.item.description);
+        this.html = this.data.prepareForHtmlView(this.item.description);
     }
 
     notificationOptionChange(args: SelectedIndexChangedEventData) {

@@ -13,13 +13,13 @@ export class ArticlesComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("articles");
+        this.items = this.data.getTextItems("articles");
     }
 
     onTap(item: TextItem) {

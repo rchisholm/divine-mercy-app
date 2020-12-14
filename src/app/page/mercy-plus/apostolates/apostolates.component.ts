@@ -12,13 +12,13 @@ export class ApostolatesComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("apostolates");
+        this.items = this.data.getTextItems("apostolates");
     }
 
     onTap(item: TextItem) {

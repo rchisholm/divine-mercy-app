@@ -20,7 +20,7 @@ export class FaustinaLifeShortComponent implements OnInit {
 
     ngOnInit(): void {
         this.item = this.data.getTextItem("faustina_life_short", 1);
-        this.html = this.formatter.prepareForHtmlView(this.item.description);
+        this.html = this.data.prepareForHtmlView(this.item.description);
 
         // this.textBodyArray = [];
         // this.formattedBodyArray = [];

@@ -12,13 +12,13 @@ export class MercyPopesComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("mercy_popes");
+        this.items = this.data.getTextItems("mercy_popes");
     }
 
     onTap(item: TextItem) {

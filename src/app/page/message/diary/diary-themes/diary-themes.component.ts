@@ -13,12 +13,12 @@ export class DiaryThemesComponent implements OnInit {
     itemsB: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("diary_themes");
+        this.items = this.data.getTextItems("diary_themes");
     }
 
     onBackTap(): void {

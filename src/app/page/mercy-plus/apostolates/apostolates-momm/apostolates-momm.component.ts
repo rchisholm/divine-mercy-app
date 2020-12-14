@@ -19,7 +19,7 @@ export class ApostolatesMommComponent implements OnInit {
 
     ngOnInit(): void {
         this.item = this.data.getTextItem("apostolates_momm", 1);
-        this.html = this.formatter.prepareForHtmlView(this.item.description);
+        this.html = this.data.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

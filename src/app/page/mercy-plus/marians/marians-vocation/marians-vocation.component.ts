@@ -21,8 +21,8 @@ export class MariansVocationComponent implements OnInit {
     ngOnInit(): void {
         this.items = this.data.getTextItems("marians_vocation");
         this.html = [];
-        this.html[0] = this.formatter.prepareForHtmlView(this.items[0].description);
-        this.html[1] = this.formatter.prepareForHtmlView(this.items[1].description);
+        this.html[0] = this.data.prepareForHtmlView(this.items[0].description);
+        this.html[1] = this.data.prepareForHtmlView(this.items[1].description);
     }
 
     onBackTap(): void {

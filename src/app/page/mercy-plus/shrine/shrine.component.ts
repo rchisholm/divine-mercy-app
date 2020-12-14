@@ -12,13 +12,13 @@ export class ShrineComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("shrine");
+        this.items = this.data.getTextItems("shrine");
     }
 
     onTap(item: TextItem) {

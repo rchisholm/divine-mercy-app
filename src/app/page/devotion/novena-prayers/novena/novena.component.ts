@@ -12,13 +12,13 @@ export class NovenaComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions,
         private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("novena");
+        this.items = this.data.getTextItems("novena");
     }
 
     onTap(item: TextItem) {

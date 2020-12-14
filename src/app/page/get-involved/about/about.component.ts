@@ -23,7 +23,7 @@ export class AboutComponent implements OnInit {
 
     ngOnInit(): void {
         this.item = this.data.getTextItem("about", 1);
-        this.html = this.formatter.prepareForHtmlView(this.item.description);
+        this.html = this.data.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

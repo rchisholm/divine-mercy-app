@@ -168,9 +168,4 @@ export class TextFormatter {
             console.log(message);
         }
     }
-
-    prepareForHtmlView(input: string): string {
-        // replace strong tag and paragraphs
-        return "<span style=font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,sans-serif;>" + input + "</span>";
-    }
 }

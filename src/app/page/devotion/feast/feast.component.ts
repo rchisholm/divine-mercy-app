@@ -11,12 +11,12 @@ export class FeastComponent implements OnInit {
     items: Array<TextItem>;
 
     constructor(
-        private _itemService: DataService,
+        private data: DataService,
         private router: RouterExtensions
     ) { }
 
     ngOnInit(): void {
-        this.items = this._itemService.getTextItems("feast");
+        this.items = this.data.getTextItems("feast");
     }
 
     onBackTap(): void {

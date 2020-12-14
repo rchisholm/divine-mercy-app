@@ -22,7 +22,7 @@ export class ArticlesFaqItemDetailComponent implements OnInit {
     ngOnInit(): void {
         const id = +this.route.snapshot.params.id;
         this.item = this.data.getTextItem("articles_faq", id);
-        this.item.description = this.formatter.prepareForHtmlView(this.item.description);
+        this.item.description = this.data.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {
