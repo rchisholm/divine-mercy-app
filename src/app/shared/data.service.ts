@@ -1279,13 +1279,13 @@ export class DataService {
                 description: "Help others understand Divine Mercy. Bring extra copies to church, your prayer group, or leave them anywhere someone might be looking to understand God's mercy.",
                 link: "https://shopmercy.org/devotion-to-divine-mercy.html"
             },
-            {
-                id: 29,
-                title: "Divine Mercy Rosary Gift Set",
-                image: "res://img_products_r_omr2",
-                description: "This exclusive rosary bears the official Marian crest and comes enclosed in a matching gift box.",
-                link: "https://shopmercy.org/divine-mercy-rosary-gift-set.html"
-            },
+            // {
+            //     id: 29,
+            //     title: "Divine Mercy Rosary Gift Set",
+            //     image: "res://img_products_r_omr2",
+            //     description: "This exclusive rosary bears the official Marian crest and comes enclosed in a matching gift box.",
+            //     link: "https://shopmercy.org/divine-mercy-rosary-gift-set.html"
+            // },
             {
                 id: 30,
                 title: "Chaplet of Divine Mercy in Song: Second Edition",
