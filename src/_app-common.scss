@@ -309,6 +309,12 @@ Pager {
     .resource-author, .resource-description, .resource-link {
         margin: 0 20;
     }
+
+    .resource-description {
+        margin-top: 10;
+        margin-bottom: 10;
+    }
+
     .resource-title {
         font-size: 16;
     }
