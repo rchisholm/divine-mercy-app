@@ -11,6 +11,7 @@ import { RouterExtensions } from "nativescript-angular";
 export class TimelineComponent implements OnInit {
     item: TextItem;
     html: string;
+    html2: string;
 
     constructor(
         private data: DataService,
@@ -21,6 +22,8 @@ export class TimelineComponent implements OnInit {
     ngOnInit(): void {
         this.item = this.data.getTextItem("timeline", 1);
         this.html = this.formatter.prepareForHtmlView(this.item.description);
+        this.item = this.data.getTextItem("timeline", 2);
+        this.html2 = this.formatter.prepareForHtmlView(this.item.description);
     }
 
     onBackTap(): void {

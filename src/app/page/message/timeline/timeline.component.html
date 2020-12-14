@@ -9,6 +9,9 @@
 
 <GridLayout class="page">
     <ScrollView>
-	    <HtmlView class="m-10 h3" [html]="html"></HtmlView>
+		<StackLayout>
+			<HtmlView class="m-10 h3" [html]="html" style="padding-bottom: 0; margin-bottom: 0;"></HtmlView>
+			<HtmlView class="m-10 h3" [html]="html2" style="padding-top: 0; margin-top: 0;"></HtmlView>
+		</StackLayout>
     </ScrollView>
 </GridLayout>
