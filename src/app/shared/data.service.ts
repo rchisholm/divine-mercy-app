@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { setString, hasKey, getString } from "tns-core-modules/application-settings";
+import { getVersionCode } from "nativescript-appversion";
 
 export interface TextItem {
     id: number;
@@ -730,7 +731,7 @@ export class DataService {
             {
                 id: 1,
                 // TODO: dynamically get app version here via plugin
-                description: "<p>This Divine Mercy app was designed and developed by the Marian Fathers of the Immaculate Conception in Stockbridge, Mass. For more information on Divine Mercy or the Marians, visit our website <a href=\"http://thedivinemercy.org/\">thedivinemercy.org</a>.</p><p>To support the Marians and their good works, such as spreading the Message of Divine Mercy, please donate by phone: <a href=\"tel:1-800-462-7426\"> (800) 462-7426</a>, email: <a href=\"mailto:service@marian.org\">service@marian.org</a>, postal mail: Marian Helper's Center, Eden Hill, Stockbridge, MA, 01263, or <a href=\"https://www.thedivinemercy.org/donation\">donate online</a>.</p><p>Also, please help the Marians spread the message of Divine Mercy by telling your friends and family about this FREE app and writing a review for the App Store.</p><center><p>App Version: 3.0.3</p><p><a href=\"http://www.marian.org/house/privacy.php\">Privacy Policy</a></p><br><a href=\"http://www.marian.org/donation/index.php?source=app-dm-droid-0\" style=\"font-weight: bold;\">Donate</a><br><br></center><p>This app and its contents copyright " + new Date().getFullYear() + "Marian Fathers of the Immaculate Conception of the B.V.M. All rights reserved.</p>"
+                description: "<p>This Divine Mercy app was designed and developed by the Marian Fathers of the Immaculate Conception in Stockbridge, Mass. For more information on Divine Mercy or the Marians, visit our website <a href=\"http://thedivinemercy.org/\">thedivinemercy.org</a>.</p><p>To support the Marians and their good works, such as spreading the Message of Divine Mercy, please donate by phone: <a href=\"tel:1-800-462-7426\"> (800) 462-7426</a>, email: <a href=\"mailto:service@marian.org\">service@marian.org</a>, postal mail: Marian Helper's Center, Eden Hill, Stockbridge, MA, 01263, or <a href=\"https://www.thedivinemercy.org/donation\">donate online</a>.</p><p>Also, please help the Marians spread the message of Divine Mercy by telling your friends and family about this FREE app and writing a review for the App Store.</p><center><p>App Version: APP_VERSION_NUMBER</p><p><a href=\"http://www.marian.org/house/privacy.php\">Privacy Policy</a></p><br><a href=\"http://www.marian.org/donation/index.php?source=app-dm-droid-0\" style=\"font-weight: bold;\">Donate</a><br><br></center><p>This app and its contents copyright " + new Date().getFullYear() + " Marian Fathers of the Immaculate Conception of the B.V.M. All rights reserved.</p>"
             }
         ),
         chaplet: new Array<TextItem>(
@@ -1517,6 +1518,14 @@ export class DataService {
             (err) => {
                 console.log("http error: " + err);
             });
+
+        // update app version
+        getVersionCode().then((versionCode: string) => {
+            setString(
+                "text_item_about",
+                JSON.stringify(this.textItems["about"]).replace("APP_VERSION_NUMBER", versionCode)
+            );
+        });
     }
 
     // get the index of an element in an array,
