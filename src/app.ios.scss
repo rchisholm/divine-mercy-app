@@ -2,3 +2,12 @@
 @import "app-common";
 
 // Place any CSS rules you want to apply only on iOS here
+ActionBar {
+    .ab-grid {
+        .action-bar-title {
+            margin-top: -31;
+            font-size: 35;
+        }
+    }
+
+}
