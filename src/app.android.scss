@@ -4,9 +4,18 @@
 // Place any CSS rules you want to apply only on Android here
 ActionBar {
     margin-left: -25px;
+    height: 40;
 
-    .ab-icon {
-        max-height: 100%;
-        width: 15%;
+    .ab-grid {
+        .ab-icon {
+            max-height: 100%;
+            width: 12%;
+        }
+
+        .action-bar-title {
+            margin-top: -15;
+            font-size: 45;
+        }
     }
+
 }

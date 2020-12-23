@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { setString, hasKey, getString } from "tns-core-modules/application-settings";
-import { getVersionCode } from "nativescript-appversion";
+import { getVersionName } from "nativescript-appversion";
 
 export interface TextItem {
     id: number;
@@ -1520,7 +1520,7 @@ export class DataService {
             });
 
         // update app version
-        getVersionCode().then((versionCode: string) => {
+        getVersionName().then((versionCode: string) => {
             setString(
                 "text_item_about",
                 JSON.stringify(this.textItems["about"]).replace("APP_VERSION_NUMBER", versionCode)
