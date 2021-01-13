@@ -4,11 +4,11 @@
       "ios": "net.marianweb.divinemercyapp",
       "android": "com.jacobsmedia.divinem"
     },
-    "tns-ios": {
-      "version": "6.5.3"
-    },
     "tns-android": {
       "version": "6.5.3"
+    },
+    "tns-ios": {
+      "version": "6.5.4"
     }
   },
   "description": "NativeScript Application",
