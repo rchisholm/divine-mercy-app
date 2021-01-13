@@ -6,7 +6,6 @@ import { FormattedString } from "tns-core-modules/text/formatted-string";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { AnimationCurve } from "tns-core-modules/ui/enums";
 import { PanGestureEventData } from "tns-core-modules/ui/gestures";
-import { ScrollView } from "tns-core-modules/ui/scroll-view";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { style, animate, transition, trigger } from "@angular/animations";
