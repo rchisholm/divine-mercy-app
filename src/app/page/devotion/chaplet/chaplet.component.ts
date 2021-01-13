@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, NgZone, OnChanges } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild, NgZone, HostListener } from "@angular/core";
 import { getBoolean, hasKey, setBoolean } from "tns-core-modules/application-settings";
 import { RouterExtensions } from "nativescript-angular/router";
 import { device, isAndroid, screen } from "tns-core-modules/platform";
@@ -209,8 +209,9 @@ export class ChapletComponent implements OnInit {
         this.updatePrayer();
     }
 
-    OnDestroy(): void {
-        console.log("component destroyed...");
+    @HostListener('unloaded')
+    ngOnDestroy(): void {
+        // console.log("component destroyed...");
         this.autoIsEnabled = false;
         this.audioPlayer.pause();
     }
@@ -338,6 +339,7 @@ export class ChapletComponent implements OnInit {
     }
 
     endBounce() {
+        this.audioPlayer.pause();
         this.disableSwiping();
         this.beads.nativeElement.animate({
             duration: this.BOUNCE_TIME,
@@ -352,7 +354,7 @@ export class ChapletComponent implements OnInit {
                 this.offerToStartOver();
                 this.startOverAttempted = false;
                 this.enableSwiping();
-                this.playCurrentAudio();
+                // this.playCurrentAudio();
             }, (error) => {
                 this.enableSwiping();
                 this.autoIsEnabled = false;
@@ -441,7 +443,7 @@ export class ChapletComponent implements OnInit {
         const sw = args.object as Switch;
         const isChecked = sw.checked; // boolean
         this.autoIsEnabled = isChecked;
-        if (!this.audioPlayer.isAudioPlaying()) {
+        if (!this.audioPlayer.isAudioPlaying() && isChecked) {
             this.playCurrentAudio();
         }
     }

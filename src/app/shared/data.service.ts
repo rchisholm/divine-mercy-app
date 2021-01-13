@@ -773,7 +773,7 @@ export class DataService {
             {
                 id: 8,
                 name: "Closing Prayers",
-                description: "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world.\n\n\nOptional Closing Prayer\n\nEternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself."
+                description: "Holy God, Holy Mighty One, Holy Immortal One, have mercy on us and on the whole world. (x3)\n\n\nOptional Closing Prayer\n\nEternal God, in whom mercy is endless and the treasury of compassion — inexhaustible, look kindly upon us and increase Your mercy in us, that in difficult moments we might not despair nor become despondent, but with great confidence submit ourselves to Your holy will, which is Love and Mercy itself. Amen."
             }
         ),
         stations: new Array<TextItem>(
