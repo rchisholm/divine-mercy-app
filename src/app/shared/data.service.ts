@@ -230,7 +230,7 @@ export class DataService {
             },
             {
                 id: 3,
-                name: "Conversation with a\n Despairing Soul",
+                name: "Conversation with a Despairing Soul",
                 description: "<p>Jesus: <strong>O soul steeped in darkness, do not despair. All is not yet lost. Come and confide in your God, who is love and mercy.</strong></p><p>-But the soul, deaf even to this appeal, wraps itself in darkness.</p><p>Jesus calls out again: <strong>My child, listen to the voice of your merciful Father.</strong></p><p>- In the soul arises this reply: \"For me there is no mercy,\" and it falls into greater darkness, a despair which is a foretaste of hell and makes it unable to draw near to God.</p><p>Jesus calls to the soul a third time, but the soul remains deaf and blind, hardened and despairing. Then the mercy of God begins to exert itself, and, without any co-operation from the soul, God grants it final grace. If this too is spurned, God will leave the soul in this self-chosen disposition for eternity. This grace emerges from the merciful Heart of Jesus and gives the soul a special light by means of which the soul begins to understand God's effort; but conversion depends on its own will. The soul knows that this, for her, is final grace and, should it show even a flicker of good will, the mercy of God will accomplish the rest.</p><p><strong>My omnipotent mercy is active here. Happy the soul that takes advantage of this grace.</strong></p><p>Jesus: <strong>What joy fills My Heart when you return to me. Because you are weak, I take you in My arms and carry you to the home of My Father.</strong></p><p>Soul (as if awaking, asks fearfully): Is it possible that there yet is mercy for me?</p><p>Jesus: <strong>There is, My child. You have a special claim on My mercy. Let it act in your poor soul; let the rays of grace enter your soul; they bring with them light, warmth, and life.</strong></p><p>Soul: But fear fills me at the thought of my sins, and this terrible fear moves me to doubt Your goodness.</p><p>Jesus: <strong>My child, all your sins have not wounded My Heart as painfully as your present lack of trust does - that after so many efforts of My love and mercy, you should still doubt My goodness.</strong></p><p>Soul: O Lord, save me Yourself, for I perish. Be my Savior. O Lord, I am unable to say anything more; my pitiful heart is torn asunder; but You, O Lord ...</p><p>Jesus does not let the soul finish but, raising it from the ground, from the depths of its misery, He leads it into the recesses of His Heart where all its sins disappear instantly, consumed by the flames of love.</p><p>Jesus: <strong>Here, soul, are all the treasures of My Heart. Take everything you need from it.</strong></p><p>Soul: O Lord, I am inundated with Your grace. I sense that a new life has entered into me and, above all, I feel Your love in my heart. That is enough for me. O Lord, I will glorify the omnipotence of Your mercy for all eternity. Encouraged by Your goodness, I will confide to You all the sorrows of my heart.</p><p>Jesus: <strong>Tell me all, My child, hide nothing from Me, because My loving Heart, the Heart of your Best Friend, is listening to you.</strong></p><p>Soul: O Lord, now I see all my ingratitude and Your goodness. You were pursuing me with Your grace, while I was frustrating Your benevolence. I see that I deserve the depths of hell for spurning Your graces.</p><p>Jesus (interrupting): <strong>Do not be absorbed in your misery - you are still too weak to speak of it - but, rather, gaze on My Heart filled with goodness, and be imbued with My sentiments. Strive for meekness and humility; be merciful to others, as I am to you; and, when you feel your strength failing, if you come to the fountain of mercy to fortify your soul, you will not grow weary on your journey.</strong></p><p>Soul: Now I understand Your mercy, which protects me, and like a brilliant star, leads me into the home of my Father, protecting me from the horrors of hell that I have deserved, not once, but a thousand times. O Lord, eternity will hardly suffice for me to give due praise to Your unfathomable mercy and Your compassion for me (1486).</p>"
             },
             {
@@ -643,7 +643,7 @@ export class DataService {
         shrine_tours: new Array<TextItem>(
             {
                 id: 1,
-                description: "<p>The National Shrine of The Divine Mercy is a ministry of the Marian Fathers of the Immaculate Conception. The Marians invite you to join them for prayer, meditation, and the sacraments, or for just a restful retreat day in the Berkshire Hills.</p><p>The National Shrine is open daily from 7 a.m. to 5 p.m. The Shrine and its Gift Shops are handicap accessible.</p><p>During your pilgrimage, you may choose to visit any of several places of prayer on Eden Hill:</p> - Lourdes Grotto<br> - Immaculate Conception Candle Shrine<br> - Holy Family Candle Shrine<br> - Mother of Mercy Outdoor Shrine (<a href=\"http://memorialsonedenhill.org/momos/\">Learn More</a>.)<br> - St. Peregrine's Knoll<br> - Shrine of the Holy Innocents<br> - Other shrines: St. Francis, St. Anthony, St. Therese, and St. Philomena<br><p>the Divine Mercy Book Store and Gift Shop, now in a new location across from the John Paul II Guest House in the former recreation center, is open daily from 9 a.m. to 5 p.m. You'll find an extensive collection of religious art, literature, videos, and gift items.</p><p>There is a picnic area near the main parking lot if you would like to bring a lunch. Indoor facilities with beverage and snack machines are available in case of inclement weather. Box lunches may be ordered from the pilgrimage offices at least 10 days in advance of your visit for groups of 10 or more persons.</p><p>Registration is requested if:</p> - You want to personalize your pilgrimage<br> - You are a group of more than 10 pilgrims<br> - You are coming by bus or motor coach<br><p>Please <a href=\"http://thedivinemercy.org/shrine/tours/registration.php\">register online</a>, by phone, or <a href=\"http://marianweb.net/archives/pdfs/shrine/busregistration2010.pdf\">by mail</a> at least 15 days prior to your trip date.</p><p>Questions about your pilgrimage should be directed to:</p><p>National Shrine of The Divine Mercy<br />Pilgrimage Office<br />2 Prospect Hill Rd.<br />Stockbridge, MA 01262<br />(413) 298-1119 or fax (413) 298-3910<br /><a href=\"mailto:pilgrims@marian.org\">pilgrims@marian.org</a>.</p><p>Shrine offices are open Monday through Friday from 9 a.m. to 5 p.m.</p>"
+                description: "<p>The National Shrine of The Divine Mercy is a ministry of the Marian Fathers of the Immaculate Conception. The Marians invite you to join them for prayer, meditation, and the sacraments, or for just a restful retreat day in the Berkshire Hills.</p><p>The National Shrine is open daily from 7 a.m. to 5 p.m. The Shrine and its Gift Shops are handicap accessible.</p><p>During your pilgrimage, you may choose to visit any of several places of prayer on Eden Hill:</p> - Lourdes Grotto<br> - Immaculate Conception Candle Shrine<br> - Holy Family Candle Shrine<br> - Mother of Mercy Outdoor Shrine (<a href=\"http://memorialsonedenhill.org/momos/\">Learn More</a>.)<br> - St. Peregrine's Knoll<br> - Shrine of the Holy Innocents<br> - Other shrines: St. Francis, St. Anthony, St. Therese, and St. Philomena<br><p>the Divine Mercy Book Store and Gift Shop, now in a new location across from the John Paul II Guest House in the former recreation center, is open daily from 9 a.m. to 5 p.m. You'll find an extensive collection of religious art, literature, videos, and gift items.</p><p>There is a picnic area near the main parking lot if you would like to bring a lunch. Indoor facilities with beverage and snack machines are available in case of inclement weather. Box lunches may be ordered from the pilgrimage offices at least 10 days in advance of your visit for groups of 10 or more persons.</p><p>Registration is requested if:</p> - You want to personalize your pilgrimage<br> - You are a group of more than 10 pilgrims<br> - You are coming by bus or motor coach<br><p>Please <a href=\"https://forms.shrineofdivinemercy.org/shrine/busregistration/\">register online</a>, by phone, or <a href=\"http://marianweb.net/archives/pdfs/shrine/busregistration2010.pdf\">by mail</a> at least 15 days prior to your trip date.</p><p>Questions about your pilgrimage should be directed to:</p><p>National Shrine of The Divine Mercy<br />Pilgrimage Office<br />2 Prospect Hill Rd.<br />Stockbridge, MA 01262<br />(413) 298-1119 or fax (413) 298-3910<br /><a href=\"mailto:pilgrims@marian.org\">pilgrims@marian.org</a>.</p><p>Shrine offices are open Monday through Friday from 9 a.m. to 5 p.m.</p>"
             }
         ),
         shrine_guest: new Array<TextItem>(
@@ -655,7 +655,7 @@ export class DataService {
         shrine_volunteer: new Array<TextItem>(
             {
                 id: 1,
-                description: "<p><strong>The National Shrine Needs <em>You</em>!</strong></p><p>Dear Friends,</p><p>Each year, during the weekend after Easter, the National Shrine of The Divine Mercy hosts the largest Divine Mercy Sunday celebration in North America. The weekend-long celebration draws between 15,000-20,000 pilgrims from around the world.</p><p>As you can imagine, it is not easy to be host to thousands of people at a major two-day event without the support of our dedicated volunteers. </p><p><strong>You, too, can help support our ministries by volunteering in one of many different areas, such as crowd control, the National Shrine Gift Shop, the first aid station, our Candle Shrines, parking, and more.</strong></p><p>While the majority of our pilgrims speak English, we do have pilgrims who speak Spanish, Polish, Italian, French, and Tagalog. If you speak one of these languages or any other foreign language, you would be greatly assisting us as we serve our brothers and sisters from around the world.</p><p><strong>Encourage your group to participate. </strong></p><p>This is also a wonderful opportunity for your prayer groups, Confirmation candidates, religious education classes (Grades 9-11), and Knights of Columbus councils to care for our brethren in faith.</p><p>If you cannot join us for Divine Mercy weekend, your help would be welcome at any time of the year. </p><p><strong>Simply call us at (413) 298-1114 or write us at <u><a href=\"mailto:volunteers@marian.org\">volunteers@marian.org</a></u>, or submit a <a href=\"http://thedivinemercy.org/shrine/mercysunday/volunteer_form.php\">volunteer form</a>.</strong></p><p>May our Merciful Lord bless you for willingness to help!</p><p>Shrine Rector<br />National Shrine of The Divine Mercy<br />Marian Fathers of the Immaculate Conception</p><p>P.S.: Please note that volunteers must be 18 years of age or at least 16 and under the direct supervision of an adult. The commitment is for a full day during Mercy Weekend and at least 4 hours for other times. Please call the volunteer coordinator for further information.</p>"
+                description: "<p><strong>The National Shrine Needs <em>You</em>!</strong></p><p>Dear Friends,</p><p>Each year, during the weekend after Easter, the National Shrine of The Divine Mercy hosts the largest Divine Mercy Sunday celebration in North America. The weekend-long celebration draws between 15,000-20,000 pilgrims from around the world.</p><p>As you can imagine, it is not easy to be host to thousands of people at a major two-day event without the support of our dedicated volunteers. </p><p><strong>You, too, can help support our ministries by volunteering in one of many different areas, such as crowd control, the National Shrine Gift Shop, the first aid station, our Candle Shrines, parking, and more.</strong></p><p>While the majority of our pilgrims speak English, we do have pilgrims who speak Spanish, Polish, Italian, French, and Tagalog. If you speak one of these languages or any other foreign language, you would be greatly assisting us as we serve our brothers and sisters from around the world.</p><p><strong>Encourage your group to participate. </strong></p><p>This is also a wonderful opportunity for your prayer groups, Confirmation candidates, religious education classes (Grades 9-11), and Knights of Columbus councils to care for our brethren in faith.</p><p>If you cannot join us for Divine Mercy weekend, your help would be welcome at any time of the year. </p><p><strong>Simply call us at (413) 298-1114 or write us at <u><a href=\"mailto:volunteers@marian.org\">volunteers@marian.org</a></u>, or submit a <a href=\"https://forms.shrineofdivinemercy.org/shrine/volunteer_form.php\">volunteer form</a>.</strong></p><p>May our Merciful Lord bless you for willingness to help!</p><p>Shrine Rector<br />National Shrine of The Divine Mercy<br />Marian Fathers of the Immaculate Conception</p><p>P.S.: Please note that volunteers must be 18 years of age or at least 16 and under the direct supervision of an adult. The commitment is for a full day during Mercy Weekend and at least 4 hours for other times. Please call the volunteer coordinator for further information.</p>"
             }
         ),
         shrine_directions: new Array<TextItem>(
@@ -1081,6 +1081,13 @@ export class DataService {
                 image: "res://img_products_r_nbfd",
                 description: "The Diary chronicles the spiritual experiences of St. Faustina, a Polish nun, before the outbreak of World War II. It includes revelations she received from Jesus for her to deliver to the whole world.",
                 link: "https://shopmercy.org/diary-of-saint-maria-faustina-kowalska.html"
+            },
+            {
+                id: 2,
+                title: "Diary of Saint Maria Faustina Kowalska, Deluxe Burgundy Leather",
+                image: "res://img_products_r_ddburg",
+                description: "The Diary of Saint Maria Faustina Kowalska: Divine Mercy in My Soul is the book that sparked the Divine Mercy Movement. This beautiful Edition is leather bound with gilded edges, a ribbon marker, and full color photo section.",
+                link: "https://shopmercy.org/deluxe-leather-burgundy-diary.html"
             }
         ),
         resources: new Array<ResourceItem>(
@@ -1099,77 +1106,84 @@ export class DataService {
                 link: "https://shopmercy.org/33-days-to-merciful-love.html"
             },
             {
-                id: 3,
+                id: 2,
+                title: "33 Days to Greater Glory",
+                image: "res://img_products_r_33dgg",
+                description: "Fr. Michael E. Gaitley, MIC, author of 33 Days to Morning Glory, one of the most popular Catholic books of the last decade, brings us his first new book in three years. 33 Days to Greater Glory completes a trilogy of consecrations: first to Mary, then to Jesus, the Divine Mercy, and now to God, our Father. This final consecration to our Heavenly Father truly is the “greater” consecration, the one in which all others find their origin and end.",
+                link: "https://shopmercy.org/33-days-to-greater-glory-a-total-consecration-to-the-father-through-jesus-based-on-the-gospel-of-john.html"
+            },
+            {
+                id: 4,
                 title: "Divine Mercy 101 Kit",
                 image: "res://img_products_r_dmkit",
                 description: "Everything you need to understand the Divine Mercy Message and Devotion.",
                 link: "https://shopmercy.org/divine-mercy-101-kit.html"
             },
             {
-                id: 4,
+                id: 5,
                 title: "DVD/CD: Divine Mercy 101",
                 image: "res://img_products_r_dm102",
                 description: "Newly updated, this popular presentation by Fr. Chris Alar, MIC, is better than ever: all the basics of Divine Mercy in a clear, one-hour presentation. Also available as a CD.",
                 link: "https://shopmercy.org/divine-mercy-101-dvd.html"
             },
             {
-                id: 5,
+                id: 6,
                 title: "Diary of Saint Maria Faustina Kowalska",
                 image: "res://img_products_r_nbfd",
                 description: "The Diary of St. Maria Faustina Kowalska: Divine Mercy in My Soul, chronicles the message that Jesus, the Divine Mercy, gave to the world through this humble nun. It reminds us to trust in His forgiveness - and as Christ is merciful, so, too, are we instructed to be merciful to others. ",
                 link: "https://shopmercy.org/diary-of-saint-maria-faustina-kowalska.html"
             },
             {
-                id: 6,
+                id: 7,
                 title: "Thematic Concordance to the Diary of St. Maria Faustina Kowalska",
                 image: "res://img_products_r_sgd2",
                 description: "This comprehensive reference tool is a must have to keep next to your Diary. Soft cover. 150 pages.",
                 link: "https://shopmercy.org/thematic-concordance-to-the-diary-of-st-maria-faustina-kowalska.html"
             },
             {
-                id: 7,
+                id: 8,
                 title: "Life of Faustina Kowalska",
                 image: "res://img_products_r_dml6",
                 description: "This biography, formerly titled Mercy My Mission, includes many excerpts from St. Faustina's famous Diary. Whether read alone or as a study aid to reading the Diary itself, this book is an inspiring and reliable introduction to this remarkable twentieth-century saint. 278 pages.",
                 link: "https://shopmercy.org/life-of-faustina-kowalska.html"
             },
             {
-                id: 8,
+                id: 9,
                 title: "Faustina The Mystic and Her Message",
                 image: "res://img_products_r_fmhm",
                 description: "Follow the path of Faustina on her journey to sainthood. Faustina: The Mystic and Her Message provides new details about this remarkable woman and rare photographs of her. In this biography, get to know the real Faustina, her message, and her mission.",
                 link: "https://shopmercy.org/faustina-3a-the-mystic-and-her-message.html"
             },
             {
-                id: 9,
+                id: 10,
                 title: "Faustina, Saint for Our Times",
                 image: "res://img_products_r_sft",
                 description: "In Faustina, Saint for Our Times, Fr. George Kosicki, CSB, gives us an insightful look into St. Maria Faustina Kowalska's life, spirituality, and mission. 167 pages.",
                 link: "https://shopmercy.org/faustina-saint-for-our-times.html"
             },
             {
-                id: 10,
+                id: 11,
                 title: "Divine Mercy: A Guide From Genesis To Benedict XVI",
                 image: "res://img_products_r_aggb2",
                 description: "This revised edition takes you on a tour of Divine Mercy throughout salvation history, through the Old and New Testaments, in the writings of the Church's great theologians, and in the lives and writings of the saints down through the ages. 257 pages.",
                 link: "https://shopmercy.org/divine-mercy.html"
             },
             {
-                id: 11,
+                id: 12,
                 title: "Mercy Minutes Book",
                 image: "res://img_products_r_mmin",
                 description: "Start any day and use any year. This perpetual devotional includes brief passages from the Diary of St. Faustina, compiled by Divine Mercy expert Fr. George Kosicki, CSB. 447 pages.",
                 link: "https://shopmercy.org/divine-mercy-minutes.html"
             },
             {
-                id: 12,
+                id: 13,
                 title: "Mercy Minutes with Jesus",
                 image: "res://img_products_r_mmwj",
                 description: "Fr. George Kosicki, CSB, a well-known speaker and authority on the Diary and the Divine Mercy message and devotion, has compiled key passages of Jesus' own words to St. Faustina, following themes such as trust, deeds of mercy, and humble simplicity. Paperback. 480 pages.",
                 link: "https://shopmercy.org/divine-mercy-minutes-with-jesus.html"
             },
             {
-                id: 13,
+                id: 14,
                 title: "Rich in Mercy",
                 image: "res://img_products_r_rim",
                 description: "In his encyclical \"Rich in Mercy\" (Dives in Misericordia), Saint John Paul II demonstrated how God the Father is \"rich in mercy\" through a masterful exposition of Scripture, especially the Gospel parable of the prodigal son. 74 pages.",
