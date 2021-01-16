@@ -15,7 +15,10 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "scripts": {
-    "lint": "tslint \"src/**/*.ts\""
+    "lint": "tslint \"src/**/*.ts\"",
+    "build-release-ios": "tns build ios --release --for-device",
+    "build-release-android": "tns build android --release --key-store-path ~/app_creds/android/dm.android.keystore --key-store-password 'android' --key-store-alias 'android' --key-store-alias-password 'android' --aab",
+    "build-releases": "npm run build-release-ios && npm run build-release-android"
   },
   "dependencies": {
     "@angular/animations": "~8.2.0",
