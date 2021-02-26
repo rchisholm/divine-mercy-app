@@ -12,6 +12,7 @@ import { style, animate, transition, trigger } from "@angular/animations";
 import { TNSPlayer } from "nativescript-audio";
 import { EventData } from "tns-core-modules/data/observable";
 import { Switch } from "tns-core-modules/ui/switch";
+import { keepAwake, allowSleepAgain } from "nativescript-insomnia";
 
 @Component({
     selector: "Chaplet",
@@ -213,6 +214,7 @@ export class ChapletComponent implements OnInit {
         // console.log("component destroyed...");
         this.autoIsEnabled = false;
         this.audioPlayer.pause();
+        allowSleepAgain();
     }
 
     // display the title and body of currently selected prayer
@@ -442,8 +444,13 @@ export class ChapletComponent implements OnInit {
         const sw = args.object as Switch;
         const isChecked = sw.checked; // boolean
         this.autoIsEnabled = isChecked;
-        if (!this.audioPlayer.isAudioPlaying() && isChecked) {
-            this.playCurrentAudio();
+        if (isChecked) {
+            keepAwake();
+            if (!this.audioPlayer.isAudioPlaying()) {
+                this.playCurrentAudio();
+            }
+        } else {
+            allowSleepAgain();
         }
     }
 
