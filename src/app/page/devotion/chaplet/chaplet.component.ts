@@ -437,6 +437,8 @@ export class ChapletComponent implements OnInit {
         this.audioIsEnabled = isChecked;
         if (isChecked) {
             this.playCurrentAudio();
+        } else {
+            allowSleepAgain();
         }
     }
 
