@@ -1467,6 +1467,18 @@ export class DataService {
         );
     }
 
+    // get a list of DM101 articles from fetch API
+    getTdmVideos() {
+        return this.fetchData(
+            "tdm-videos",
+            {
+                truncateBody: 200,
+                plainTextBody: true,
+                imageStyle: "3-wide_teaser_image"
+            }
+        );
+    }
+
     // load up static items listed above into app settings,
     // then check for any items that require an update via the API and apply updates.
     loadAllStaticItems() {
