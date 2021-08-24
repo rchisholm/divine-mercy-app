@@ -5,7 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
-    selector: "MercyPopes",
+    selector: "SaintsPopes",
     templateUrl: "./saints-popes.component.html"
 })
 export class SaintsPopesComponent implements OnInit {
