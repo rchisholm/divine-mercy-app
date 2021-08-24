@@ -29,6 +29,15 @@ export interface ArticleItem {
     body: string;
 }
 
+export interface VideoItem {
+    title: string;
+    image: string;
+    path: string;
+    body: string;
+    video_url: string;
+    nid: number;
+}
+
 @Injectable({
     providedIn: "root"
 })
@@ -1580,9 +1589,36 @@ export class DataService {
         return -1;
     }
 
+    setVideoItems(videoItems:Array<VideoItem>) {
+        videoItems.forEach(videoItem => {
+            const key = "video_item_" + videoItem.nid;
+            setString(key, JSON.stringify(videoItem));
+        });
+    }
+
+    // get a single video item by nid
+    getVideoItem(nid: number): VideoItem {
+        const nidKey = "video_item_" + nid;
+        let videoItem;
+        if (hasKey(nidKey)) {
+            videoItem = JSON.parse(getString(nidKey, null));
+        } else {
+            console.warn("stored video not found for nid " + nid);
+            return null;
+        }
+
+        return videoItem;
+    }
+
     prepareForHtmlView(input: string): string {
         // replace strong tag and paragraphs
         return "<span style=font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,sans-serif;>" + input + "</span>";
+    }
+
+    getYouTubeEmbed(body: string, video_url: string): string {
+        return `<p><iframe width="420" height="315"
+        src="${video_url}">
+        </iframe></p><p>` + body + `</p>`;
     }
 
 }

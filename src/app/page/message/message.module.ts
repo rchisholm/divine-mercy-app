@@ -21,6 +21,7 @@ import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.co
 import { ResourcesComponent } from "./resources/resources.component";
 import { SaintsPopesComponent } from "./saints-popes/saints-popes.component";
 import { VideosComponent } from "./videos/videos.component";
+import { VideoViewComponent } from "./videos/video-view/video-view.component";
 
 @NgModule({
     imports: [
@@ -46,7 +47,8 @@ import { VideosComponent } from "./videos/videos.component";
         DiaryPurchaseComponent,
         ResourcesComponent,
         SaintsPopesComponent,
-        VideosComponent
+        VideosComponent,
+        VideoViewComponent
 
     ],
     schemas: [

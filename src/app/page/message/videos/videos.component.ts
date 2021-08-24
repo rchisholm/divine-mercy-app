@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ArticleItem, DataService } from "~/app/shared/data.service";
+import { VideoItem, DataService } from "~/app/shared/data.service";
+import { ActivatedRoute } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import { style, state, animate, transition, trigger } from "@angular/animations";
 import { openUrl } from "tns-core-modules/utils/utils";
@@ -20,7 +21,7 @@ import { openUrl } from "tns-core-modules/utils/utils";
     ]
 })
 export class VideosComponent implements OnInit {
-    items: Array<ArticleItem>;
+    items: Array<VideoItem>;
     textBodyArray: Array<string>;
     loading: boolean;
     loadingFail: boolean;
@@ -28,7 +29,8 @@ export class VideosComponent implements OnInit {
 
     constructor(
         private data: DataService,
-        private router: RouterExtensions
+        private router: RouterExtensions,
+        private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
@@ -46,6 +48,7 @@ export class VideosComponent implements OnInit {
                     setTimeout(() => {
                         this.loadingSuccess = true;
                     }, 501);
+                    this.data.setVideoItems(this.items);
                 } else {
                     this.loading = false;
                     setTimeout(() => {
@@ -66,9 +69,16 @@ export class VideosComponent implements OnInit {
         this.router.back();
     }
 
-    onTap(article: ArticleItem) {
-        console.log("opening: " + article.path);
-        openUrl(article.path);
+    onTap(video: VideoItem) {
+        // console.log("opening: " + video.path);
+        // openUrl(video.path);
+
+        console.log("video nid: " + video.nid);
+        console.log("video item: ");
+        console.log(this.data.getVideoItem(video.nid));
+
+        this.router.navigate(["../video-view", video.nid], { relativeTo: this.currentRoute });
+
     }
 
     goToVideos(): void {

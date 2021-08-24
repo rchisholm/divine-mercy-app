@@ -21,6 +21,7 @@ import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.co
 import { ResourcesComponent } from "./resources/resources.component";
 import { SaintsPopesComponent } from "./saints-popes/saints-popes.component";
 import { VideosComponent } from "./videos/videos.component";
+import { VideoViewComponent } from "./videos/video-view/video-view.component";
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
     { path: "diary-purchase", component: DiaryPurchaseComponent },
     { path: "resources", component: ResourcesComponent },
     { path: "saints-popes", component: SaintsPopesComponent },
-    { path: "videos", component: VideosComponent }
+    { path: "videos", component: VideosComponent },
+    { path: "video-view/:id", component: VideoViewComponent }
 ];
 
 @NgModule({
