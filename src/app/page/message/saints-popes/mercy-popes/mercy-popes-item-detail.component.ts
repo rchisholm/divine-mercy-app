@@ -8,7 +8,7 @@ import { DataService, TextItem } from "~/app/shared/data.service";
 
 @Component({
     selector: "MercyPopesItemDetail",
-    templateUrl: "../../../../app/shared/item-detail.component.html"
+    templateUrl: "../../../../../app/shared/item-detail.component.html"
 })
 export class MercyPopesItemDetailComponent implements OnInit {
     item: TextItem;

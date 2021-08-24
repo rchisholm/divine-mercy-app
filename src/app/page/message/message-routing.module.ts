@@ -6,19 +6,21 @@ import { MessageComponent } from "./message.component";
 import { IntroductionComponent } from "./introduction/introduction.component";
 import { IntroductionItemDetailComponent } from "./introduction/introduction-item-detail.component";
 import { TimelineComponent } from "./timeline/timeline.component";
-import { FaustinaComponent } from "./faustina/faustina.component";
-import { FaustinaLifeShortComponent } from "./faustina/faustina-life-short/faustina-life-short.component";
-import { FaustinaLifeLongComponent } from "./faustina/faustina-life-long/faustina-life-long.component";
-import { FaustinaLifeLongItemDetailComponent } from "./faustina/faustina-life-long/faustina-life-long-item-detail.component";
-import { FaustinaResourcesComponent } from "./faustina/faustina-resources/faustina-resources.component";
-import { MercyPopesComponent } from "./mercy-popes/mercy-popes.component";
-import { MercyPopesItemDetailComponent } from "./mercy-popes/mercy-popes-item-detail.component";
-import { MercyPopesResourcesComponent } from "./mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
+import { FaustinaComponent } from "./saints-popes/faustina/faustina.component";
+import { FaustinaLifeShortComponent } from "./saints-popes/faustina/faustina-life-short/faustina-life-short.component";
+import { FaustinaLifeLongComponent } from "./saints-popes/faustina/faustina-life-long/faustina-life-long.component";
+import { FaustinaLifeLongItemDetailComponent } from "./saints-popes/faustina/faustina-life-long/faustina-life-long-item-detail.component";
+import { FaustinaResourcesComponent } from "./saints-popes/faustina/faustina-resources/faustina-resources.component";
+import { MercyPopesComponent } from "./saints-popes/mercy-popes/mercy-popes.component";
+import { MercyPopesItemDetailComponent } from "./saints-popes/mercy-popes/mercy-popes-item-detail.component";
+import { MercyPopesResourcesComponent } from "./saints-popes/mercy-popes/mercy-popes-resources/mercy-popes-resources.component";
 import { DiaryComponent } from "./diary/diary.component";
 import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.component";
 import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
 import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
 import { ResourcesComponent } from "./resources/resources.component";
+import { SaintsPopesComponent } from "./saints-popes/saints-popes.component";
+
 
 const routes: Routes = [
     { path: "default", component: MessageComponent },
@@ -37,7 +39,8 @@ const routes: Routes = [
     { path: "diary-themes", component: DiaryThemesComponent },
     { path: "diary-themes/:id", component: DiaryThemesItemDetailComponent },
     { path: "diary-purchase", component: DiaryPurchaseComponent },
-    { path: "resources", component: ResourcesComponent }
+    { path: "resources", component: ResourcesComponent },
+    { path: "saints-popes", component: SaintsPopesComponent }
 ];
 
 @NgModule({
