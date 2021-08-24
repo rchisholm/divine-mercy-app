@@ -20,6 +20,7 @@ import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-theme
 import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
 import { ResourcesComponent } from "./resources/resources.component";
 import { SaintsPopesComponent } from "./saints-popes/saints-popes.component";
+import { VideosComponent } from "./videos/videos.component";
 
 
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
     { path: "diary-themes/:id", component: DiaryThemesItemDetailComponent },
     { path: "diary-purchase", component: DiaryPurchaseComponent },
     { path: "resources", component: ResourcesComponent },
-    { path: "saints-popes", component: SaintsPopesComponent }
+    { path: "saints-popes", component: SaintsPopesComponent },
+    { path: "videos", component: VideosComponent }
 ];
 
 @NgModule({

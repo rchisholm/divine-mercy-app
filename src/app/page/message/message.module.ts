@@ -19,7 +19,8 @@ import { DiaryThemesComponent } from "./diary/diary-themes/diary-themes.componen
 import { DiaryThemesItemDetailComponent } from "./diary/diary-themes/diary-themes-item-detail.component";
 import { DiaryPurchaseComponent } from "./diary/diary-purchase/diary-purchase.component";
 import { ResourcesComponent } from "./resources/resources.component";
-import { SaintsPopesComponent } from "./saints-popes/saints-popes.component"
+import { SaintsPopesComponent } from "./saints-popes/saints-popes.component";
+import { VideosComponent } from "./videos/videos.component";
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import { SaintsPopesComponent } from "./saints-popes/saints-popes.component"
         DiaryThemesItemDetailComponent,
         DiaryPurchaseComponent,
         ResourcesComponent,
-        SaintsPopesComponent
+        SaintsPopesComponent,
+        VideosComponent
 
     ],
     schemas: [
