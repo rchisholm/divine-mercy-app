@@ -35,6 +35,7 @@ export interface VideoItem {
     path: string;
     body: string;
     video_url: string;
+    video_id: string;
     nid: number;
 }
 
@@ -1613,12 +1614,6 @@ export class DataService {
     prepareForHtmlView(input: string): string {
         // replace strong tag and paragraphs
         return "<span style=font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,sans-serif;>" + input + "</span>";
-    }
-
-    getYouTubeEmbed(body: string, video_url: string): string {
-        return `<p><iframe width="420" height="315"
-        src="${video_url}">
-        </iframe></p><p>` + body + `</p>`;
     }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
+import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 
 import { MessageRoutingModule } from "./message-routing.module";
 import { MessageComponent } from "./message.component";
@@ -26,7 +27,8 @@ import { VideoViewComponent } from "./videos/video-view/video-view.component";
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        MessageRoutingModule
+        MessageRoutingModule,
+        YoutubePlayerModule
     ],
     declarations: [
         MessageComponent,

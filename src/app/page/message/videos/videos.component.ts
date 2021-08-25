@@ -73,9 +73,9 @@ export class VideosComponent implements OnInit {
         // console.log("opening: " + video.path);
         // openUrl(video.path);
 
-        console.log("video nid: " + video.nid);
-        console.log("video item: ");
-        console.log(this.data.getVideoItem(video.nid));
+        // console.log("video nid: " + video.nid);
+        // console.log("video item: ");
+        // console.log(this.data.getVideoItem(video.nid));
 
         this.router.navigate(["../video-view", video.nid], { relativeTo: this.currentRoute });
 
