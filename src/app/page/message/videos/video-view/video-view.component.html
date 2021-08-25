@@ -10,6 +10,6 @@
 <StackLayout class="page">
 	<!-- <Label class="m-10 h3" verticalAlignment="top" [formattedText]="formattedDescription" textWrap="true"></Label> -->
 	<!-- <WebView class="m-10 h3" [src]="item.description"></WebView> -->
-	<YoutubePlayer id="player" [apiKey]="apiKey" [src]="item.video_id" height="250" width="100%" backgroundColor="gray"></YoutubePlayer>
+	<YoutubePlayer id="player" apiKey="not_needed" [src]="item.video_id" height="250" width="100%" backgroundColor="gray"></YoutubePlayer>
 	<HtmlView class="m-10 h3" [html]="item.body"></HtmlView>
 </StackLayout>

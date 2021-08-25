@@ -10,7 +10,6 @@ import { DataService, VideoItem } from "~/app/shared/data.service";
 })
 export class VideoViewComponent implements OnInit {
     item: VideoItem;
-    apiKey: string;
 
     constructor(
         private data: DataService,
@@ -19,7 +18,6 @@ export class VideoViewComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.apiKey = "AIzaSyBDe8iZa4Bp7gUfbVbdEQlURMvjsIxMXBw";
         const nid = +this._route.snapshot.params.id;
         this.item = this.data.getVideoItem(nid);
         this.item.body = this.data.prepareForHtmlView(this.item.body);
