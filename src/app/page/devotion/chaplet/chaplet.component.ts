@@ -13,6 +13,7 @@ import { TNSPlayer } from "nativescript-audio";
 import { EventData } from "tns-core-modules/data/observable";
 import { Switch } from "tns-core-modules/ui/switch";
 import { keepAwake, allowSleepAgain } from "nativescript-insomnia";
+import { on, suspendEvent, resumeEvent } from "tns-core-modules/application";
 
 @Component({
     selector: "Chaplet",
@@ -41,6 +42,7 @@ export class ChapletComponent implements OnInit {
     invisibleElements: boolean;
     audioIsEnabled: boolean;
     autoIsEnabled: boolean;
+    isInBackground: boolean = false;
 
     readonly SCREEN_HEIGHT_DIP: number = screen.mainScreen.heightDIPs;
     readonly SCREEN_WIDTH_DIP: number = screen.mainScreen.widthDIPs;
@@ -207,13 +209,24 @@ export class ChapletComponent implements OnInit {
         });
 
         this.updatePrayer();
+
+        // Keep track of if we are running in the background
+        on(suspendEvent, () => {
+            this.isInBackground = true
+        })
+        on(resumeEvent, () => {
+            this.isInBackground = false
+        })
     }
 
     @HostListener('unloaded')
     ngOnDestroy(): void {
         // console.log("component destroyed...");
-        this.autoIsEnabled = false;
-        this.audioPlayer.pause();
+        // Component is destroyed if we enter the background, keep audio running.
+        if (this.isInBackground == false) {
+            this.autoIsEnabled = false;
+            this.audioPlayer.pause();
+        }
         allowSleepAgain();
     }
 
@@ -325,8 +338,9 @@ export class ChapletComponent implements OnInit {
 
     moveBeadsVertical(translation: number, startOver: boolean) {
         this.disableSwiping();
+        let animationDuration = startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT_DISTANCE);
         this.beads.nativeElement.animate({
-            duration: startOver ? this.RESTART_TIME : this.BEAD_TIME * Math.abs(translation / this.BEAD_SHORT_DISTANCE),
+            duration: animationDuration,
             curve: AnimationCurve.linear,
             translate: {x: 0, y: startOver ? 0 : this.beads.nativeElement.translateY + translation}
         }).then(() => {
@@ -335,7 +349,15 @@ export class ChapletComponent implements OnInit {
         }, (error) => {
             this.updatePrayer();
             this.enableSwiping();
-            this.autoIsEnabled = false;
+            // Animation will fail with an error if we are in the background, keep audio playing.
+            if (this.isInBackground) {
+                // Make the audio wait the same amount of time the animation would have taken.
+                setTimeout(() => {
+                    this.playCurrentAudio();
+                }, animationDuration)
+            } else {
+                this.autoIsEnabled = false;
+            }
         });
     }
 
