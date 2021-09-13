@@ -21,6 +21,7 @@ export class VideoViewComponent implements OnInit {
         const nid = +this._route.snapshot.params.id;
         this.item = this.data.getVideoItem(nid);
         this.item.body = this.data.prepareForHtmlView(this.item.body);
+        console.log('video id:' + this.item.video_id);
     }
 
     onBackTap(): void {
