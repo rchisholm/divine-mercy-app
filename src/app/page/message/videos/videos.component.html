@@ -11,7 +11,7 @@
     <GridLayout rows="*, 50" columns="*" *ngIf="loadingSuccess" @fadeInOut>
         <ListView row="0" col="0" [items]="items">
             <ng-template let-item="item">
-                <GridLayout columns="100, *" rows="50, *" class="tdm-article" (tap)="onTap(item)">
+                <GridLayout columns="75, *" rows="*" class="tdm-article" (tap)="onTap(item)">
                     <Image row="0" col="0" class="article-image" [src]="item.video_thumbnail"></Image>
                     <Label row="0" col="1" class="article-title" [text]="item.title" textWrap="true" whiteSpace="normal"></Label>
                     <!-- <Label row="1" col="0" colSpan="2" class="article-body m-10 h3" [text]="item.body" textWrap="true" whiteSpace="normal"></Label> -->
