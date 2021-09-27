@@ -32,7 +32,7 @@
     "@nativescript/theme": "~2.3.0",
     "nativescript-angular": "~8.21.0",
     "nativescript-appversion": "^1.4.4",
-    "nativescript-audio": "^5.1.1",
+    "nativescript-audio-player": "^1.0.3",
     "nativescript-email": "^1.6.0",
     "nativescript-insomnia": "^1.2.3",
     "nativescript-local-notifications": "^4.2.1",

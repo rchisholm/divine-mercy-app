@@ -9,7 +9,7 @@ import { PanGestureEventData } from "tns-core-modules/ui/gestures";
 import { TextFormatter } from "~/app/shared/text-formatter";
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { style, animate, transition, trigger } from "@angular/animations";
-import { TNSPlayer } from "nativescript-audio";
+import { TNSPlayer } from "nativescript-audio-player";
 import { EventData } from "tns-core-modules/data/observable";
 import { Switch } from "tns-core-modules/ui/switch";
 import { keepAwake, allowSleepAgain } from "nativescript-insomnia";
