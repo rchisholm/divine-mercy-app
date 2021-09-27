@@ -81,7 +81,7 @@
         }
 
         .big-icon-label {
-            font-size: 16;
+            font-size: 18;
         }
     }
 }
@@ -163,9 +163,12 @@ ActionBar {
         }
         &.text-divider {
             font-weight: bold;
-            font-size: 16;
+            font-size: 18;
             horizontal-align: center;
         }
+    }
+    .m-10.h3 {
+        font-size: 17;
     }
 }
 
@@ -208,7 +211,7 @@ Pager {
     Label {
         color: white;
         &.stations-title {
-            font-size: 18;
+            font-size: 20;
             font-weight: bold;
             text-align: center;
         }
@@ -220,7 +223,7 @@ Pager {
     .arrow {
         color: white;
         margin: 10px;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
         font-style: italic;
     }
@@ -236,13 +239,13 @@ Pager {
 
         .chaplet-prayer-body {
             margin: 15px;
-            font-size: 16;
+            font-size: 18;
         }
 
         .chaplet-prayer-title {
             font-weight: bold;
             margin: 20px;
-            font-size: 18;
+            font-size: 20;
             text-align: center;
         }
 
@@ -265,6 +268,7 @@ Pager {
     .article-title {
         font-weight: bold;
         vertical-align: top;
+        font-size: 17;
     }
 }
 
@@ -273,7 +277,7 @@ Pager {
     .novena-schedule-label {
         font-weight: bold;
         text-align: center;
-        font-size: 15;
+        font-size: 17;
     }
 
     .novena-button {
@@ -286,14 +290,14 @@ Pager {
     .novena-schedule-paragraph {
         margin: 20px;
         vertical-align: top;
-        font-size: 15px;
+        font-size: 17px;
     }
 }
 
 
 .read-more-link {
     font-weight: bold;
-    font-size: 15;
+    font-size: 17;
 }
 
 .resource-container {
@@ -312,13 +316,13 @@ Pager {
     }
 
     .resource-title {
-        font-size: 16;
+        font-size: 18;
     }
     .resource-subtitle {
-        font-size: 14;
+        font-size: 16;
     }
     .resource-author {
-        font-size: 12;
+        font-size: 14;
         font-weight: bold;
     }
     .resource-image {
@@ -339,6 +343,14 @@ Pager {
 ActivityIndicator {
     color: $dm-red;
     margin-top: 45%;
+}
+
+ListView {
+    StackLayout {
+        Label {
+            font-size: 17;
+        }
+    }
 }
 
 // dark mode
