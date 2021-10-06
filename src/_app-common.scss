@@ -21,10 +21,15 @@
     font-weight: 400;
 }
 
-.navigation_tab_strip  {
-    background-color: rgb(26, 26, 26);
-    selected-item-color: white;
-    un-selected-item-color: rgb(175, 175, 175);
+BottomNavigation {
+    TabStrip  {
+        background-color: rgb(26, 26, 26);
+        selected-item-color: white;
+        un-selected-item-color: rgb(175, 175, 175);
+        TabStripItem {
+            background-color: rgb(26, 26, 26);
+        }
+    }
 }
 
 // Common page class
@@ -88,7 +93,8 @@
 
 //Action bar
 ActionBar {
-    background: $dm-red;
+    background: red;
+    background-color: red;
     padding:0;
 
     .ab-grid {
