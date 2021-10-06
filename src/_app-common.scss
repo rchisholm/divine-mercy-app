@@ -92,9 +92,8 @@ BottomNavigation {
 }
 
 //Action bar
-ActionBar {
-    background: red;
-    background-color: red;
+.action-bar {
+    background: $dm-red;
     padding:0;
 
     .ab-grid {
@@ -137,7 +136,7 @@ ActionBar {
 
 
 // //Action bar debug colors
-// ActionBar {
+// .action-bar {
 //     .ab-grid {
 //         background: blue;
 
@@ -387,7 +386,7 @@ ActivityIndicator {
         background-color: $dark-mode-bg;
     }
 
-    ActionBar {
+    .action-bar {
         background-color: $dm-red;
     }
 
@@ -398,7 +397,7 @@ ActivityIndicator {
 
 // light mode overrides
 .ns-light {
-    ActionBar {
+    .action-bar {
         background-color: $dm-red;
     }
 
