@@ -21,6 +21,52 @@
     font-weight: 400;
 }
 
+//Action bar
+.action-bar {
+    background: $dm-red;
+    padding:0;
+
+    .ab-grid {
+        padding: 0;
+        width: 100%;
+
+        .action-bar-title {
+            text-align: center;
+            color: white;
+            padding: 0;
+
+            font-size:40;
+            height: 100;
+            font-family: "zapfino", "LTZapfino One";
+
+            // font-weight: bold;
+            // font-size: 20;
+        }
+
+        .ab-icon {
+            height: 100%;
+            vertical-align: top;
+        }
+
+        .ab-left {
+            text-align: left;
+            float: left;
+            margin: 0 0 10px 10px;
+        }
+
+        .ab-right {
+            text-align: right;
+            float: right;
+            margin: 0 10px 10px 0;
+        }
+
+        .ab-link {
+            vertical-align: center;
+            color: white;
+        }
+    }
+}
+
 BottomNavigation {
     TabStrip  {
         background-color: rgb(26, 26, 26);
@@ -90,50 +136,6 @@ BottomNavigation {
         }
     }
 }
-
-//Action bar
-.action-bar {
-    background: $dm-red;
-    padding:0;
-
-    .ab-grid {
-        padding: 0;
-        width: 100%;
-
-        .action-bar-title {
-            text-align: center;
-            color: white;
-            padding: 0;
-
-            // font-weight: bold;
-            // font-size: 20;
-
-            height: 100;
-            font-family: "zapfino", "LTZapfino One";
-        }
-
-        .ab-icon {
-            height: 100%;
-            vertical-align: top;
-        }
-
-        .ab-left {
-            text-align: left;
-            float: left;
-        }
-
-        .ab-right {
-            text-align: right;
-            float: right;
-        }
-
-        .ab-link {
-            vertical-align: center;
-            color: white;
-        }
-    }
-}
-
 
 // //Action bar debug colors
 // .action-bar {
