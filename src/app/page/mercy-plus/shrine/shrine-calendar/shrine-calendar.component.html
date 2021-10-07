@@ -1,17 +1,19 @@
 <DockLayout stretchLastChild="true">
     <StackLayout class="action-bar" dock="top">
         <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Calendar of Events"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
-	</GridLayout>
+            <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+            <Label row="0" col="1" class="action-bar-title" text="Calendar of Events"></Label>
+            <Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+        </GridLayout>
     </StackLayout>
 
-<GridLayout class="page" dock="bottom">
-    <ScrollView>
-        <StackLayout class="m-10 h3">
-            <Image src="res://img_pageimages_shrine_calendar" stretch="aspectFill" style="margin-bottom: 30px;"></Image>
-            <HtmlView [html]="html"></HtmlView>
-        </StackLayout>
-    </ScrollView>
-</GridLayout>
+    <GridLayout class="page" dock="bottom">
+        <ScrollView>
+            <StackLayout class="m-10 h3">
+                <Image src="res://img_pageimages_shrine_calendar" stretch="aspectFill" style="margin-bottom: 30px;">
+                </Image>
+                <HtmlView [html]="html"></HtmlView>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+</DockLayout>
