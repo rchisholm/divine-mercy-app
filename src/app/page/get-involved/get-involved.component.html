@@ -1,14 +1,14 @@
 <DockLayout stretchLastChild="true">
-    <StackLayout class="action-bar" dock="top">
-        <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-		<Image row="0" col="0" class="ab-icon ab-left" src="res://img_headericons_coa" stretch="aspectFit"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Get Involved"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right info" [nsRouterLink]="['../about']" src="res://img_headericons_info_icon" stretch="aspectFit"></Image>
-	</GridLayout>
-    </StackLayout>
+	<StackLayout class="action-bar" dock="top">
+		<GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
+			<Image row="0" col="0" class="ab-icon ab-left" src="res://img_headericons_coa" stretch="aspectFit"></Image>
+			<Label row="0" col="1" class="action-bar-title" text="Get Involved"></Label>
+			<Image row="0" col="2" class="ab-icon ab-right info" [nsRouterLink]="['../about']"
+				src="res://img_headericons_info_icon" stretch="aspectFit"></Image>
+		</GridLayout>
+	</StackLayout>
 
-<DockLayout stretchLastChild="true">
-	<FlexBoxLayout dock="top" flexDirection="row" class="page page-content big-icon-box">
+	<FlexBoxLayout dock="bottom" flexDirection="row" class="page page-content big-icon-box">
 		<StackLayout class="big-icon button" (tap)="openMaryAppLink()">
 			<Image src="res://img_pageimages_getinvolved_mary" stretch="aspectFit" class="big-icon-button"></Image>
 		</StackLayout>
