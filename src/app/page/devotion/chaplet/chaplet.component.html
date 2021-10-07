@@ -1,51 +1,36 @@
 <DockLayout stretchLastChild="true">
     <StackLayout class="action-bar" dock="top">
         <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Chaplet of Divine Mercy"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right info" [nsRouterLink]="['../chaplet-info']" src="res://img_headericons_info_icon" stretch="aspectFit"></Image>
-	</GridLayout>
+            <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+            <Label row="0" col="1" class="action-bar-title" text="Chaplet of Divine Mercy"></Label>
+            <Image row="0" col="2" class="ab-icon ab-right info" [nsRouterLink]="['../chaplet-info']"
+                src="res://img_headericons_info_icon" stretch="aspectFit"></Image>
+        </GridLayout>
     </StackLayout>
 
-<GridLayout
-    rows="*"
-    columns="*, 120"
-    width="100%"
-    height="100%"
-    class="chaplet-page">
-    <GridLayout row="0" col="0"
-        rows="*, auto"
-        class="chaplet-prayer-text">
-        <GridLayout row="0"
-            rows="auto, *"
-            *ngIf="!invisibleElements"
-            @fadeInOut>
-            <Label
-                row="0"
-                [text]="chapletPrayer.name"
-                textWrap="true"
-                class="chaplet-prayer-title"
-                *ngIf="chapletPrayer.name.length > 0">
-            </Label>
-            <ScrollView row="1" verticalAlignment="top">
-                <Label
-                    [formattedText]="chapletPrayerBody"
-                    textWrap="true"
-                    class="chaplet-prayer-body">
+    <GridLayout rows="*" columns="*, 120" width="100%" height="100%" class="chaplet-page" dock="bottom">
+        <GridLayout row="0" col="0" rows="*, auto" class="chaplet-prayer-text">
+            <GridLayout row="0" rows="auto, *" *ngIf="!invisibleElements" @fadeInOut>
+                <Label row="0" [text]="chapletPrayer.name" textWrap="true" class="chaplet-prayer-title"
+                    *ngIf="chapletPrayer.name.length > 0">
                 </Label>
-            </ScrollView>
-        </GridLayout>
-        <FlexboxLayout row="1" verticalAlignment="bottom" flexDirection="row" flexWrap="wrap-reverse"  class="chaplet-switches">
-            <DockLayout width="100" height="35">
-                <Label dock="left" width="40" text="Audio:" verticalAlignment="center"></Label>
-                <Switch dock="right" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
-            </DockLayout>
-            <DockLayout width="100" height="35" *ngIf="audioIsEnabled" @fadeInOut>
-                <Label dock="left" width="40" text="Auto:" verticalAlignment="center"></Label>
-                <Switch dock="right" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)"></Switch>
-            </DockLayout>
-        </FlexboxLayout>
-        <!-- <StackLayout row="1" verticalAlignment="bottom" orientation="vertical"  class="chaplet-switches">
+                <ScrollView row="1" verticalAlignment="top">
+                    <Label [formattedText]="chapletPrayerBody" textWrap="true" class="chaplet-prayer-body">
+                    </Label>
+                </ScrollView>
+            </GridLayout>
+            <FlexboxLayout row="1" verticalAlignment="bottom" flexDirection="row" flexWrap="wrap-reverse"
+                class="chaplet-switches">
+                <DockLayout width="100" height="35">
+                    <Label dock="left" width="40" text="Audio:" verticalAlignment="center"></Label>
+                    <Switch dock="right" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
+                </DockLayout>
+                <DockLayout width="100" height="35" *ngIf="audioIsEnabled" @fadeInOut>
+                    <Label dock="left" width="40" text="Auto:" verticalAlignment="center"></Label>
+                    <Switch dock="right" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)"></Switch>
+                </DockLayout>
+            </FlexboxLayout>
+            <!-- <StackLayout row="1" verticalAlignment="bottom" orientation="vertical"  class="chaplet-switches">
             <DockLayout width="100" height="35" horizontalAlignment="left" *ngIf="audioIsEnabled" @fadeInOut>
                 <Label dock="left" width="40" text="Auto:" verticalAlignment="center"></Label>
                 <Switch dock="right" [checked]="autoIsEnabled" (checkedChange)="autoToggle($event)"></Switch>
@@ -55,29 +40,15 @@
                 <Switch dock="right" [checked]="audioIsEnabled" (checkedChange)="audioToggle($event)"></Switch>
             </DockLayout>
         </StackLayout> -->
+        </GridLayout>
+        <AbsoluteLayout #beadBox row="0" col="1" width="100%" height="100%" (pan)="onBeadPan($event)"
+            horizontalAlign="center" clipToBounds="true">
+            <Image #beadGlow [top]="BEAD_GLOW_TOP_START" src="res://img_chaplet_beadglow" stretch="aspectFit"
+                width="90%" *ngIf="!invisibleElements" @fadeInOut>
+            </Image>
+            <Image #beads id="beads" [top]="BEAD_TOP_START" src="res://img_chaplet_beads" stretch="aspectFit"
+                width="90%">
+            </Image>
+        </AbsoluteLayout>
     </GridLayout>
-    <AbsoluteLayout #beadBox
-        row="0"
-        col="1"
-        width="100%"
-        height="100%"
-        (pan)="onBeadPan($event)"
-        horizontalAlign="center"
-        clipToBounds="true">
-        <Image #beadGlow
-            [top] = "BEAD_GLOW_TOP_START"
-            src="res://img_chaplet_beadglow"
-            stretch="aspectFit"
-            width="90%"
-            *ngIf="!invisibleElements"
-            @fadeInOut>
-        </Image>
-        <Image #beads
-            id="beads"
-            [top]="BEAD_TOP_START"
-            src="res://img_chaplet_beads"
-            stretch="aspectFit"
-            width="90%">
-        </Image>
-    </AbsoluteLayout>
-</GridLayout>
+</DockLayout>
