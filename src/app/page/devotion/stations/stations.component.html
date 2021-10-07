@@ -1,49 +1,31 @@
 <DockLayout stretchLastChild="true">
     <StackLayout class="action-bar" dock="top">
         <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Way of the Cross"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
-	</GridLayout>
+            <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+            <Label row="0" col="1" class="action-bar-title" text="Way of the Cross"></Label>
+            <Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+        </GridLayout>
     </StackLayout>
 
-<ScrollView #scroller class="stations-text-scroller">
-    <GridLayout rows="*, 245px, *, *" columns="*" class="page stations-page">
-        <Label row="0" class="m-10 h3 stations-title" [text]="stationTitle" textWrap="true"></Label>
-        <Pager
-            row="1"
-            #pager
-            [items]="images"
-            class="pager stations-pager"
-            [selectedIndex]="currentPage"
-            (selectedIndexChange)="onPageChanged($event)">
-            <ng-template let-i="index" let-item="item">
-                <GridLayout
-                    class="pager-item"
-                    rows="*"
-                    columns="*">
-                    <Image row="0" [src]="item.file" class="photo" stretch="aspectFit"></Image>
-                </GridLayout>
-            </ng-template>
-        </Pager>
-        <Label
-            row="2"
-            *ngIf="(currentPage > 0)" [@fadeInOut]
-            text="&larr; previous"
-            class="arrow"
-            horizontalAlignment="left"
-            verticalAlignment="center"
-            (tap)="prevPage()">
-        </Label>
-        <Label
-            row="2"
-            *ngIf="(currentPage < maxPage)" [@fadeInOut]
-            text="next &rarr;"
-            class="arrow"
-            horizontalAlignment="right"
-            verticalAlignment="center"
-            (tap)="nextPage()">
-        </Label>
-        <Label row="3" class="m-10 h3 stations-text" [formattedText]="stationText" verticalAlignment="top" textWrap="true"></Label>
-    </GridLayout>
-</ScrollView>
+    <ScrollView #scroller class="stations-text-scroller" dock="bottom">
+        <GridLayout rows="*, 245px, *, *" columns="*" class="page stations-page">
+            <Label row="0" class="m-10 h3 stations-title" [text]="stationTitle" textWrap="true"></Label>
+            <Pager row="1" #pager [items]="images" class="pager stations-pager" [selectedIndex]="currentPage"
+                (selectedIndexChange)="onPageChanged($event)">
+                <ng-template let-i="index" let-item="item">
+                    <GridLayout class="pager-item" rows="*" columns="*">
+                        <Image row="0" [src]="item.file" class="photo" stretch="aspectFit"></Image>
+                    </GridLayout>
+                </ng-template>
+            </Pager>
+            <Label row="2" *ngIf="(currentPage > 0)" [@fadeInOut] text="&larr; previous" class="arrow"
+                horizontalAlignment="left" verticalAlignment="center" (tap)="prevPage()">
+            </Label>
+            <Label row="2" *ngIf="(currentPage < maxPage)" [@fadeInOut] text="next &rarr;" class="arrow"
+                horizontalAlignment="right" verticalAlignment="center" (tap)="nextPage()">
+            </Label>
+            <Label row="3" class="m-10 h3 stations-text" [formattedText]="stationText" verticalAlignment="top"
+                textWrap="true"></Label>
+        </GridLayout>
+    </ScrollView>
+</DockLayout>

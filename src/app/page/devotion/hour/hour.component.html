@@ -1,20 +1,19 @@
 <DockLayout stretchLastChild="true">
     <StackLayout class="action-bar" dock="top">
         <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="3 O'Clock Hour"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
-	</GridLayout>
+            <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+            <Label row="0" col="1" class="action-bar-title" text="3 O'Clock Hour"></Label>
+            <Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+        </GridLayout>
     </StackLayout>
 
-<GridLayout rows="50px, 60px, *" columns="*" class="page novena-schedule-page">
-    <Label row="0" text="Reminders to pray at 3 O'Clock" class="novena-schedule-label"></Label>
-    <SegmentedBar row="1"
-        [items]="notificationOptions"
-        [selectedIndex]="notificationOptionsIndex"
-        (selectedIndexChanged)="notificationOptionChange($event)">
-    </SegmentedBar>
-    <ScrollView row="2">
-	    <HtmlView class="m-10 h3" [html]="html"></HtmlView>
-    </ScrollView>
-</GridLayout>
+    <GridLayout rows="50px, 60px, *" columns="*" class="page novena-schedule-page" dock="bottom">
+        <Label row="0" text="Reminders to pray at 3 O'Clock" class="novena-schedule-label"></Label>
+        <SegmentedBar row="1" [items]="notificationOptions" [selectedIndex]="notificationOptionsIndex"
+            (selectedIndexChanged)="notificationOptionChange($event)">
+        </SegmentedBar>
+        <ScrollView row="2">
+            <HtmlView class="m-10 h3" [html]="html"></HtmlView>
+        </ScrollView>
+    </GridLayout>
+</DockLayout>
