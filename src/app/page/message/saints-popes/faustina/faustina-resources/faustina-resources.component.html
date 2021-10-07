@@ -1,25 +1,28 @@
 <DockLayout stretchLastChild="true">
     <StackLayout class="action-bar" dock="top">
         <GridLayout class="ab-grid" columns="auto, *, auto" rows="45px">
-        <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
-		<Label row="0" col="1" class="action-bar-title" text="Resources on Faustina"></Label>
-		<Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
-	</GridLayout>
+            <Image row="0" col="0" class="ab-icon ab-left" (tap)="onBackTap()" src="res://img_headericons_back"></Image>
+            <Label row="0" col="1" class="action-bar-title" text="Resources on Faustina"></Label>
+            <Image row="0" col="2" class="ab-icon ab-right" src="res://img_headericons_dm" stretch="aspectFit"></Image>
+        </GridLayout>
     </StackLayout>
 
-<GridLayout class="page" dock="bottom">
-    <ListView [items]="resources">
-        <ng-template class="resource-template" let-item="item">
-            <StackLayout class="resource-container">
-                <Label class="resource-title" [text]=item.title *ngIf="item.title"></Label>
-                <Label class="resource-subtitle" [text]=item.subtitle *ngIf="item.subtitle"></Label>
-                <Label class="resource-author" [text]=item.author *ngIf="item.author"></Label>
-                <Image class="resource-image" stretch="aspectFit" [src]=item.image *ngIf="item.image"></Image>
-                <Label class="resource-description" textWrap="true" [text]=item.description></Label>
-                <GridLayout columns="auto, *">
-                    <Label col="0" class="resource-link" [text]="item.buttonText ? item.buttonText: 'Buy Online'" (tap)="openLink(item)"></Label>
-                </GridLayout>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</GridLayout>
+    <GridLayout class="page" dock="bottom">
+        <ListView [items]="resources">
+            <ng-template class="resource-template" let-item="item">
+                <StackLayout class="resource-container">
+                    <Label class="resource-title" [text]=item.title *ngIf="item.title"></Label>
+                    <Label class="resource-subtitle" [text]=item.subtitle *ngIf="item.subtitle"></Label>
+                    <Label class="resource-author" [text]=item.author *ngIf="item.author"></Label>
+                    <Image class="resource-image" stretch="aspectFit" [src]=item.image *ngIf="item.image"></Image>
+                    <Label class="resource-description" textWrap="true" [text]=item.description></Label>
+                    <GridLayout columns="auto, *">
+                        <Label col="0" class="resource-link" [text]="item.buttonText ? item.buttonText: 'Buy Online'"
+                            (tap)="openLink(item)"></Label>
+                    </GridLayout>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+
+</DockLayout>
