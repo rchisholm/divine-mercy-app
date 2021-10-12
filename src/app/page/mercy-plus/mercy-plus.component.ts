@@ -21,6 +21,6 @@ export class MercyPlusComponent implements OnInit {
     }
 
     goToShopMercy(): void {
-        openUrl("https://www.shopmercy.org");
+        openUrl("https://service.shopmercy.org");
     }
 }
