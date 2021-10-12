@@ -272,6 +272,10 @@ Pager {
 .tdm-article {
     max-width: 100%;
 
+    &.thumbnail {
+        min-height: 60;
+    }
+
     .article-title {
         font-weight: bold;
         vertical-align: top;
