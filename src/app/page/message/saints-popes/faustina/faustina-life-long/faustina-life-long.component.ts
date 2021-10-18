@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { DataService, TextItem } from "~/app/shared/data.service";
 import { RouterExtensions } from "nativescript-angular";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: "FaustinaLifeLong",
@@ -9,18 +10,22 @@ import { RouterExtensions } from "nativescript-angular";
 })
 export class FaustinaLifeLongComponent implements OnInit {
     items: Array<TextItem>;
-    itemsA: Array<TextItem>;
-    itemsB: Array<TextItem>;
 
     constructor(
         private data: DataService,
-        private router: RouterExtensions
+        private router: RouterExtensions,
+        private currentRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
         this.items = this.data.getTextItems("faustina_life_long");
-        this.itemsA = this.items.slice(0, 5);
-        this.itemsB = this.items.slice(5);
+    }
+
+
+    onTap(item: TextItem) {
+        if(item.description) {
+            this.router.navigate(["../faustina-life-long", item.id], { relativeTo: this.currentRoute });
+        }
     }
 
     onBackTap(): void {

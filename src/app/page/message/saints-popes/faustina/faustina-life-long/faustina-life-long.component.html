@@ -8,19 +8,10 @@
     </StackLayout>
 
     <StackLayout class="page" dock="bottom">
-        <Label text="From Farm to Convent: 1905-30" class="text-divider"></Label>
-        <ListView [items]="itemsA">
+        <ListView [items]="items">
             <ng-template let-item="item">
                 <StackLayout>
-                    <Label [nsRouterLink]="['../faustina-life-long', item.id]" [text]="item.name"></Label>
-                </StackLayout>
-            </ng-template>
-        </ListView>
-        <Label text="Devotions of Divine Mercy: 1930-38" class="text-divider"></Label>
-        <ListView [items]="itemsB">
-            <ng-template let-item="item">
-                <StackLayout>
-                    <Label [nsRouterLink]="['../faustina-life-long', item.id]" [text]="item.name"></Label>
+                    <Label (tap)="onTap(item)" [text]="item.name" [style.fontWeight]="!item.description ? 'bold' : 'normal'"></Label>
                 </StackLayout>
             </ng-template>
         </ListView>
