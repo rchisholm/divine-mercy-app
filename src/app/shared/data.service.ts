@@ -1502,10 +1502,8 @@ export class DataService {
     // get a list of DM101 articles from fetch API
     getTdmVideos() {
         return this.fetchData(
-            "tdm-videos",
+            "tdm-videos-html",
             {
-                truncateBody: 200,
-                plainTextBody: true,
                 imageStyle: "3-wide_teaser_image"
             }
         );
