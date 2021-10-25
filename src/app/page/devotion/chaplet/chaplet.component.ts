@@ -13,6 +13,7 @@ import { TNSPlayer } from "nativescript-audio-player";
 import { EventData } from "tns-core-modules/data/observable";
 import { Switch } from "tns-core-modules/ui/switch";
 import { on, suspendEvent, resumeEvent } from "tns-core-modules/application";
+import { ImageAsset } from "@nativescript/core";
 
 @Component({
     selector: "Chaplet",
@@ -59,10 +60,12 @@ export class ChapletComponent implements OnInit {
 
     readonly OS_FACTOR = isAndroid ? 1.0 : 0.986;
 
-    readonly IPHONE_X = !isAndroid  && this.SCREEN_HEIGHT_DIP === 812;
+    readonly IPHONE_X = !isAndroid  && this.SCREEN_HEIGHT_DIP === 812 && screen.mainScreen.heightPixels === 2436;
     readonly IPHONE_11 = !isAndroid && this.SCREEN_HEIGHT_DIP === 896 && screen.mainScreen.heightPixels === 1792;
     readonly IPHONE_11_PM = !isAndroid && this.SCREEN_HEIGHT_DIP === 896 && screen.mainScreen.heightPixels === 2688;
-    readonly IPAD = !isAndroid && (this.SCREEN_HEIGHT_DIP === 1194 || this.SCREEN_HEIGHT_DIP === 1366);
+    readonly IPHONE_12 = !isAndroid && this.SCREEN_HEIGHT_DIP === 844 && screen.mainScreen.heightPixels === 2532;
+    readonly IPHONE_12_PM = !isAndroid && this.SCREEN_HEIGHT_DIP === 926 && screen.mainScreen.heightPixels === 2778;
+    readonly IPAD = !isAndroid && [1024, 1080, 1180, 1194, 1366].indexOf(this.SCREEN_HEIGHT_DIP) >= 0;
     readonly IOS_OLD = !isAndroid && (parseFloat(device.osVersion) < 11);
     readonly PIXEL_3 = isAndroid && screen.mainScreen.heightPixels === 2960;
 
@@ -133,32 +136,38 @@ export class ChapletComponent implements OnInit {
 
         // determine multiplier
         let beadDistanceFactor = this.OS_FACTOR;
-        if (this.IPHONE_11) {
-            console.log("IPHONE_11");
-            beadDistanceFactor *= 0.99;
-            this.BEAD_GLOW_TOP_START -= 3;
-        }
-        if (this.IPHONE_11_PM) {
-            console.log("IPHONE_11_PM");
-            beadDistanceFactor *= 0.99;
-            this.BEAD_GLOW_TOP_START -= 10;
-        }
-        if (this.IPHONE_X) {
-            console.log("IPHONE_X");
-            beadDistanceFactor *= 0.99;
-            this.BEAD_GLOW_TOP_START -= 12;
-        }
         if (this.IOS_OLD) {
             console.log("IOS_OLD");
             beadDistanceFactor *= 1.019;
-        }
-        if (this.IPAD) {
+        } else if (this.IPHONE_X) {
+            console.log("IPHONE_X");
+            beadDistanceFactor *= 1.015;
+            this.BEAD_GLOW_TOP_START -= 10;
+        } else if (this.IPHONE_11) {
+            console.log("IPHONE_11");
+            beadDistanceFactor *= 0.99;
+            this.BEAD_GLOW_TOP_START -= 3;
+        } else if (this.IPHONE_11_PM) {
+            console.log("IPHONE_11_PM");
+            beadDistanceFactor *= 0.99;
+            this.BEAD_GLOW_TOP_START -= 10;
+        } else if (this.IPHONE_12) {
+            console.log("IPHONE_12");
+            beadDistanceFactor *= 1.015;
+            this.BEAD_GLOW_TOP_START -= 10;
+        } else if (this.IPHONE_12_PM) {
+            console.log("IPHONE_12_PM");
+            beadDistanceFactor *= 1.015;
+            this.BEAD_GLOW_TOP_START -= 10;
+        } else if (this.IPAD) {
             console.log("IPAD");
-            beadDistanceFactor *= 0.997;
-        }
-        if (this.PIXEL_3) {
+            beadDistanceFactor *= 1.015;
+            this.BEAD_GLOW_TOP_START -= 3;
+        } else if (this.PIXEL_3) {
             console.log("PIXEL_3");
             this.BEAD_GLOW_TOP_START -= 10;
+        } else {
+            console.log("NOTE: device multiplier not detected. Using default settings.")
         }
 
         // shorter variables for readability
@@ -167,11 +176,11 @@ export class ChapletComponent implements OnInit {
         const C = this.BEAD_SHORT_DISTANCE * beadDistanceFactor;
         const D = this.BEAD_END_DISTANCE * beadDistanceFactor;
 
-        // console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
-        // console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
-        // console.log("SCREEN_HEIGHT_PIX: " + screen.mainScreen.heightPixels);
-        // console.log("SCREEN_WIDTH_PIX: " + screen.mainScreen.widthPixels);
-        // console.log("SCREEN_SCALE: " + screen.mainScreen.scale);
+        console.log("SCREEN_HEIGHT_DIP: " + this.SCREEN_HEIGHT_DIP);
+        console.log("SCREEN_WIDTH_DIP: " + this.SCREEN_WIDTH_DIP);
+        console.log("SCREEN_HEIGHT_PIX: " + screen.mainScreen.heightPixels);
+        console.log("SCREEN_WIDTH_PIX: " + screen.mainScreen.widthPixels);
+        console.log("SCREEN_SCALE: " + screen.mainScreen.scale);
 
         // console.log("BEAD_HEIGHT: " + this.BEAD_HEIGHT);
         // console.log("BEAD_CROSS_DISTANCE: " + this.BEAD_CROSS_DISTANCE);
