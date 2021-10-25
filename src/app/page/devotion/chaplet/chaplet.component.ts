@@ -12,7 +12,6 @@ import { style, animate, transition, trigger } from "@angular/animations";
 import { TNSPlayer } from "nativescript-audio-player";
 import { EventData } from "tns-core-modules/data/observable";
 import { Switch } from "tns-core-modules/ui/switch";
-import { keepAwake, allowSleepAgain } from "nativescript-insomnia";
 import { on, suspendEvent, resumeEvent } from "tns-core-modules/application";
 
 @Component({
@@ -227,7 +226,6 @@ export class ChapletComponent implements OnInit {
             this.autoIsEnabled = false;
             this.audioPlayer.pause();
         }
-        allowSleepAgain();
     }
 
     // display the title and body of currently selected prayer
@@ -459,8 +457,6 @@ export class ChapletComponent implements OnInit {
         this.audioIsEnabled = isChecked;
         if (isChecked) {
             this.playCurrentAudio();
-        } else {
-            allowSleepAgain();
         }
     }
 
@@ -469,12 +465,9 @@ export class ChapletComponent implements OnInit {
         const isChecked = sw.checked; // boolean
         this.autoIsEnabled = isChecked;
         if (isChecked) {
-            keepAwake();
             if (!this.audioPlayer.isAudioPlaying()) {
                 this.playCurrentAudio();
             }
-        } else {
-            allowSleepAgain();
         }
     }
 
