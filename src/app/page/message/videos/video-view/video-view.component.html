@@ -12,6 +12,8 @@
 		<!-- <WebView class="m-10 h3" [src]="item.description"></WebView> -->
 		<YoutubePlayer id="player" apiKey="not_needed" [src]="item.video_id" height="250" width="100%"
 			backgroundColor="gray"></YoutubePlayer>
-		<HtmlView class="m-10 h3" [html]="item.body"></HtmlView>
+		<ScrollView>
+			<HtmlView class="m-10 h3" [html]="item.body"></HtmlView>
+		</ScrollView>
 	</StackLayout>
 </DockLayout>
